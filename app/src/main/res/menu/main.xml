@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.MainActivity" >
+    <item android:id="@+id/action_login"
+          android:title="Login"
+          android:orderInCategory="100"
+          android:showAsAction="never" />
+    <item android:id="@+id/action_character_cards"
+          android:title="@string/action_character_cards"
+          android:orderInCategory="200"
+          android:showAsAction="never" />
+    <item android:id="@+id/action_student_list"
+          android:title="@string/action_student_list"
+          android:orderInCategory="300"
+          android:showAsAction="never" />
+</menu>

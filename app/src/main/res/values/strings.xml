@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Character Lab</string>
+
+    <string name="action_character_cards">Character Cards</string>
+    <string name="action_student_list">All Students</string>
+
+    <string name="title_activity_student_details">Student</string>
+    <string name="title_activity_strength_details">Strength</string>
+
+    <string name="login_error_title">Login Error</string>
+    <string name="login_error_message">There was an error trying to log in.</string>
+
+</resources>

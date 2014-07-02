@@ -6,6 +6,8 @@ import android.content.Context;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import org.characterlab.android.models.Strength;
+import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.Student;
 
 public class CharacterLabApplication extends Application {
@@ -18,6 +20,10 @@ public class CharacterLabApplication extends Application {
         super.onCreate();
         ParseObject.registerSubclass(Student.class);
         CharacterLabApplication.context = this;
+
+        ParseObject.registerSubclass(Strength.class);
+        ParseObject.registerSubclass(StrengthAssessment.class);
+        ParseObject.registerSubclass(Student.class);
         Parse.initialize(this, PARSE_KEY, PARSE_SECRET);
     }
 }

@@ -12,7 +12,7 @@ public class Student extends ParseObject implements Serializable {
     private static final String PROFILE_IMAGE_KEY = "ProfileImage";
 
     public Student() {
-       super("Students");
+        super();
     }
 
     public String getName() {
@@ -26,5 +26,4 @@ public class Student extends ParseObject implements Serializable {
     public ParseFile getProfileImage() {
         return getParseFile(PROFILE_IMAGE_KEY);
     }
-
 }

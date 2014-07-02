@@ -3,11 +3,15 @@ package org.characterlab.android.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.parse.FindCallback;
+import com.parse.ParseQuery;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StudentsListAdapter;
@@ -45,7 +49,7 @@ public class StudentListFragment extends Fragment {
         lvStudentsList = (ListView) v.findViewById(R.id.lvStudentsList);
         lvStudentsList.setAdapter(studentsListAdapter);
         setupHandlers();
-        loadFakeData();
+        loadStudentsDataFromParse();
         return v;
     }
 
@@ -68,20 +72,22 @@ public class StudentListFragment extends Fragment {
         });
     }
 
-    // Todo: remove this and attach to Parse backend.
-    private void loadFakeData() {
-        Student student1 = new Student();
-        student1.put("Name", "Craig");
-        studentsListAdapter.add(student1);
-
-        Student student2 = new Student();
-        student2.put("Name", "Charles");
-        studentsListAdapter.add(student2);
-
-        Student student3 = new Student();
-        student3.put("Name", "Cindy");
-        studentsListAdapter.add(student3);
+    private void loadStudentsDataFromParse() {
+        ParseQuery<Student> query = ParseQuery.getQuery(Student.class);
+        query.findInBackground(new FindCallback<Student>() {
+			@Override
+			public void done(List<Student> studentList, com.parse.ParseException e) {
+		        if (e == null) {
+                    for (Student student : studentList) {
+                        //Log.d("debug", "Student Name: " + student.getName());
+                        studentsListAdapter.add(student);
+                    }
+                    studentsListAdapter.notifyDataSetChanged();
+		        } else {
+		            Log.d("item", "Error: " + e.getMessage());
+		        }
+			}
+		});
     }
-
 
 }

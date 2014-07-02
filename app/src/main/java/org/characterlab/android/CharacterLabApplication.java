@@ -9,8 +9,8 @@ import com.parse.ParseObject;
 import org.characterlab.android.models.Student;
 
 public class CharacterLabApplication extends Application {
-    private final static String PARSE_KEY = "QeL1qkcLeNT0DPzSBIycFhmQE1Bj9ahY1ApGfFVO";
-    private final static String PARSE_SECRET = "3rdP8DYhbNDOvug5mKVggRxm9wJpMaKgQVoxLljn";
+    private final static String PARSE_KEY = "PFvi0rSsbsjGgqVajio2UUuxGfKv3VBjkx7j0Knt";
+    private final static String PARSE_SECRET = "m4INIxSW8z7SgfY7Ic6Uiu6XlZcUIByAsjvpZj0J";
     private static Context context;
 
     @Override

@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
+    <com.parse.ParseImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_margin="5dp"
         android:src="@drawable/ic_launcher"
-        android:id="@+id/ivListStudentImage" />
+        android:id="@+id/pivListStudentImage" />
 
     <TextView
         android:layout_width="fill_parent"

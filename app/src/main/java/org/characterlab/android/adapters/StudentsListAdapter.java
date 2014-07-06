@@ -1,6 +1,7 @@
 package org.characterlab.android.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,22 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseImageView;
+
 import org.characterlab.android.R;
 import org.characterlab.android.models.Student;
 
 import java.util.List;
 
-/**
- * Created by mandar.b on 7/2/2014.
- */
 public class StudentsListAdapter extends ArrayAdapter<Student> {
 
-    ImageView ivListStudentImage;
-    TextView tvListStudentName;
+    private static class ViewHolder {
+        ParseImageView pivListStudentImage;
+        TextView tvListStudentName;
+    }
 
     public StudentsListAdapter(Context context, List<Student> students) {
         super(context, 0, students);
@@ -30,19 +35,31 @@ public class StudentsListAdapter extends ArrayAdapter<Student> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Student student = getItem(position);
 
-        View v;
+        final ViewHolder viewHolder;
         if (convertView != null) {
-            v = convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         } else {
+            viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            v = inflater.inflate(R.layout.student_list_item, parent, false);
+            convertView = inflater.inflate(R.layout.student_list_item, parent, false);
+            viewHolder.pivListStudentImage = (ParseImageView) convertView.findViewById(R.id.pivListStudentImage);
+            viewHolder.tvListStudentName = (TextView) convertView.findViewById(R.id.tvListStudentName);
+            convertView.setTag(viewHolder);
         }
 
-        ivListStudentImage = (ImageView) v.findViewById(R.id.ivListStudentImage);
-        tvListStudentName = (TextView) v.findViewById(R.id.tvListStudentName);
+        viewHolder.tvListStudentName.setText(student.getName());
+        ParseFile profileImageFile = student.getProfileImage();
+        if (profileImageFile != null) {
+            viewHolder.pivListStudentImage.setParseFile(profileImageFile);
+            viewHolder.pivListStudentImage.loadInBackground(new GetDataCallback() {
+                @Override
+                public void done(byte[] data, ParseException e) {
+                    viewHolder.pivListStudentImage.setVisibility(View.VISIBLE);
+//                    Log.d("debug", "Data len: " + data.length);
+                }
+            });
+        }
 
-        // Todo: Change after model is checked in.
-        tvListStudentName.setText((String)student.get("Name"));
-        return v;
+        return convertView;
     }
 }

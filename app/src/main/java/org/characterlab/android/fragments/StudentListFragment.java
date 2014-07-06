@@ -12,9 +12,11 @@ import android.widget.ListView;
 
 import com.parse.FindCallback;
 import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StudentsListAdapter;
+import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.models.Student;
 
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ public class StudentListFragment extends Fragment {
     ListView lvStudentsList;
     List<Student> studentsList;
     StudentsListAdapter studentsListAdapter;
+//    ParseQueryAdapter<Student> parseQueryStudentAdapter;
 
     public interface StudentListFragmentListener {
         void onStudentListItemClick(Student student);
@@ -40,16 +43,22 @@ public class StudentListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         studentsList = new ArrayList<Student>();
         studentsListAdapter = new StudentsListAdapter(getActivity(), studentsList);
+//        parseQueryStudentAdapter = new ParseQueryAdapter<Student>(getActivity(), Student.class);//, R.layout.student_list_item);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.fragment_student_list, container, false);
+        View v = inflater.inflate(R.layout.fragment_student_list, container, false);
         lvStudentsList = (ListView) v.findViewById(R.id.lvStudentsList);
         lvStudentsList.setAdapter(studentsListAdapter);
         setupHandlers();
         loadStudentsDataFromParse();
+
+//        parseQueryStudentAdapter.setTextKey("Name");
+//        parseQueryStudentAdapter.setImageKey("ProfileImage");
+//        lvStudentsList.setAdapter(parseQueryStudentAdapter);
+
         return v;
     }
 
@@ -57,7 +66,7 @@ public class StudentListFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (StudentListFragmentListener)activity;
+            mListener = (StudentListFragmentListener) activity;
         } catch (ClassCastException exception) {
             exception.printStackTrace();
         }
@@ -73,21 +82,20 @@ public class StudentListFragment extends Fragment {
     }
 
     private void loadStudentsDataFromParse() {
-        ParseQuery<Student> query = ParseQuery.getQuery(Student.class);
-        query.findInBackground(new FindCallback<Student>() {
-			@Override
-			public void done(List<Student> studentList, com.parse.ParseException e) {
-		        if (e == null) {
+        ParseClient.getAll(Student.class, new FindCallback<Student>() {
+            @Override
+            public void done(List<Student> studentList, com.parse.ParseException e) {
+                if (e == null) {
                     for (Student student : studentList) {
                         //Log.d("debug", "Student Name: " + student.getName());
                         studentsListAdapter.add(student);
                     }
                     studentsListAdapter.notifyDataSetChanged();
-		        } else {
-		            Log.d("item", "Error: " + e.getMessage());
-		        }
-			}
-		});
+                } else {
+                    Log.d("item", "Error: " + e.getMessage());
+                }
+            }
+        });
     }
 
 }

@@ -10,7 +10,7 @@
     <string name="title_activity_strength_details">Strength</string>
 
     <string name="login_button_title">Login</string>
-    <string name="user_name_hint">User Name</string>
+    <string name="user_name_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="login_error_title">Login Error</string>
     <string name="login_error_message">There was an error trying to log in.</string>

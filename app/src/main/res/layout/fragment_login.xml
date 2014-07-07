@@ -1,13 +1,66 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context="org.characterlab.android.fragments.LoginFragment">
+    android:id="@+id/svMain">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:context="org.characterlab.android.fragments.LoginFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login" />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/ivLogo"
+            android:src="@drawable/character_lab_logo"
+            android:layout_marginTop="80dp"
+            android:layout_centerHorizontal="true" />
 
-</LinearLayout>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="12"
+            android:id="@+id/etUserName"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/ivLogo"
+            android:layout_marginTop="25dp"
+            android:focusableInTouchMode="true"
+            android:hint="@string/user_name_hint"
+            android:background="@drawable/edit_text_design"
+            android:drawableLeft="@drawable/img_username" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="12"
+            android:id="@+id/etPassword"
+            android:layout_below="@+id/etUserName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="@string/password_hint"
+            android:background="@drawable/edit_text_design"
+            android:drawableLeft="@drawable/img_password" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_button_title"
+            android:id="@+id/btnLogin"
+            android:gravity="center"
+            android:layout_below="@+id/etPassword"
+            android:layout_marginTop="10dp"
+            android:ems="9"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="24dp"
+            android:background="@drawable/button_default_bg"
+            android:textStyle="bold"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</ScrollView>

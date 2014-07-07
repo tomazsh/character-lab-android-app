@@ -2,6 +2,7 @@ package org.characterlab.android.activities;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import com.parse.ParseUser;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
+import org.characterlab.android.fragments.LogoutDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
 import org.characterlab.android.helpers.DialogHelper;
 import org.characterlab.android.models.Strength;
@@ -20,6 +22,7 @@ import org.characterlab.android.models.Student;
 
 public class MainActivity extends Activity
         implements LoginFragment.LoginFragmentListener,
+        LogoutDialogFragment.LogoutFragmentListener,
         CharacterCardsFragment.CharacterCardsFragmentListener,
         StudentListFragment.StudentListFragmentListener {
     LoginFragment mLoginFragment;
@@ -50,8 +53,8 @@ public class MainActivity extends Activity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_login) {
-            showLoginFragment();
+        if (id == R.id.action_logout) {
+            showLogoutDialog();
             return true;
         } else if (id == R.id.action_character_cards) {
             showCharacterCardsFragment();
@@ -71,6 +74,7 @@ public class MainActivity extends Activity
         if (mLoginFragment == null) {
             mLoginFragment = new LoginFragment();
         }
+        getActionBar().hide();
         setContainerFragment(mLoginFragment);
     }
 
@@ -78,6 +82,7 @@ public class MainActivity extends Activity
         if (mCharacterCardsFragment == null) {
             mCharacterCardsFragment = new CharacterCardsFragment();
         }
+        getActionBar().show();
         setContainerFragment(mCharacterCardsFragment);
     }
 
@@ -98,6 +103,11 @@ public class MainActivity extends Activity
                 .commit();
     }
 
+    private void showLogoutDialog() {
+        FragmentManager fm = getFragmentManager();
+        LogoutDialogFragment alertDialog = new LogoutDialogFragment();
+        alertDialog.show(fm, "fragment_alert");
+    }
     //endregion
 
     //region LoginFragmentListener
@@ -110,6 +120,12 @@ public class MainActivity extends Activity
         DialogHelper.showAlertDialog(this, R.string.login_error_title, R.string.login_error_message);
     }
 
+    //endregion
+
+    //region LogoutFragmentListener
+    public void onLogoutFragmentSuccess() {
+        showLoginFragment();
+    }
     //endregion
 
     //region CharacterCardsFragmentListener

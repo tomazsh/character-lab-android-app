@@ -21,7 +21,6 @@ public class CharacterLabApplication extends Application {
         ParseObject.registerSubclass(Student.class);
         CharacterLabApplication.context = this;
 
-        ParseObject.registerSubclass(Strength.class);
         ParseObject.registerSubclass(StrengthAssessment.class);
         ParseObject.registerSubclass(Student.class);
         Parse.initialize(this, PARSE_KEY, PARSE_SECRET);

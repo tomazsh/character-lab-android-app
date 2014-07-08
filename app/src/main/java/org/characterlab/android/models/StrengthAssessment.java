@@ -41,17 +41,11 @@ public class StrengthAssessment extends ParseObject implements Serializable {
     }
 
     public Strength getStrength() {
-        Strength strength = null;
-        try {
-            strength = (Strength)getParseObject(STRENGTH_KEY);
-        } catch (ClassCastException exception) {
-            exception.printStackTrace();
-        }
-        return strength;
+        return Strength.valueOf(getString(STRENGTH_KEY));
     }
 
     public void setStrength(Strength strength) {
-        put(STRENGTH_KEY, strength);
+        put(STRENGTH_KEY, strength.toString());
     }
 
     public Student getStudent() {

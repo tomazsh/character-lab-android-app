@@ -34,7 +34,7 @@ public class StrengthDetailsActivity extends Activity
 
     public void onStrengthDetailsStudentClick(Student student) {
         Intent intent = new Intent(StrengthDetailsActivity.this, StudentDetailsActivity.class);
-        intent.putExtra(StudentDetailsActivity.STUDENT_KEY, student);
+//        intent.putExtra(StudentDetailsActivity.STUDENT_KEY, student);
         startActivity(intent);
     }
 

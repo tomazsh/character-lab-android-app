@@ -61,4 +61,8 @@ public class StrengthAssessment extends ParseObject implements Serializable {
     public void setStudent(Student student) {
         put(STUDENT_KEY, student);
     }
+
+    public String toString() {
+        return "Assessment: score: " + getScore() + ", Group: " + getGroupId();
+    }
 }

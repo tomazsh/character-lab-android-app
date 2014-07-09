@@ -17,4 +17,11 @@
     <string name="logout_warning_text">Are you sure you want to logout?</string>
     <string name="logout_action">Logout</string>
     <string name="cancel_action">Cancel</string>
+
+    <string name="details_label">Details</string>
+    <string name="overview_label">Overview</string>
+    <string name="strong_trait_label">Strong</string>
+    <string name="need_help_label">Needs Help</string>
+    <string name="improvement_label">Improved</string>
+
 </resources>

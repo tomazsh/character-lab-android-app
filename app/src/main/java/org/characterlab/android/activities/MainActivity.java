@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
@@ -142,7 +143,8 @@ public class MainActivity extends Activity
 
     public void onStudentListItemClick(Student student) {
         Intent intent = new Intent(MainActivity.this, StudentDetailsActivity.class);
-        intent.putExtra(StudentDetailsActivity.STUDENT_KEY, student);
+        CharacterLabApplication.putInCache(student.getObjectId(), student);
+        intent.putExtra(StudentDetailsActivity.STUDENT_KEY, student.getObjectId());
         startActivity(intent);
     }
 

@@ -55,7 +55,7 @@ public class StudentsListAdapter extends ArrayAdapter<Student> {
                 @Override
                 public void done(byte[] data, ParseException e) {
                     viewHolder.pivListStudentImage.setVisibility(View.VISIBLE);
-//                    Log.d("debug", "Data len: " + data.length);
+                    Log.d("debug", "Data len: " + data.length);
                 }
             });
         }

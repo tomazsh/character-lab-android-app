@@ -44,6 +44,8 @@ public class CharacterCardsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_character_cards, container, false);
         ViewPager vpPager = (ViewPager) view.findViewById(R.id.vpPager);
+        vpPager.setClipToPadding(false);
+        vpPager.setPageMargin(12);
         vpPager.setAdapter(mListener.getAdapterViewPager());
         return view;
     }

@@ -18,6 +18,12 @@ public class CharacterCardsAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
+    @Override
+    public float getPageWidth (int position)
+    {
+        return 0.93f;
+    }
+
     // Returns total number of pages
     @Override
     public int getCount() {

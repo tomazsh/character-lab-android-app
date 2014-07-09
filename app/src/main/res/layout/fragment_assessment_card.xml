@@ -1,0 +1,80 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.BlankFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:context=".fragments.AssessmentCardsFragment"
+        android:id="@+id/llAssessmentCard"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/character_card_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/curiosity_card_title"
+            android:textColor="@color/character_card_title_text_color"
+            android:id="@+id/tvAssessmentCardTitle"
+            android:textSize="25sp"
+            android:gravity="center"/>
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/ivAssessmentCardIcon"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:src="@drawable/curiosity"/>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/curisosity_card_description"
+                android:id="@+id/tvAssessmentCardDescription"
+                android:textColor="@color/character_card_description_text_color"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_marginTop="10dp"
+                android:textSize="20sp"
+                android:gravity="center"/>
+        </ScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/character_card_title_text_color"
+            android:id="@+id/tvAssessmentCardScore"
+            android:textSize="20sp"
+            android:gravity="center"
+            />
+
+        <SeekBar
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sbAssessmentCardScore"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:max="7"
+            />
+
+
+    </LinearLayout>
+</FrameLayout>

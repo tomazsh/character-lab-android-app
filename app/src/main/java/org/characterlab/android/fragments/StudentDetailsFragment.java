@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,14 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     Student mStudent;
     List<StrengthAssessment> assessments;
 
+    private BarGraph barGraph;
+    private TextView tvStDetailsStrong;
+    private ImageView ivStDetailsStrong;
+    private TextView tvStDetailsWeak;
+    private ImageView ivStDetailsWeak;
+    private TextView tvStDetailsImproved;
+    private ImageView ivStDetailsImproved;
+
     public StudentDetailsFragment() {
     }
 
@@ -47,10 +56,13 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                              Bundle savedInstanceState) {
         Log.d("debug", "Details Frag CreateView, Student: " + mStudent);
         View v =  inflater.inflate(R.layout.fragment_student_details, container, false);
-        final BarGraph barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
-        final TextView tvStDetailsStrong = (TextView) v.findViewById(R.id.tvStDetailsStrong);
-        final TextView tvStDetailsWeak = (TextView) v.findViewById(R.id.tvStDetailsWeak);
-        final TextView tvStDetailsImproved = (TextView) v.findViewById(R.id.tvStDetailsImproved);
+        barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
+        tvStDetailsStrong = (TextView) v.findViewById(R.id.tvStDetailsStrong);
+        ivStDetailsStrong = (ImageView) v.findViewById(R.id.ivStDetailsStrong);
+        tvStDetailsWeak = (TextView) v.findViewById(R.id.tvStDetailsWeak);
+        ivStDetailsWeak = (ImageView) v.findViewById(R.id.ivStDetailsWeak);
+        tvStDetailsImproved = (TextView) v.findViewById(R.id.tvStDetailsImproved);
+        ivStDetailsImproved = (ImageView) v.findViewById(R.id.ivStDetailsImproved);
 
         ParseClient.getAllAssessmentsForStudent(mStudent,
                 new FindCallback<StrengthAssessment>() {
@@ -61,7 +73,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                                 assessments.add(assessment);
                             }
                             StudentDetailViewModel viewModel = Utils.generateStudentDetailViewModel(assessments);
-                            updateView(barGraph, tvStDetailsStrong, tvStDetailsWeak, tvStDetailsImproved, viewModel);
+                            updateView(viewModel);
                         } else {
                             e.printStackTrace();
                         }
@@ -73,15 +85,16 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         return v;
     }
 
-    private void updateView(BarGraph barGraph,
-                            TextView tvStDetailsStrong,
-                            TextView tvStDetailsWeak,
-                            TextView tvStDetailsImproved,
-                            StudentDetailViewModel viewModel) {
+    private void updateView(StudentDetailViewModel viewModel) {
 
         tvStDetailsStrong.setText(viewModel.getStrongest().getName());
+        ivStDetailsStrong.setImageResource(viewModel.getStrongest().getIconId());
+
         tvStDetailsWeak.setText(viewModel.getWeakest().getName());
+        ivStDetailsWeak.setImageResource(viewModel.getWeakest().getIconId());
+
         tvStDetailsImproved.setText(viewModel.getMostImproved().getName());
+        ivStDetailsImproved.setImageResource(viewModel.getMostImproved().getIconId());
 
         ArrayList<Bar> bars = new ArrayList<Bar>();
         for (Strength strength : Strength.values()) {

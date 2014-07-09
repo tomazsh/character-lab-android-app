@@ -9,8 +9,12 @@
           android:title="@string/action_character_cards"
           android:orderInCategory="200"
           android:showAsAction="never" />
+    <item android:id="@+id/action_new_assessment"
+        android:title="@string/action_new_assessment"
+        android:orderInCategory="400"
+        android:showAsAction="never" />
     <item android:id="@+id/action_student_list"
-          android:title="@string/action_student_list"
-          android:orderInCategory="300"
-          android:showAsAction="never" />
+        android:title="@string/action_student_list"
+        android:orderInCategory="300"
+        android:showAsAction="never" />
 </menu>

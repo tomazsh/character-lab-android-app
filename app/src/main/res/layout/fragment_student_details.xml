@@ -67,6 +67,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
+                android:id="@+id/ivStDetailsStrong"
                 android:src="@drawable/ic_launcher"/>
 
             <TextView
@@ -100,6 +101,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
+                android:id="@+id/ivStDetailsWeak"
                 android:src="@drawable/ic_launcher"/>
 
             <TextView
@@ -133,6 +135,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
+                android:id="@+id/ivStDetailsImproved"
                 android:src="@drawable/ic_launcher"/>
 
             <TextView

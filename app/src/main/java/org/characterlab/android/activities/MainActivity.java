@@ -68,6 +68,9 @@ public class MainActivity extends FragmentActivity
         } else if (id == R.id.action_student_list) {
             showStudentListFragment();
             return true;
+        } else if (id == R.id.action_new_assessment) {
+            startAddAssessmentActivity();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -157,4 +160,9 @@ public class MainActivity extends FragmentActivity
     }
 
     //endregion
+
+    private void startAddAssessmentActivity() {
+        Intent intent = new Intent(MainActivity.this, NewAssessmentActivity.class);
+        startActivity(intent);
+    }
 }

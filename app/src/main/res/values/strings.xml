@@ -4,6 +4,7 @@
     <string name="app_name">Character Lab</string>
     <string name="action_character_cards">Character Cards</string>
     <string name="action_student_list">All Students</string>
+    <string name="action_new_assessment">Add Assessment</string>
     <string name="title_activity_student_details">Student</string>
     <string name="title_activity_strength_details">Strength</string>
     <string name="login_button_title">Login</string>
@@ -33,6 +34,7 @@
     <string name="social_intelligenced_card_description">Social intelligence refers to awareness of other people’s motives and feelings.</string>
     <string name="zest_card_title">Zest</string>
     <string name="zest_card_description">Zest is an approach to life filled with excitement and energy.</string>
-
+    <string name="title_activity_new_assessment">Add Assessment</string>
+    <string name="score">Score</string>
 
 </resources>

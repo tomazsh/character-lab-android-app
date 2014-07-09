@@ -2,7 +2,7 @@ package org.characterlab.android.fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +11,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
-import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StudentsListAdapter;

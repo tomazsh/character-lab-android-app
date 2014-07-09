@@ -2,13 +2,10 @@
 <resources>
 
     <string name="app_name">Character Lab</string>
-
     <string name="action_character_cards">Character Cards</string>
     <string name="action_student_list">All Students</string>
-
     <string name="title_activity_student_details">Student</string>
     <string name="title_activity_strength_details">Strength</string>
-
     <string name="login_button_title">Login</string>
     <string name="user_name_hint">Username</string>
     <string name="password_hint">Password</string>
@@ -17,11 +14,25 @@
     <string name="logout_warning_text">Are you sure you want to logout?</string>
     <string name="logout_action">Logout</string>
     <string name="cancel_action">Cancel</string>
-
     <string name="details_label">Details</string>
     <string name="overview_label">Overview</string>
     <string name="strong_trait_label">Strong</string>
     <string name="need_help_label">Needs Help</string>
     <string name="improvement_label">Improved</string>
+    <string name="curiosity_card_title">Curiosity</string>
+    <string name="curisosity_card_description">Curiosity is the search for information for its own sake.</string>
+    <string name="gratitude_card_title">Gratitude</string>
+    <string name="gratitude_card_description">Gratitude refers to appreciation for the benefits we receive from others.</string>
+    <string name="grit_card_title">Grit</string>
+    <string name="grit_card_description">Grit is perseverance and passion for long-term goals.</string>
+    <string name="optimism_card_title">Optimism</string>
+    <string name="optimism_card_description">Optimism is the expectation that the future holds positive possibilities.</string>
+    <string name="self_control_card_title">Self-Control</string>
+    <string name="self_control_card_description">Self-control is the capacity to regulate thoughts, feelings, or behaviors when they conflict with valued goals.</string>
+    <string name="social_intelligence_card_title">Social Intelligence</string>
+    <string name="social_intelligenced_card_description">Social intelligence refers to awareness of other people’s motives and feelings.</string>
+    <string name="zest_card_title">Zest</string>
+    <string name="zest_card_description">Zest is an approach to life filled with excitement and energy.</string>
+
 
 </resources>

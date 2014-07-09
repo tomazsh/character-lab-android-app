@@ -1,10 +1,12 @@
 package org.characterlab.android.activities;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -13,6 +15,7 @@ import com.parse.ParseUser;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.CharacterCardsAdapter;
 import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
 import org.characterlab.android.fragments.LogoutDialogFragment;
@@ -21,7 +24,7 @@ import org.characterlab.android.helpers.DialogHelper;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
 
-public class MainActivity extends Activity
+public class MainActivity extends FragmentActivity
         implements LoginFragment.LoginFragmentListener,
         LogoutDialogFragment.LogoutFragmentListener,
         CharacterCardsFragment.CharacterCardsFragmentListener,
@@ -29,12 +32,14 @@ public class MainActivity extends Activity
     LoginFragment mLoginFragment;
     CharacterCardsFragment mCharacterCardsFragment;
     StudentListFragment mStudentListFragment;
+    FragmentPagerAdapter adapterViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        adapterViewPager = new CharacterCardsAdapter(getSupportFragmentManager());
         ParseUser user = ParseUser.getCurrentUser();
         if (user == null) {
             showLoginFragment();
@@ -98,14 +103,14 @@ public class MainActivity extends Activity
         if (fragment.isAdded() && !fragment.isDetached() && !fragment.isRemoving()) {
             return;
         }
-        getFragmentManager()
+        getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
     }
 
     private void showLogoutDialog() {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         LogoutDialogFragment alertDialog = new LogoutDialogFragment();
         alertDialog.show(fm, "fragment_alert");
     }
@@ -137,6 +142,9 @@ public class MainActivity extends Activity
         startActivity(intent);
     }
 
+    public FragmentPagerAdapter getAdapterViewPager() {
+        return adapterViewPager;
+    }
     //endregion
 
     //region StudentListFragmentListener

@@ -4,17 +4,22 @@ import android.graphics.Color;
 import android.graphics.Path;
 import android.graphics.Region;
 
+import org.characterlab.android.R;
+
 public class Bar {
 
     private int color;
     private String name;
     private float value;
     private float currentValue;
+    private float avgValue;
+    private float currentAvgValue;
     private Path path;
     private Region region;
 
     public Bar() {
         currentValue = 0.0f;
+        currentAvgValue = 0.0f;
     }
 
     public int getColor() {
@@ -29,6 +34,7 @@ public class Bar {
     public void setName(String name) {
         this.name = name;
     }
+
     public float getValue() {
         return value;
     }
@@ -38,7 +44,7 @@ public class Bar {
         if (value < 3) {
             this.setColor(Color.parseColor("#FF4400"));
         } else if (value >= 3 && value <= 5) {
-            this.setColor(Color.parseColor("#FFFF00"));
+            this.setColor(Color.parseColor("#FFDD00"));
         } else {
             this.setColor(Color.parseColor("#44DD00"));
         }
@@ -63,4 +69,21 @@ public class Bar {
     public void setCurrentValue(float currentValue) {
         this.currentValue = currentValue;
     }
+
+    public float getAvgValue() {
+        return avgValue;
+    }
+
+    public void setAvgValue(float avgValue) {
+        this.avgValue = avgValue;
+    }
+
+    public float getCurrentAvgValue() {
+        return currentAvgValue;
+    }
+
+    public void setCurrentAvgValue(float currentAvgValue) {
+        this.currentAvgValue = currentAvgValue;
+    }
+
 }

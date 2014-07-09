@@ -28,4 +28,12 @@ public class ParseClient {
         query.findInBackground(callback);
     }
 
+    public static void getAllAssessmentsForStudent(Student student, FindCallback<StrengthAssessment> callback) {
+        ParseQuery<StrengthAssessment> query =
+                ParseQuery.getQuery(StrengthAssessment.class)
+                        .whereEqualTo("Student", student)
+                        .setLimit(1000);
+        query.findInBackground(callback);
+    }
+
 }

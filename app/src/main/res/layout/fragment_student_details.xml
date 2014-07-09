@@ -54,6 +54,15 @@
             android:gravity="center"
             android:layout_margin="20dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/strong_trait_label"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -61,9 +70,13 @@
                 android:src="@drawable/ic_launcher"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:text="@string/strong_trait_label"/>
+                android:text="@string/strong_trait_label"
+                android:textSize="12sp"
+                android:id="@+id/tvStDetailsStrong"
+                android:gravity="center"
+            />
 
         </LinearLayout>
 
@@ -74,6 +87,15 @@
             android:gravity="center"
             android:layout_margin="20dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/need_help_label"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -81,9 +103,13 @@
                 android:src="@drawable/ic_launcher"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:text="@string/need_help_label"/>
+                android:text="@string/need_help_label"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:id="@+id/tvStDetailsWeak"
+                />
 
         </LinearLayout>
 
@@ -94,6 +120,15 @@
             android:gravity="center"
             android:layout_margin="20dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/improvement_label"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -101,9 +136,13 @@
                 android:src="@drawable/ic_launcher"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:text="@string/improvement_label"/>
+                android:text="@string/improvement_label"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:id="@+id/tvStDetailsImproved"
+                />
 
         </LinearLayout>
 

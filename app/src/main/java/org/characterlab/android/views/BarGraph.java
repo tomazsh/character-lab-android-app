@@ -47,7 +47,7 @@ public class BarGraph extends View {
         Canvas canvas = new Canvas(fullImage);
         canvas.drawColor(Color.TRANSPARENT);
 
-        float padding = 5;
+        float padding = 7;
         int selectPadding = 4;
         float leftPadding = 20;
         float usableWidth = getWidth() - leftPadding;
@@ -67,10 +67,13 @@ public class BarGraph extends View {
 
         int count = 0;
         for (Bar barToDraw : points) {
+            float currentValueBarHeight = barHeight * 0.70f;
+            float currentAvgValueBarHeight = barHeight * 0.30f;
+
             int left = (int) leftPadding;
             int top = (int) ((padding * 2) * count + padding + barHeight * count);
             int right = left + (int) (perUnitWidth * (barToDraw.getCurrentValue()));
-            int bottom = (int) (top + barHeight);
+            int bottom = (int) (top + currentValueBarHeight);
 
             barRect.set(left, top, right, bottom);
 
@@ -78,15 +81,29 @@ public class BarGraph extends View {
             barPath.addRect(new RectF(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding), Path.Direction.CW);
             barToDraw.setPath(barPath);
             barToDraw.setRegion(new Region(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding));
-
             this.paint.setColor(barToDraw.getColor());
             this.paint.setAlpha(125);
             canvas.drawRect(barRect, this.paint);
 
+            // avg bar start
+
+            Rect avgBarRect = new Rect();
+            left = barRect.left;
+            top = barRect.bottom;
+            right = left + (int) (perUnitWidth * (barToDraw.getCurrentAvgValue()));
+            bottom = (int) (top + currentAvgValueBarHeight);
+
+            avgBarRect.set(left, top, right, bottom);
+            this.paint.setColor(Color.parseColor("#B8BEBE"));
+            this.paint.setAlpha(125);
+            canvas.drawRect(avgBarRect, this.paint);
+
+            // avg bar end
+
             this.paint.setColor(Color.DKGRAY);
-            this.paint.setTextSize(sp2px(getContext(), 10));
+            this.paint.setTextSize(sp2px(getContext(), 9));
             String traitTitleAndValueStr = barToDraw.getName() + "  (" + (int) barToDraw.getValue() + ")";
-            canvas.drawText(traitTitleAndValueStr, (int) (leftPadding + 10), barRect.top + (barHeight / 2) + 5, this.paint);
+            canvas.drawText(traitTitleAndValueStr, (int) (leftPadding + 10), barRect.top + (currentValueBarHeight / 2) + 7, this.paint);
             this.paint.setColor(barToDraw.getColor());
 
             if (indexSelected == count && listener != null) {
@@ -144,6 +161,14 @@ public class BarGraph extends View {
             boolean needNewFrame = false;
             float changeValue = BarGraph.this.getContext().getResources().getDisplayMetrics().density * 0.05f;
             for (Bar bar : points) {
+                if (Math.abs(bar.getValue() - bar.getCurrentValue()) < changeValue) {
+                    bar.setCurrentValue(bar.getValue());
+                }
+
+                if (Math.abs(bar.getAvgValue() - bar.getCurrentAvgValue()) < changeValue) {
+                    bar.setCurrentAvgValue(bar.getAvgValue());
+                }
+
                 if (bar.getCurrentValue() < bar.getValue()) {
                     bar.setCurrentValue(bar.getCurrentValue() + changeValue);
                     needNewFrame = true;
@@ -152,9 +177,14 @@ public class BarGraph extends View {
                     needNewFrame = true;
                 }
 
-                if (Math.abs(bar.getValue() - bar.getCurrentValue()) < 0.02f) {
-                    bar.setCurrentValue(bar.getValue());
+                if (bar.getCurrentAvgValue() < bar.getAvgValue()) {
+                    bar.setCurrentAvgValue(bar.getCurrentAvgValue() + changeValue);
+                    needNewFrame = true;
+                } else if (bar.getCurrentAvgValue() > bar.getAvgValue()) {
+                    bar.setCurrentAvgValue(bar.getAvgValue());
+                    needNewFrame = true;
                 }
+
             }
             if (needNewFrame) {
                 postDelayed(this, 20);

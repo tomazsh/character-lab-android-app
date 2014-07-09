@@ -6,7 +6,7 @@ import com.parse.ParseObject;
 import java.io.Serializable;
 
 @ParseClassName("Assessments")
-public class StrengthAssessment extends ParseObject implements Serializable {
+public class StrengthAssessment extends ParseObject {
     private static final String GROUP_ID_KEY = "Group_id";
     private static final String SCORE_KEY = "Score";
     private static final String STRENGTH_KEY = "Strength";

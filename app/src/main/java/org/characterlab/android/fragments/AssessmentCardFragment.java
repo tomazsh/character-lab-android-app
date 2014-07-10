@@ -57,10 +57,13 @@ public class AssessmentCardFragment  extends Fragment {
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivAssessmentCardIcon);
         ivIcon.setImageResource(strength.getIconId());
 
+        final TextView tvAssessmentCardScore = (TextView) view.findViewById(R.id.tvAssessmentCardScore);
+
         SeekBar sbAssessmentCardScore = (SeekBar) view.findViewById(R.id.sbAssessmentCardScore);
         sbAssessmentCardScore.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                tvAssessmentCardScore.setText(String.valueOf(progress));
                 mListener.onStrenthScoreSet(strength, progress);
             }
 

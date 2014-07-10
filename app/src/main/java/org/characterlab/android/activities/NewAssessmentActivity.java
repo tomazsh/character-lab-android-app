@@ -28,6 +28,7 @@ import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
 import org.characterlab.android.fragments.LogoutDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
+import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
@@ -40,8 +41,10 @@ public class NewAssessmentActivity extends FragmentActivity
     StudentListFragment mStudentListFragment;
     AssessmentCardsFragment mAssessmentCardsFragment;
     FragmentPagerAdapter adapterViewPager;
-    NewAssessmentViewModel viewModel;
     boolean displaySaveMenu = false;
+
+    NewAssessmentViewModel viewModel;
+    Student mStudent;
 
     Button btnNewAssessmentSave;
 
@@ -65,26 +68,32 @@ public class NewAssessmentActivity extends FragmentActivity
         }
     }
 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem actionViewItem = menu.findItem(R.id.miNewAssessmentSave);
-        if (actionViewItem != null) {
-            View v = actionViewItem.getActionView();
-            btnNewAssessmentSave = (Button) v.findViewById(R.id.btnNewAssessmentSave);
-            btnNewAssessmentSave.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-            });
-        }
-        return super.onPrepareOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//        MenuItem actionViewItem = menu.findItem(R.id.miNewAssessmentSave);
+//        if (actionViewItem != null) {
+//            View v = actionViewItem.getActionView();
+//            btnNewAssessmentSave = (Button) v.findViewById(R.id.btnNewAssessmentSave);
+//            btnNewAssessmentSave.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                }
+//            });
+//        }
+//        return super.onPrepareOptionsMenu(menu);
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.miNewAssessmentSave) {
+//            Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+            ParseClient.saveStudentAssessment(viewModel, mStudent);
+            finish();
+        }
+        return true;
     }
 
     //region Fragment Swapping
@@ -112,6 +121,7 @@ public class NewAssessmentActivity extends FragmentActivity
 
     public void onStudentListItemClick(Student student) {
         if  (student != null) {
+            mStudent = student;
             getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             getActionBar().setCustomView(R.layout.student_details_actionbar);
             displaySaveMenu = true;

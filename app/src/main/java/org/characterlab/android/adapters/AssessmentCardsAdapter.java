@@ -4,24 +4,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import org.characterlab.android.R;
 import org.characterlab.android.fragments.AssessmentCardFragment;
-import org.characterlab.android.fragments.AssessmentCardsFragment;
-import org.characterlab.android.fragments.CharacterCardFragment;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 
 /**
  * Created by mandar.b on 7/9/2014.
  */
-public class AssessmentCardsAdapter extends FragmentPagerAdapter implements AssessmentCardFragment.AssessmentCardFragmentListener {
+public class AssessmentCardsAdapter extends FragmentPagerAdapter  {
 
-    private NewAssessmentViewModel viewModel;
     private static int NUM_ITEMS = 7;
 
     public AssessmentCardsAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
-        viewModel = new NewAssessmentViewModel();
     }
 
     @Override
@@ -66,15 +61,8 @@ public class AssessmentCardsAdapter extends FragmentPagerAdapter implements Asse
     }
 
     private AssessmentCardFragment createAssessmentCardFragment(int page, Strength strength) {
-        int score = viewModel.getStrengthScores().get(strength);
-        AssessmentCardFragment cardFragment = AssessmentCardFragment.newInstance(page, strength, score);
-        cardFragment.setListener(this);
+        AssessmentCardFragment cardFragment = AssessmentCardFragment.newInstance(page, strength);
         return cardFragment;
-    }
-
-    @Override
-    public void onStrenthScoreSet(Strength strength, int score) {
-        viewModel.getStrengthScores().put(strength, score);
     }
 
 

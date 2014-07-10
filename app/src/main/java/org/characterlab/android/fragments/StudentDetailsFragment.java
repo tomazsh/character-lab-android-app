@@ -113,20 +113,6 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
         barGraph.setBars(bars);
         barGraph.setOnBarClickedListener(this);
-
-//        if (assessments != null && !assessments.isEmpty()) {
-//            ArrayList<Bar> bars = new ArrayList<Bar>();
-//            for (StrengthAssessment assessment : assessments) {
-//                Bar bar = new Bar();
-//                bar.setName(assessment.getStrength().getName());
-//                bar.setValue(assessment.getScore());
-//                bar.setAvgValue(2);
-//                bars.add(bar);
-//            }
-//
-//            barGraph.setBars(bars);
-//            barGraph.setOnBarClickedListener(this);
-//        }
     }
 
     //region Getters abd Setters

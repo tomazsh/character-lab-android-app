@@ -19,8 +19,7 @@ import org.characterlab.android.models.Strength;
 public class AssessmentCardFragment  extends Fragment {
     private int page;
     private Strength strength;
-    private int score;
-    private AssessmentCardFragmentListener mlistener;
+    private AssessmentCardFragmentListener mListener;
 
     public AssessmentCardFragment() {
     }
@@ -29,16 +28,11 @@ public class AssessmentCardFragment  extends Fragment {
         void onStrenthScoreSet(Strength strength, int score);
     }
 
-    public void setListener(AssessmentCardFragmentListener listener) {
-        this.mlistener = listener;
-    }
-
-    public static AssessmentCardFragment newInstance(int page, Strength strength, int score) {
+    public static AssessmentCardFragment newInstance(int page, Strength strength) {
         AssessmentCardFragment fragmentAssessmentCard = new AssessmentCardFragment();
         Bundle args = new Bundle();
         args.putInt("pageNum", page);
         args.putString("strength", strength.toString());
-        args.putInt("score", score);
         fragmentAssessmentCard.setArguments(args);
         return fragmentAssessmentCard;
     }
@@ -47,7 +41,6 @@ public class AssessmentCardFragment  extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         page = getArguments().getInt("pageNum", 0);
-        score = getArguments().getInt("score", 0);
         String strengthStr = getArguments().getString("strength");
         strength = Strength.valueOf(strengthStr);
     }
@@ -65,27 +58,32 @@ public class AssessmentCardFragment  extends Fragment {
         ivIcon.setImageResource(strength.getIconId());
 
         SeekBar sbAssessmentCardScore = (SeekBar) view.findViewById(R.id.sbAssessmentCardScore);
-        sbAssessmentCardScore.setProgress(score);
-
         sbAssessmentCardScore.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                score = progress;
-                mlistener.onStrenthScoreSet(strength, progress);
+                mListener.onStrenthScoreSet(strength, progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (AssessmentCardFragmentListener) activity;
+        } catch (ClassCastException exception) {
+            exception.printStackTrace();
+        }
     }
 
 }

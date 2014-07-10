@@ -1,12 +1,13 @@
 package org.characterlab.android.models;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by mandar.b on 7/9/2014.
  */
-public class NewAssessmentViewModel {
+public class NewAssessmentViewModel implements Serializable {
 
     Map<Strength, Integer> strengthScores = new HashMap<Strength, Integer>();
 

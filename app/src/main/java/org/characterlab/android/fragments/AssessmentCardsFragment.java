@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.parse.ParseImageView;
 
+import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
@@ -24,6 +25,14 @@ public class AssessmentCardsFragment extends Fragment {
 
     public interface AssessmentCardsFragmentListener {
         FragmentPagerAdapter getAdapterViewPager();
+    }
+
+    public static AssessmentCardsFragment newInstance(String studentId) {
+        AssessmentCardsFragment fragment = new AssessmentCardsFragment();
+        Bundle args = new Bundle();
+        args.putString("studentId", studentId);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public AssessmentCardsFragment() {
@@ -49,13 +58,7 @@ public class AssessmentCardsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_assessment_cards, container, false);
-
-        TextView studentName = (TextView) view.findViewById(R.id.tvNewAssessmentStudentName);
-        studentName.setText("John Smith");
-
         ViewPager vpAssessmentCardsPager = (ViewPager) view.findViewById(R.id.vpAssessmentCardsPager);
-        vpAssessmentCardsPager.setClipToPadding(false);
-        vpAssessmentCardsPager.setPageMargin(12);
         vpAssessmentCardsPager.setAdapter(mListener.getAdapterViewPager());
         return view;
     }

@@ -2,6 +2,7 @@ package org.characterlab.android.activities;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -28,6 +29,7 @@ import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
 import org.characterlab.android.fragments.LogoutDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
+import org.characterlab.android.helpers.DialogHelper;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
@@ -90,8 +92,14 @@ public class NewAssessmentActivity extends FragmentActivity
         super.onOptionsItemSelected(item);
         if (item.getItemId() == R.id.miNewAssessmentSave) {
 //            Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
-            ParseClient.saveStudentAssessment(viewModel, mStudent);
-            finish();
+            DialogHelper.showConfirmDialog(this, R.string.new_assessment_confirmation_title, R.string.new_assessment_confirmation_msg, new DialogHelper.DialogListener() {
+                @Override
+                public void onOk(DialogInterface dialog) {
+                    dialog.dismiss();
+                    ParseClient.saveStudentAssessment(viewModel, mStudent);
+                    finish();
+                }
+            });
         }
         return true;
     }

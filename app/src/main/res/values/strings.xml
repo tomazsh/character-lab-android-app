@@ -36,5 +36,6 @@
     <string name="zest_card_description">Zest is an approach to life filled with excitement and energy.</string>
     <string name="title_activity_new_assessment">Add Assessment</string>
     <string name="score">Score</string>
-
+    <string name="new_assessment_confirmation_title">Save Assessment</string>
+    <string name="new_assessment_confirmation_msg">Are you sure you want to save the new assessment?</string>
 </resources>

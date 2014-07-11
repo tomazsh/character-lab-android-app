@@ -48,6 +48,16 @@ public class ParseClient {
         query.findInBackground(callback);
     }
 
+    public static void getStrengthScoreHistoryForStudent(Student student, Strength strength, FindCallback<StrengthAssessment> callback) {
+        ParseQuery<StrengthAssessment> query =
+                ParseQuery.getQuery(StrengthAssessment.class)
+                        .whereEqualTo("Student", student)
+                        .whereEqualTo("Strength", strength.toString())
+                        .addAscendingOrder("createdAt")
+                        .setLimit(1000);
+        query.findInBackground(callback);
+    }
+
     public static void saveStudentAssessment(final NewAssessmentViewModel assessmentsModel, final Student student) {
         getLatestAssessmentForStudent(student, new FindCallback<StrengthAssessment>() {
             @Override

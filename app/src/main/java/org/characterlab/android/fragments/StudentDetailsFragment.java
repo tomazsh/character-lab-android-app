@@ -1,7 +1,8 @@
 package org.characterlab.android.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -41,7 +42,13 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private TextView tvStDetailsImproved;
     private ImageView ivStDetailsImproved;
 
+    StudentDetailsFragmentListener listener;
+
     public StudentDetailsFragment() {
+    }
+
+    public interface StudentDetailsFragmentListener {
+        void onBarGraphClick(String strengthName);
     }
 
     @Override
@@ -85,6 +92,16 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         return v;
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            listener = (StudentDetailsFragmentListener) activity;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void updateView(StudentDetailViewModel viewModel) {
 
         tvStDetailsStrong.setText(viewModel.getStrongest().getName());
@@ -125,10 +142,11 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         mStudent = student;
     }
 
+    //endregion
+
     @Override
     public void onClick(String name) {
-        Toast.makeText(getActivity(), "Clicked: " + name, Toast.LENGTH_SHORT).show();
+        listener.onBarGraphClick(name);
     }
 
-    //endregion
 }

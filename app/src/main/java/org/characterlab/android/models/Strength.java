@@ -2,6 +2,9 @@ package org.characterlab.android.models;
 
 import org.characterlab.android.R;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum Strength {
     CURIOSITY ("Curiosity", R.drawable.curiosity, R.string.curisosity_card_description),
     GRATITUDE ("Gratitude", R.drawable.gratitude, R.string.gratitude_card_description),
@@ -31,5 +34,14 @@ public enum Strength {
 
     public int getDescriptionId() {
         return descriptionId;
+    }
+
+    public static Strength fromName(String name) {
+        for (Strength strength : Strength.values()) {
+            if (strength.getName().equalsIgnoreCase(name)) {
+                return strength;
+            }
+        }
+        return null;
     }
 }

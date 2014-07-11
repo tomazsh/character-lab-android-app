@@ -58,6 +58,7 @@ public class StudentDetailsActivity extends FragmentActivity  implements Student
         }
     }
 
+    // TODO: handle backstack
     private void setContainerFragment(Fragment fragment) {
         if (fragment.isAdded() && !fragment.isDetached() && !fragment.isRemoving()) {
             return;

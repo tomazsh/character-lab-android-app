@@ -32,8 +32,6 @@ import java.util.Locale;
  * Created by mandar.b on 7/10/2014.
  */
 public class StrengthHistoryFragment extends Fragment {
-    int randomint = 9;
-
     private Student mStudent;
     private Strength mStrength;
 
@@ -64,17 +62,6 @@ public class StrengthHistoryFragment extends Fragment {
                 }
         );
 
-//        //must*
-//
-//        ArrayList<String> test = new ArrayList<String>();
-//        for (int i=0; i<randomint; i++){
-//            test.add(String.valueOf(i+1));
-//        }
-//        lineView.setBottomTextList(test);
-//        lineView.setDrawDotLine(true);
-//        lineView.setShowPopup(LineView.SHOW_POPUPS_NONE);
-//
-//        randomSet(lineView);
         return v;
     }
 
@@ -90,7 +77,7 @@ public class StrengthHistoryFragment extends Fragment {
 
             for (StrengthAssessment assessment : assessments) {
                 Date createdAt = assessment.getCreatedAt();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("MM-yy", Locale.US);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d", Locale.US);
                 String label = dateFormat.format(createdAt);
                 labels.add(label);
                 values.add(assessment.getScore());
@@ -107,35 +94,6 @@ public class StrengthHistoryFragment extends Fragment {
             lineView.setDataList(dataLists);
         }
         tvHistoryAvgScore.setText(String.format("%.2f", avgScore));
-    }
-
-    private void randomSet(LineView lineView){
-
-        ArrayList<Integer> dataList = new ArrayList<Integer>();
-        int random = (int)(Math.random()*9+1);
-        for (int i=0; i<randomint; i++){
-            dataList.add((int)(Math.random()*random));
-        }
-
-        ArrayList<Integer> dataList2 = new ArrayList<Integer>();
-        random = (int)(Math.random()*9+1);
-        for (int i=0; i<randomint; i++){
-            dataList2.add((int)(Math.random()*random));
-        }
-
-        ArrayList<Integer> dataList3 = new ArrayList<Integer>();
-        random = (int)(Math.random()*9+1);
-        for (int i=0; i<randomint; i++){
-            dataList3.add((int)(Math.random()*random));
-        }
-
-
-        ArrayList<ArrayList<Integer>> dataLists = new ArrayList<ArrayList<Integer>>();
-        dataLists.add(dataList);
-        dataLists.add(dataList2);
-        dataLists.add(dataList3);
-
-        lineView.setDataList(dataLists);
     }
 
     public void setStudent(Student student) {

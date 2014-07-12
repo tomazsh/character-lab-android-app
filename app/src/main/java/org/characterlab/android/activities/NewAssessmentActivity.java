@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.parse.ParseImageView;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
-import org.characterlab.android.adapters.AssessmentCardsAdapter;
 import org.characterlab.android.fragments.AssessmentCardFragment;
 import org.characterlab.android.fragments.AssessmentCardsFragment;
 import org.characterlab.android.fragments.StudentListFragment;
@@ -28,16 +26,14 @@ import org.characterlab.android.models.Student;
 
 public class NewAssessmentActivity extends FragmentActivity
              implements StudentListFragment.StudentListFragmentListener,
-                        AssessmentCardsFragment.AssessmentCardsFragmentListener,
                         AssessmentCardFragment.AssessmentCardFragmentListener{
 
     StudentListFragment mStudentListFragment;
     AssessmentCardsFragment mAssessmentCardsFragment;
-    FragmentPagerAdapter adapterViewPager;
     boolean displaySaveMenu = false;
 
     NewAssessmentViewModel viewModel;
-    Student mStudent;
+    private static Student selectedStudent;
 
     Button btnNewAssessmentSave;
 
@@ -47,7 +43,6 @@ public class NewAssessmentActivity extends FragmentActivity
         setContentView(R.layout.activity_new_assessment);
 
         viewModel = new NewAssessmentViewModel();
-        adapterViewPager = new AssessmentCardsAdapter(getSupportFragmentManager());
         showStudentListFragment();
     }
 
@@ -87,7 +82,7 @@ public class NewAssessmentActivity extends FragmentActivity
                 @Override
                 public void onOk(DialogInterface dialog) {
                     dialog.dismiss();
-                    ParseClient.saveStudentAssessment(viewModel, mStudent);
+                    ParseClient.saveStudentAssessment(viewModel, selectedStudent);
                     finish();
                 }
             });
@@ -102,6 +97,7 @@ public class NewAssessmentActivity extends FragmentActivity
             mStudentListFragment = new StudentListFragment();
         }
         setContainerFragment(mStudentListFragment);
+        onStudentListItemClick(selectedStudent);
     }
 
     private void setContainerFragment(Fragment fragment) {
@@ -120,7 +116,7 @@ public class NewAssessmentActivity extends FragmentActivity
 
     public void onStudentListItemClick(Student student) {
         if  (student != null) {
-            mStudent = student;
+            selectedStudent = student;
             getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             getActionBar().setCustomView(R.layout.student_details_actionbar);
             displaySaveMenu = true;
@@ -142,10 +138,6 @@ public class NewAssessmentActivity extends FragmentActivity
     }
 
     //endregion
-
-    public FragmentPagerAdapter getAdapterViewPager() {
-        return adapterViewPager;
-    }
 
     @Override
     public void onStrenthScoreSet(Strength strength, int score) {

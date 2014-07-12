@@ -14,8 +14,6 @@ import com.parse.ParseUser;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
-import org.characterlab.android.adapters.CharacterCardsAdapter;
-import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
 import org.characterlab.android.fragments.CharacterCardFragment;
 import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
@@ -29,19 +27,16 @@ public class MainActivity extends FragmentActivity
         implements LoginFragment.LoginFragmentListener,
         LogoutDialogFragment.LogoutFragmentListener,
         CharacterCardFragment.CharacterCardFragmentListener,
-        CharacterCardsFragment.CharacterCardsFragmentListener,
         StudentListFragment.StudentListFragmentListener {
     LoginFragment mLoginFragment;
     CharacterCardsFragment mCharacterCardsFragment;
     StudentListFragment mStudentListFragment;
-    SmartFragmentStatePagerAdapter adapterViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        adapterViewPager = new CharacterCardsAdapter(getSupportFragmentManager());
         ParseUser user = ParseUser.getCurrentUser();
         if (user == null) {
             showLoginFragment();
@@ -147,9 +142,6 @@ public class MainActivity extends FragmentActivity
         startActivity(intent);
     }
 
-    public SmartFragmentStatePagerAdapter getAdapterViewPager() {
-        return adapterViewPager;
-    }
     //endregion
 
     //region StudentListFragmentListener

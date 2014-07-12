@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import org.characterlab.android.fragments.AssessmentCardFragment;
-import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 
 /**
@@ -36,19 +35,19 @@ public class AssessmentCardsAdapter extends FragmentPagerAdapter  {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return createAssessmentCardFragment(0, Strength.CURIOSITY);
+                return createAssessmentCardFragment(Strength.CURIOSITY);
             case 1:
-                return createAssessmentCardFragment(1, Strength.GRATITUDE);
+                return createAssessmentCardFragment(Strength.GRATITUDE);
             case 2:
-                return createAssessmentCardFragment(2, Strength.GRIT);
+                return createAssessmentCardFragment(Strength.GRIT);
             case 3:
-                return createAssessmentCardFragment(3, Strength.OPTIMISM);
+                return createAssessmentCardFragment(Strength.OPTIMISM);
             case 4:
-                return createAssessmentCardFragment(4, Strength.SELF_CONTROL);
+                return createAssessmentCardFragment(Strength.SELF_CONTROL);
             case 5:
-                return createAssessmentCardFragment(5, Strength.SOCIAL_INTELLIGENCE);
+                return createAssessmentCardFragment(Strength.SOCIAL_INTELLIGENCE);
             case 6:
-                return createAssessmentCardFragment(6, Strength.ZEST);
+                return createAssessmentCardFragment(Strength.ZEST);
             default:
                 return null;
         }
@@ -60,8 +59,8 @@ public class AssessmentCardsAdapter extends FragmentPagerAdapter  {
         return "Character " + (position + 1);
     }
 
-    private AssessmentCardFragment createAssessmentCardFragment(int page, Strength strength) {
-        AssessmentCardFragment cardFragment = AssessmentCardFragment.newInstance(page, strength);
+    private AssessmentCardFragment createAssessmentCardFragment(Strength strength) {
+        AssessmentCardFragment cardFragment = AssessmentCardFragment.newInstance(strength);
         return cardFragment;
     }
 

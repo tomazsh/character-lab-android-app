@@ -10,13 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.characterlab.android.R;
-import org.characterlab.android.models.Strength;
 
 public class CharacterCardsFragment extends Fragment {
     CharacterCardsFragmentListener mListener;
 
     public interface CharacterCardsFragmentListener {
-        //void onStrengthCardClick(Strength strength);
         FragmentPagerAdapter getAdapterViewPager();
     }
 
@@ -47,6 +45,7 @@ public class CharacterCardsFragment extends Fragment {
         vpPager.setClipToPadding(false);
         vpPager.setPageMargin(12);
         vpPager.setAdapter(mListener.getAdapterViewPager());
+
         return view;
     }
 }

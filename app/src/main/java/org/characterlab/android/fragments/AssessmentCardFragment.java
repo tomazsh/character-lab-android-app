@@ -17,7 +17,6 @@ import org.characterlab.android.models.Strength;
  * Created by mandar.b on 7/9/2014.
  */
 public class AssessmentCardFragment  extends Fragment {
-    private int page;
     private Strength strength;
     private AssessmentCardFragmentListener mListener;
 
@@ -28,10 +27,9 @@ public class AssessmentCardFragment  extends Fragment {
         void onStrenthScoreSet(Strength strength, int score);
     }
 
-    public static AssessmentCardFragment newInstance(int page, Strength strength) {
+    public static AssessmentCardFragment newInstance(Strength strength) {
         AssessmentCardFragment fragmentAssessmentCard = new AssessmentCardFragment();
         Bundle args = new Bundle();
-        args.putInt("pageNum", page);
         args.putString("strength", strength.toString());
         fragmentAssessmentCard.setArguments(args);
         return fragmentAssessmentCard;
@@ -40,7 +38,6 @@ public class AssessmentCardFragment  extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        page = getArguments().getInt("pageNum", 0);
         String strengthStr = getArguments().getString("strength");
         strength = Strength.valueOf(strengthStr);
     }
@@ -55,7 +52,7 @@ public class AssessmentCardFragment  extends Fragment {
         TextView tvAssessmentCardDescription = (TextView) view.findViewById(R.id.tvAssessmentCardDescription);
         tvAssessmentCardDescription.setText(getResources().getString(strength.getDescriptionId()));
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivAssessmentCardIcon);
-        ivIcon.setImageResource(strength.getIconId());
+        ivIcon.setImageResource(strength.getIconCircleId());
 
         final TextView tvAssessmentCardScore = (TextView) view.findViewById(R.id.tvAssessmentCardScore);
 

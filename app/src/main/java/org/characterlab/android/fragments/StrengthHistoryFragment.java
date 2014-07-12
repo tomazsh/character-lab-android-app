@@ -3,7 +3,6 @@ package org.characterlab.android.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,9 @@ import com.parse.ParseException;
 
 import org.characterlab.android.R;
 import org.characterlab.android.helpers.ParseClient;
-import org.characterlab.android.helpers.Utils;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.Student;
-import org.characterlab.android.models.StudentDetailViewModel;
 import org.characterlab.android.views.LineView;
 
 import java.text.SimpleDateFormat;
@@ -66,7 +63,7 @@ public class StrengthHistoryFragment extends Fragment {
     }
 
     private void updateView(List<StrengthAssessment> assessments) {
-        ivHistoryStrengthLogo.setImageResource(mStrength.getIconId());
+        ivHistoryStrengthLogo.setImageResource(mStrength.getIconCircleId());
         tvHistoryStrengthTitle.setText(mStrength.getName());
         tvHistoryStrengthDescr.setText(mStrength.getDescriptionId());
         float avgScore = 0.0f;

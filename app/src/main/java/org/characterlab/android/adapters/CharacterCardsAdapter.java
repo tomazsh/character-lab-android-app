@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import org.characterlab.android.R;
 import org.characterlab.android.fragments.CharacterCardFragment;
+import org.characterlab.android.models.Strength;
 
 /**
  * Created by tina on 7/8/14.
@@ -35,19 +35,19 @@ public class CharacterCardsAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return CharacterCardFragment.newInstance(0, "Curiosity", "Curiosity is the search for information for its own sake.", R.drawable.curiosity);
+                return CharacterCardFragment.newInstance(Strength.CURIOSITY);
             case 1:
-                return CharacterCardFragment.newInstance(1, "Gratitude", "Gratitude refers to appreciation for the benefits we receive from others.", R.drawable.gratitude);
+                return CharacterCardFragment.newInstance(Strength.GRATITUDE);
             case 2:
-                return CharacterCardFragment.newInstance(2, "Grit", "Grit is perseverance and passion for long-term goals.", R.drawable.grit);
+                return CharacterCardFragment.newInstance(Strength.GRIT);
             case 3:
-                return CharacterCardFragment.newInstance(2, "Optimism", "Optimism is the expectation that the future holds positive possibilities.", R.drawable.optimism);
+                return CharacterCardFragment.newInstance(Strength.OPTIMISM);
             case 4:
-                return CharacterCardFragment.newInstance(2, "Self-Control", "Self-control is the capacity to regulate thoughts, feelings, or behaviors when they conflict with valued goals.", R.drawable.self_control);
+                return CharacterCardFragment.newInstance(Strength.SELF_CONTROL);
             case 5:
-                return CharacterCardFragment.newInstance(2, "Social Intelligence", "Social intelligence refers to awareness of other people’s motives and feelings.", R.drawable.social_intelligence);
+                return CharacterCardFragment.newInstance(Strength.SOCIAL_INTELLIGENCE);
             case 6:
-                return CharacterCardFragment.newInstance(2, "Zest", "Zest is an approach to life filled with excitement and energy.", R.drawable.zest);
+                return CharacterCardFragment.newInstance(Strength.ZEST);
 
             default:
                 return null;

@@ -3,6 +3,7 @@ package org.characterlab.android.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.StrengthDetailsFragment;
@@ -27,6 +28,8 @@ public class StrengthDetailsActivity extends Activity
         }
 
         Strength strength = (Strength)getIntent().getSerializableExtra(STRENGTH_KEY);
+        // TODO (tomaz) to remove
+        Toast.makeText(this, "strenth is " + strength.getName(), Toast.LENGTH_SHORT).show();
         mStrengthDetailsFragment.setStrength(strength);
     }
 

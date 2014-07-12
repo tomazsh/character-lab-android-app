@@ -1,34 +1,36 @@
 package org.characterlab.android.fragments;
 
 
-
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.characterlab.android.R;
+import org.characterlab.android.activities.MainActivity;
+import org.characterlab.android.models.Strength;
 
 public class CharacterCardFragment extends Fragment {
-    private int page;
-    private String title;
-    private String description;
-    private int resId;
+    private Strength strength;
+    private CharacterCardFragmentListener mListener;
+
+    public interface CharacterCardFragmentListener {
+        void onStrengthCardClick(Strength strength);
+    }
 
     public CharacterCardFragment() {
         // Required empty public constructor
     }
 
-    public static CharacterCardFragment newInstance(int page, String title, String description, int resId) {
+    public static CharacterCardFragment newInstance(Strength strength) {
         CharacterCardFragment fragmentCharacterCard = new CharacterCardFragment();
         Bundle args = new Bundle();
-        args.putInt("pageNum", page);
-        args.putString("title", title);
-        args.putString("description", description);
-        args.putInt("image", resId);
+        args.putString("strength", strength.toString());
         fragmentCharacterCard.setArguments(args);
         return fragmentCharacterCard;
     }
@@ -36,10 +38,8 @@ public class CharacterCardFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        page = getArguments().getInt("pageNum", 0);
-        title = getArguments().getString("title");
-        description = getArguments().getString("description");
-        resId = getArguments().getInt("image", 0);
+        String strengthStr = getArguments().getString("strength");
+        strength = Strength.valueOf(strengthStr);
     }
 
     @Override
@@ -48,12 +48,28 @@ public class CharacterCardFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_character_card, container, false);
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-        tvTitle.setText(title);
+        tvTitle.setText(strength.getName());
         TextView tvDescription = (TextView) view.findViewById(R.id.tvDescription);
-        tvDescription.setText(description);
+        tvDescription.setText(strength.getDescriptionId());
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivIcon);
-        ivIcon.setImageResource(resId);
+        ivIcon.setImageResource(strength.getIconCircleId());
+        Button exploreCharacterDetailBtn = (Button) view.findViewById(R.id.btnExplore);
+        exploreCharacterDetailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onStrengthCardClick(strength);
+            }
+        });
         return view;
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (MainActivity) activity;
+        } catch (ClassCastException exception) {
+            exception.printStackTrace();
+        }
+    }
 }

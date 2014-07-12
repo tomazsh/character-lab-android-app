@@ -16,6 +16,7 @@ import com.parse.ParseUser;
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.CharacterCardsAdapter;
+import org.characterlab.android.fragments.CharacterCardFragment;
 import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
 import org.characterlab.android.fragments.LogoutDialogFragment;
@@ -28,6 +29,7 @@ public class MainActivity extends FragmentActivity
         implements LoginFragment.LoginFragmentListener,
         LogoutDialogFragment.LogoutFragmentListener,
         CharacterCardsFragment.CharacterCardsFragmentListener,
+        CharacterCardFragment.CharacterCardFragmentListener,
         StudentListFragment.StudentListFragmentListener {
     LoginFragment mLoginFragment;
     CharacterCardsFragment mCharacterCardsFragment;
@@ -137,14 +139,16 @@ public class MainActivity extends FragmentActivity
     }
     //endregion
 
-    //region CharacterCardsFragmentListener
+    //region CharacterCardFragmentListener
 
     public void onStrengthCardClick(Strength strength) {
         Intent intent = new Intent(MainActivity.this, StrengthDetailsActivity.class);
         intent.putExtra(StrengthDetailsActivity.STRENGTH_KEY, strength);
         startActivity(intent);
     }
+    //endregion
 
+    //region CharacterCardsFragmentListener
     public FragmentPagerAdapter getAdapterViewPager() {
         return adapterViewPager;
     }

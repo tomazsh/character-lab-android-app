@@ -34,6 +34,7 @@
     <string name="social_intelligenced_card_description">Social intelligence refers to awareness of other people’s motives and feelings.</string>
     <string name="zest_card_title">Zest</string>
     <string name="zest_card_description">Zest is an approach to life filled with excitement and energy.</string>
+    <string name="characer_card_view_detail_button_title">Tap to Explore</string>
     <string name="title_activity_new_assessment">Add Assessment</string>
     <string name="score">Score</string>
     <string name="avg_score">Avg. Score</string>

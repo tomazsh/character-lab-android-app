@@ -21,7 +21,7 @@ public class AssessmentCardsAdapter extends FragmentPagerAdapter  {
     @Override
     public float getPageWidth (int position)
     {
-        return 0.93f;
+        return 1.0f;
     }
 
     // Returns total number of pages

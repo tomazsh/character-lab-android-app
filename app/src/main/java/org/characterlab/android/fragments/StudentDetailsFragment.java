@@ -105,13 +105,13 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private void updateView(StudentDetailViewModel viewModel) {
 
         tvStDetailsStrong.setText(viewModel.getStrongest().getName());
-        ivStDetailsStrong.setImageResource(viewModel.getStrongest().getIconId());
+        ivStDetailsStrong.setImageResource(viewModel.getStrongest().getIconCircleId());
 
         tvStDetailsWeak.setText(viewModel.getWeakest().getName());
-        ivStDetailsWeak.setImageResource(viewModel.getWeakest().getIconId());
+        ivStDetailsWeak.setImageResource(viewModel.getWeakest().getIconCircleId());
 
         tvStDetailsImproved.setText(viewModel.getMostImproved().getName());
-        ivStDetailsImproved.setImageResource(viewModel.getMostImproved().getIconId());
+        ivStDetailsImproved.setImageResource(viewModel.getMostImproved().getIconCircleId());
 
         ArrayList<Bar> bars = new ArrayList<Bar>();
         for (Strength strength : Strength.values()) {

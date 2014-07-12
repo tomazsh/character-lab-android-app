@@ -22,6 +22,11 @@ public class ParseClient {
         query.findInBackground(callback);
     }
 
+    public static void getGoodStudentsForStrength(Strength strength, FindCallback<Student> callback) {
+        ParseQuery<Student> query = ParseQuery.getQuery(Student.class);
+        query.findInBackground(callback);
+    }
+
     public static void getLatestAssessmentsForStudent(Student student, FindCallback<StrengthAssessment> callback) {
         ParseQuery<StrengthAssessment> query =
                 ParseQuery.getQuery(StrengthAssessment.class)

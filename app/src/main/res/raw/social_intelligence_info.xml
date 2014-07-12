@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Social Intelligence</name>
+    <icon_image>social_intelligence_circle</icon_image>
+    <hero_image>social_intelligence_hero</hero_image>
+    <description>
+        <![CDATA[
+            Social intelligence refers to awareness of other people’s motives and feelings as well
+            as using this understanding to navigate social situations appropriately.
+        ]]>
+    </description>
+    <about_title>About self-control</about_title>
+    <about_items>
+        <item type="text">
+            <title>What does social intelligence look like?</title>
+            <content>
+                <![CDATA[
+                    <p>People with high levels of social intelligence have an awareness of other
+                    people’s feelings and motives and use this understanding to navigate social
+                    situations appropriately, whereas those low on social intelligence are less
+                    attuned to other people’s feelings and perspectives. For instance, someone
+                    displaying socially intelligent behavior would recognize a shift in someone’s
+                    tone or demeanor and might adjust his or her own behavior accordingly.</p>
+                    <ul>
+                        <li>Find solutions during conflicts with others</li>
+                        <li>Demonstrate respect for the feelings of others</li>
+                        <li>Adapt to different social situations</li>
+                    </ul>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build social intelligence?</build_title>
+    <build_items>
+        <item type="text">
+            <title>What to be mindful of</title>
+            <content>
+                <![CDATA[
+                    <p>It’s important to know that there are still a lot of open questions about
+                    social intelligence, including the degree to which it is a teachable skill, and,
+                    to the extent it can be learned, how best to teach it. Though the research about
+                    social intelligence is still emerging, we do have some ideas about how you might
+                    develop social intelligence.</p>
+                ]]>
+
+            </content>
+        </item>
+        <item type="text">
+            <title>Provide active and constructive responses</title>
+            <content>
+                <![CDATA[
+                    <p>Respond to people in an active and constructive way to build strong
+                    relationships. For instance, rather than saying something discouraging or
+                    nothing at all to your child, student, co-worker, parent, or friend, follow up
+                    on what s/he said with what Dr. Shelly Gable and others call an
+                    <a href="http://www.psych.rochester.edu/people/reis_harry/assets/pdf/GableReisImpettAsher_2004.pdf">
+                    “active and constructive response.”</a></p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Learn about social-emotional learning programs</title>
+            <content>
+                <![CDATA[
+                    <p>Consider integrating social-emotional learning programs that consist of
+                    “step-by-step approaches that actively involve students in skills development
+                    over extended periods of time and have clear and explicit goals” into your
+                    school, and implement them with fidelity. The
+                    <a href="http://ccsr.uchicago.edu/sites/default/files/publications/Noncognitive%20Report.pdf">
+                    University of Chicago says that programs comprised of these attributes tend to
+                    be particularly effective</a>.</p>
+                ]]>
+            </content>
+        </item>
+    </build_items>
+</strength>

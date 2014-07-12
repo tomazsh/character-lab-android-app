@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:clickable="true"
+    android:background="@drawable/strength_details_card_bg"
+    tools:context="org.characterlab.android.fragments.StrengthDetailsTextCardFragment">
+
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/page_text_view"
+        android:text="sdhfjksd"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/page_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/title_text_view"
+        android:maxLines="5"
+        android:lineSpacingMultiplier="1.25"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/content_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_text_view"
+        android:layout_alignParentBottom="true"
+        android:lineSpacingMultiplier="1.25"
+        android:text="sdagfsdg"
+        android:ellipsize="end"
+        android:textSize="16sp" />
+
+</RelativeLayout>

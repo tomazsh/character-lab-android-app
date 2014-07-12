@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Grit</name>
+    <icon_image>grit_circle</icon_image>
+    <hero_image>grit_hero</hero_image>
+    <description>
+        <![CDATA[
+            Grit is perseverance and passion for long-term goals.
+        ]]>
+    </description>
+    <about_title>About grit</about_title>
+    <about_items>
+        <item type="video">
+            <title>Dr. Angela Duckworth of UPenn talks about grit</title>
+            <cover>grit_video_cover</cover>
+            <link>http://vimeo.com/89521167</link>
+        </item>
+        <item type="text">
+            <title>What does grit look like?</title>
+            <content>
+                <![CDATA[
+                    <p>Grit is a combination of passion and persistence. Having grit means
+                    pursuing your goal with vigor and focus over an extended period of time. Less
+                    gritty individuals are easily discouraged or frequently led off track by new
+                    interests.</p>
+                    <p>Being gritty means:</p>
+                    <ul>
+                        <li>Finishing what you begin</li>
+                        <li>Staying committed to your goals</li>
+                        <li>Working hard even after experiencing failure or when you feel like
+                        quitting</li>
+                        <li>Sticking with a project or activity for more than a few weeks</li>
+                    </ul>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build grit?</build_title>
+    <build_items>
+        <item type="text">
+            <title>What to be mindful of</title>
+            <content>
+                <![CDATA[
+                    <p>It’s important to know that there are still a lot of open questions about
+                    grit, including the degree to which it is a teachable skill and, to the extent
+                    it can be learned, how best to teach it. Though the research about grit is still
+                    emerging, we do have some ideas about how you might develop grit.</p>
+                ]]>
+
+            </content>
+        </item>
+        <item type="text">
+            <title>Cultivate a growth mindset and optimism</title>
+            <content>
+                <![CDATA[
+                    <p>We believe that the idea of grit is related to both optimism and a growth
+                    mindset. When you believe that setbacks are temporary and that problems are
+                    surmountable with effort and ingenuity, you’ll likely try harder, or try another
+                    tactic, when you encounter obstacles.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Challenge yourself in your practice</title>
+            <content>
+                <![CDATA[
+                    <p>Research on world-class experts in music, sports, chess, and other domains
+                    suggest that thousands of hours of deliberate practice are necessary to achieve
+                    the highest skill level. Often, when we look at those who are successful in
+                    their field, we don’t see the hidden hours of gritty and grueling practice it
+                    took to get there. We believe that productive practice should focus on
+                    weaknesses, feel difficult, be repetitive, and include immediate and informative
+                    feedback.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Stay passionate about your purpose</title>
+            <content>
+                <![CDATA[
+                    <p>Grit isn’t just hard work and persistence—it’s also passion for a personally
+                    meaningful goal. Determine the topic or activity that captures your attention
+                    the most, and work on developing grit in that area. We suggest enhancing your
+                    practice and interest by working with role models, coaches, and peers to develop
+                    that interest and skill over time.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Know it’s OK to quit</title>
+            <content>
+                <![CDATA[
+                    <p>Not every piano-playing ten-year-old will become a piano-playing
+                    twenty-year-old. It’s OK to quit activities, but choose the right time to quit:
+                    after you’ve been thoughtful and reflective, and definitely not in a moment of
+                    frustration. Gritty people know the difference between the two and quit
+                    responsibly.</p>
+                ]]>
+            </content>
+        </item>
+    </build_items>
+</strength>

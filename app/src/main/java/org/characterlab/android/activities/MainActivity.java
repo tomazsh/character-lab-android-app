@@ -159,4 +159,10 @@ public class MainActivity extends FragmentActivity
         Intent intent = new Intent(MainActivity.this, NewAssessmentActivity.class);
         startActivity(intent);
     }
+
+    private void startStrengthActivity(Strength strength) {
+        Intent intent = new Intent(MainActivity.this, StrengthDetailsActivity.class);
+        intent.putExtra(StrengthDetailsActivity.STRENGTH_KEY, strength);
+        startActivity(intent);
+    }
 }

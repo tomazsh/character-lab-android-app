@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Self-Control</name>
+    <icon_image>self_control_circle</icon_image>
+    <hero_image>self_control_hero</hero_image>
+    <description>
+        <![CDATA[
+            Self-control is the capacity to regulate thoughts, feelings, or behaviors when they
+            conflict with valued goals.
+        ]]>
+    </description>
+    <about_title>About self-control</about_title>
+    <about_items>
+        <item type="video">
+            <title>Dr. Ethan Kross of the University of Michigan talks about self-control</title>
+            <cover>self_control_video_1_cover</cover>
+            <link>http://vimeo.com/96232700</link>
+        </item>
+        <item type="video">
+            <title>Dr. Walter Mischel of Columbia University talks about self-control</title>
+            <cover>self_control_video_2_cover</cover>
+            <link>http://vimeo.com/89521169</link>
+        </item>
+        <item type="text">
+            <title>What does self-control look like?</title>
+            <content>
+                <![CDATA[
+                    <p>Those who demonstrate self-control—and those who don’t—have
+                    different responses to tempting stimuli or otherwise challenging environments.
+                    Someone displaying self-control can delay short-term temptations that interfere
+                    with longer-term aspirations, whereas someone displaying low self-control will
+                    succumb to those temptations. For instance, someone with high self-control who
+                    aims to run a marathon will not press the snooze button on their morning alarm
+                    clock and will instead rise out of bed and follow through with a scheduled
+                    workout.</p>
+                    <p>Demonstrating self-control looks like:</p>
+                    <p><strong>In Work/School</strong>: &nbsp;Coming to office/class with everything
+                    needed to get to work, as opposed to being unprepared · Remembering and
+                    following directions rather than needing to be reminded  · Getting to work right
+                    away rather than procrastinating · Paying attention rather than getting
+                    distracted</p>
+                    <p><strong>Interpersonally</strong>: Remaining calm even when criticized or
+                    otherwise provoked, rather than losing one’s temper · Allowing others to speak
+                    rather than interrupting · Being polite to all, as opposed to speaking
+                    harshly</p>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build self-control?</build_title>
+    <build_items>
+        <item type="text">
+            <title>Choose your environment wisely</title>
+            <content>
+                <![CDATA[
+                    <p>Select the environment that will be most beneficial to you. For instance,
+                    after the school day ends, students may retreat to their family’s living room,
+                    where the temptation of TV might be very strong—or they can go to the library,
+                    which is designed to eliminate distractions.</p>
+                ]]>
+
+            </content>
+        </item>
+        <item type="text">
+            <title>Tweak your environment to minimize distractions</title>
+            <content>
+                <![CDATA[
+                    <p>Tweak the environment you find yourself in to obtain your desired outcome.
+                    For instance, while in a conference or in class, sit closer to the presenter
+                    and/or farther from noisy attendees/classmates. Another strategy can be to place
+                    your cell phone out of sight to avoid being distracted during class, work, or
+                    meals.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Shift your focus</title>
+            <content>
+                <![CDATA[
+                    <p>If you find yourself in a distracting or frustrating situation, shift your
+                    focus to something that helps you achieve your desired emotional state. This can
+                    be either an internal or an external focus. For instance, while in a boring
+                    meeting, an external shift would be to track the person who is talking by
+                    looking directly at them, rather than staring out the window. An internal
+                    approach would be to think about upcoming vacation plans to avoid falling
+                    asleep.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Shift your frame</title>
+            <content>
+                <![CDATA[
+                    <p>Reinterpret the situation to alter your emotional state. For instance, rather
+                    than thinking of a mistake as a personal shortcoming or failure, think of
+                    mistakes as information that will help you in the future. Also consider framing
+                    certain trying situations as opportunities to exercise and grow your
+                    willpower.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Plan your response</title>
+            <content>
+                <![CDATA[
+                    <p>Think proactively about how you might best respond in a stressful situation,
+                    keeping in mind effective practices including deep breathing, suppressing an
+                    undesired behavior, or emulating people you admire.</p>
+                    <p>One proven strategy is to plan out IF/THEN scenarios to overcome obstacles.
+                    For instance, when trying to stick to a healthy lifestyle, don’t just hope to go
+                    to the gym: plan exactly when in the day you will go and specifically what you
+                    will do to exercise. The same is true for negative feelings: ”IF I start to feel
+                    angry, THEN I will take a deep breath and start counting backward from a 100
+                    (until I calm down and think before I act).”</p>
+                    <p>Another promising strategy is to refer to yourself in the third person when
+                    upset (sometimes called the “say your name” strategy).</p>
+                ]]>
+            </content>
+        </item>
+    </build_items>
+</strength>

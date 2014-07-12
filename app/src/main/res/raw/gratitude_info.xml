@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Gratitude</name>
+    <icon_image>gratitude_circle</icon_image>
+    <hero_image>gratitude_hero</hero_image>
+    <description>
+        <![CDATA[
+            Gratitude refers to appreciation for the benefits we receive from others and the
+            desire to reciprocate with our own positive actions.
+        ]]>
+    </description>
+    <about_title>About gratitude</about_title>
+    <about_items>
+        <item type="video">
+            <title>Dr. Robert Emmons of UC Davis talks about gratitude</title>
+            <cover>gratitude_video_cover</cover>
+            <link>http://vimeo.com/95882583</link>
+        </item>
+        <item type="text">
+            <title>What does gratitude look like?</title>
+            <content>
+                <![CDATA[
+                    <p>Those who demonstrate gratitude—and those who don’t—see life differently.
+                    Individuals demonstrating gratitude tend to emphasize language related to gifts,
+                    givers, blessings, fortune, fortunate, and abundance. Ungrateful people, on the
+                    other hand, tend to focus on deprivation, deservingness, regrets, lack, need,
+                    scarcity, and loss—what they are lacking rather than what they have. For
+                    instance, the grateful person might say, “I get to go to class today,” as
+                    opposed to, “Why do I have to learn all this useless stuff?”</p>
+                    <p>Displaying gratitude looks like:</p>
+                    <ul>
+                        <li>Recognizing what other people do for you</li>
+                        <li>Showing appreciation for opportunities</li>
+                        <li>Expressing appreciation by saying thank you</li>
+                        <li>Doing nice things for people as a way of saying thank you</li>
+                    </ul>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build gratitude?</build_title>
+    <build_items>
+        <item type="text">
+            <title>Keep a gratitude journal</title>
+            <content><![CDATA[
+                A group of researchers created an exercise in which individuals wrote down three
+                good things that happened to them that day before going to bed. These can be large
+                or small. Next to each, they jotted down why the good thing happened.
+
+                Another group of researchers suggest the following: “There are many things in our
+                lives, large and small, that we might be grateful about. Think back over the past
+                week and write up to five things that happened for which you are grateful or
+                thankful.” Keep these reflections in a character journal and complete this activity
+                at the end of each week.
+            ]]></content>
+        </item>
+        <item type="text">
+            <title>Write a gratitude letter</title>
+            <content><![CDATA[
+                The benefits of gratitude letters, along with examples of gratitude activities, can
+                be found in the research of Dr. Robert Emmons, Dr. Chris Peterson, Dr. Martin
+                Seligman, Dr. Sonja Lyubomirsky, and Dr. Jaime Kurtz. Spend fifteen minutes writing
+                a gratitude letter to a person in your life who you have never properly thanked.
+                This can be thanking him or her for something large or small. Try to be as detailed
+                as possible about what you are thanking her for and the impact it had on you. If
+                possible, deliver the letter in person and read it to them.
+            ]]></content>
+        </item>
+        <item type="text">
+            <title>Train yourself to substitute grateful thoughts for ungrateful ones</title>
+            <content><![CDATA[
+                Dr. Timothy Miller developed a four-step behavioral cognitive approach for learning
+                gratitude: 1. Identify non-grateful thoughts. 2. Formulate gratitude-supporting
+                thoughts. 3. Substitute the gratitude-supporting thoughts for the non-grateful
+                thoughts. 4. Translate this gratitude into outward action.
+            ]]></content>
+        </item>
+        <item type="text">
+            <title>Give back</title>
+            <content><![CDATA[
+                Dr. Charles Shelton suggests reflecting on benefits and blessings in your life and
+                considering ways to give back to others as an appropriate response for the gratitude
+                felt. Naikan therapy, for instance, requires practitioners to reflect on what others
+                have provided to them and what they have given back; in so doing, it creates
+                feelings of gratitude, indebtedness, and the motivation to reciprocate.
+            ]]></content>
+        </item>
+        <item type="text">
+            <title>Have even young children illustrate gratitude</title>
+            <content><![CDATA[
+                Children are very visual. Have your child draw a picture of what he or she is
+                thankful for today. You might even have them build a gratitude wall in their room by
+                posting all the pictures that they draw over the course of a month. Try to include
+                discussion of the pictures and the wall in everyday conversations.
+            ]]></content>
+        </item>
+    </build_items>
+</strength>

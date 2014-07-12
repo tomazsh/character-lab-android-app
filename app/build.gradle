@@ -29,4 +29,5 @@ dependencies {
     compile files('libs/Parse-1.5.1.jar')
     compile files('libs/svg-android.jar')
     compile 'com.android.support:support-v4:20.0.+'
+    compile files('libs/simple-xml-2.7.1.jar')
 }

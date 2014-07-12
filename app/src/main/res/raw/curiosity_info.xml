@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Curiosity</name>
+    <icon_image>curiosity_circle</icon_image>
+    <hero_image>curiosity_hero</hero_image>
+    <description>
+        <![CDATA[
+            Curiosity is the search for information for its own sake. Active open-mindedness means
+            exploring a wide range of relevant information when trying to draw a conclusion,
+            including information that challenges our own initial assumptions.
+        ]]>
+    </description>
+    <about_title>About curiosity</about_title>
+    <about_items>
+        <item type="video">
+            <title>Dr. Jon Baron of UPenn talks about "Active Open-minded Thinking" and curiosity</title>
+            <cover>curiosity_video_cover</cover>
+            <link>http://vimeo.com/89521461</link>
+        </item>
+        <item type="text">
+            <title>What does curiosity look like?</title>
+            <content>
+                <![CDATA[
+                    <p>When we are curious, we ask questions, search for information, explore our
+                    environment, and explore the world in countless ways. People who explore for its
+                    own sake wind up knowing more. For example, after seeing a movie about some
+                    historical event, they go to Wikipedia to find out what probably really
+                    happened.</p>
+                    <p>Curiosity feeds into good thinking because it makes us want information, even
+                    when the information could cause us to change our minds. People who think this
+                    way are more likely to have beliefs that reflect reality and to make decisions
+                    that work out for the best. Such further thought requires both looking for
+                    reasons why we might be wrong and, if we find them, taking them at face value
+                    rather than finding ways to dismiss them.</p>
+                    <p>Being curious means:</p>
+                    <ul>
+                        <li>Eagerness to explore new things</li>
+                        <li> Asking questions to deepen understanding</li>
+                        <li>Taking an active interest in learning</li>
+                    </ul>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build curiosity?</build_title>
+    <build_items>
+        <item type="text">
+            <title>Encourage Questioning</title>
+            <content>
+                <![CDATA[
+                    <p>Adults should encourage questioning and exploration in themselves and others.
+                    Adults can help children by answering children’s questions or pointing children
+                    in the direction of where to find answers. When children (or other adults) are
+                    about to draw a conclusion, adults should encourage them to look for alternative
+                    conclusions and to look for reasons on both sides.</p>
+                ]]>
+
+            </content>
+        </item>
+        <item type="text">
+            <title>Read widely</title>
+            <content>
+                <![CDATA[
+                    <p>The ability to read, and the habit of exploring multiple sources
+                    for information, increases the possibilities for search. Children should be
+                    encouraged to read as much as possible and as early as possible, and about the
+                    topics that are most interesting to them. Adults should seek to expand the set
+                    of written materials that they regularly read (e.g., new websites, magazines,
+                    newspapers, etc).</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Question your assumptions</title>
+            <content>
+                <![CDATA[
+                    <p>Developing curiosity and active open-mindedness means recognizing
+                    your own biases and assumptions. Question these just as you begin to question
+                    other conclusions that you have already accepted. Do not stop yourself when you
+                    want to find out something. Look it up. The Internet now makes this much easier,
+                    but of course we also must think about what we find there, with the same sort of
+                    active open-mindedness that we apply to our own conclusions.</p>
+                ]]>
+            </content>
+        </item>
+    </build_items>
+</strength>

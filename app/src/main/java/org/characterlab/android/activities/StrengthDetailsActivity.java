@@ -1,16 +1,20 @@
 package org.characterlab.android.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
+import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
 import org.characterlab.android.fragments.StrengthDetailsFragment;
 import org.characterlab.android.models.Strength;
+import org.characterlab.android.models.StrengthInfo;
+import org.characterlab.android.models.StrengthInfoItem;
 import org.characterlab.android.models.Student;
 
-public class StrengthDetailsActivity extends Activity
+public class StrengthDetailsActivity extends FragmentActivity
         implements StrengthDetailsFragment.StrengthDetailsFragmentListener {
     public static final String STRENGTH_KEY = "strength";
     StrengthDetailsFragment mStrengthDetailsFragment;
@@ -21,24 +25,30 @@ public class StrengthDetailsActivity extends Activity
         setContentView(R.layout.activity_strength_details);
         if (savedInstanceState == null) {
             mStrengthDetailsFragment = new StrengthDetailsFragment();
-            getFragmentManager()
+            getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.container, mStrengthDetailsFragment)
                     .commit();
         }
 
         Strength strength = (Strength)getIntent().getSerializableExtra(STRENGTH_KEY);
-        // TODO (tomaz) to remove
-        Toast.makeText(this, "strenth is " + strength.getName(), Toast.LENGTH_SHORT).show();
-        mStrengthDetailsFragment.setStrength(strength);
+        getActionBar().setTitle(strength.getName());
+
+        StrengthInfo info = StrengthInfo.fromStrength(this, strength);
+        mStrengthDetailsFragment.setStrengthInfo(info);
     }
 
-    //region StudentListFragmentListener
+    //region StrengthDetailsFragmentListener
 
     public void onStrengthDetailsStudentClick(Student student) {
         Intent intent = new Intent(StrengthDetailsActivity.this, StudentDetailsActivity.class);
-//        intent.putExtra(StudentDetailsActivity.STUDENT_KEY, student);
+        CharacterLabApplication.putInCache(student.getObjectId(), student);
+        intent.putExtra(StudentDetailsActivity.STUDENT_KEY, student.getObjectId());
         startActivity(intent);
+    }
+
+    public FragmentManager strengthDetailsFragmentManager() {
+        return getSupportFragmentManager();
     }
 
     //endregion

@@ -12,6 +12,11 @@ import org.characterlab.android.models.Strength;
 public class CharacterCardsAdapter extends SmartFragmentStatePagerAdapter {
 
     private static int NUM_ITEMS = 7;
+    private CharacterCardsAdapterListener mListener;
+
+    public interface CharacterCardsAdapterListener {
+        void onCardClick(int position);
+    }
 
     public CharacterCardsAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
@@ -57,5 +62,13 @@ public class CharacterCardsAdapter extends SmartFragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return "Character " + (position + 1);
+    }
+
+    public CharacterCardsAdapterListener getListener() {
+        return mListener;
+    }
+
+    public void setListener(CharacterCardsAdapterListener listener) {
+        mListener = listener;
     }
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Zest</name>
+    <icon_image>zest_circle</icon_image>
+    <hero_image>zest_hero</hero_image>
+    <description>
+        <![CDATA[
+            Zest, sometimes referred to as vitality, is an approach to life filled with excitement
+            and energy.
+        ]]>
+    </description>
+    <about_title>About zest</about_title>
+    <about_items>
+        <item type="text">
+            <title>What does zest look like?</title>
+            <content>
+                <![CDATA[
+                    <p>Those with high levels of zest are full of life and energy, whereas those on
+                    the other end of the spectrum are generally lethargic and resigned. People with
+                    zest approach setbacks and serendipitous moments with enthusiasm. This
+                    excitement can help energize people around them. For instance, when
+                    participating in a brainstorming exercise, someone with zest might talk about
+                    ideas excitedly, encourage participants to share their ideas, and then help to
+                    build on those ideas.</p>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build zest?</build_title>
+    <build_items>
+        <item type="text">
+            <title>What to be mindful of</title>
+            <content>
+                <![CDATA[
+                    <p>It’s important to know that there are still a lot of open questions about
+                    zest, including the degree to which it is a teachable skill and, to the extent
+                    it can be learned, how best to teach it. Though the research about zest is still
+                    emerging, we do have some ideas about how you might develop zest.</p>
+                ]]>
+
+            </content>
+        </item>
+        <item type="text">
+            <title>Exercise!</title>
+            <content>
+                <![CDATA[
+                    <p>Make a concerted effort to exercise because physical activity can increase
+                    your energy and vitality.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Refuel</title>
+            <content>
+                <![CDATA[
+                    <p>Get a good night’s sleep and eat a healthy breakfast.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Become one with nature</title>
+            <content>
+                <![CDATA[
+                    <p>Find time to engage with the natural environment, as contact with nature can
+                    influence vitality.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Gain autonomy</title>
+            <content>
+                <![CDATA[
+                    <p>Play an active role in your decisions, because greater autonomy tends to lead
+                    to greater energy and engagement.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Do what you love</title>
+            <content>
+                <![CDATA[
+                    <p>Dr. Jonathan Haidt suggests doing something because you want to do it, not
+                    because you have to do it. &nbsp;Find your passion. What do you love to do? If
+                    you already know what your passion is, then build time for it in your schedule.
+                    If you don’t, then try to discover it. What did you love to do when you were
+                    younger? Try it again now.</p>
+                ]]>
+            </content>
+        </item>
+    </build_items>
+</strength>

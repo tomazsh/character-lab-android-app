@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strength>
+    <name>Optimism</name>
+    <icon_image>optimism_circle</icon_image>
+    <hero_image>optimism_hero</hero_image>
+    <description>
+        <![CDATA[
+            Optimism is the expectation that the future holds positive possibilities and the
+            confidence that, with effort, these possibilities become likelihoods.
+        ]]>
+    </description>
+    <about_title>About optimism</about_title>
+    <about_items>
+        <item type="text">
+            <title>What does optimism look like?</title>
+            <content>
+                <![CDATA[
+                    <p>Optimists and pessimists see problems differently. Optimists tend
+                    to focus on causes that are temporary and changeable, while pessimists focus on
+                    causes that are permanent or fixed. For example, after receiving a low grade on
+                    a math test, an optimist may conclude that s/he didn’t study enough, while a
+                    pessimist may conclude that s/he has no ability in math. These different
+                    thinking styles profoundly affect how people cope with problems (for example,
+                    whether they study harder or give up).</p>
+                    <p>Being optimistic means:</p>
+                    <ul>
+                        <li>Believing that effort will improve your future</li>
+                        <li>When bad things happen, thinking about what you could do to avoid
+                        similar bad outcomes in the future</li>
+                        <li>Staying motivated, even when things don’t go well</li>
+                    </ul>
+                ]]>
+            </content>
+        </item>
+    </about_items>
+    <build_title>How to build optimism?</build_title>
+    <build_items>
+        <item type="text">
+            <title>Adopt a growth mindset</title>
+            <content>
+                <![CDATA[
+                    <p>Optimism reflects the tendencies to: 1) attribute problems to temporary and
+                    changeable causes; 2) expect good things from others, the world, and the future,
+                    and 3) believe that we can work to overcome obstacles and achieve our goals.
+                    Optimism is therefore very closely related to what Carol Dweck and colleagues
+                    call&nbsp;<a href="http://characterlab.org/growth-mindset/">
+                    <em>growth mindset</em></a>—the belief that the ability to learn is itself
+                    something that can be improved with effort.</p>
+                ]]>
+
+            </content>
+        </item>
+        <item type="text">
+            <title>Create caring environments</title>
+            <content>
+                <![CDATA[
+                    <p>Children are more likely to develop optimism when they grow up in
+                    caring environments. Parenting behaviors that convey affection predict the
+                    development of optimism in children, perhaps because children learn to expect
+                    that others will care about them and treat them well.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Model optimism in actions and language</title>
+            <content>
+                <![CDATA[
+                    <p>Some research suggests that children may internalize optimism from their
+                    parents. When we encounter problems in our own lives, we can model optimism by
+                    conveying our belief that the problems will pass or that we can work to address
+                    them. When talking with our children about mistakes they have made or problems
+                    they have helped to create, we can focus on the specific behaviors that
+                    contributed, especially behaviors they can change.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Find (or create) opportunities to overcome adversity</title>
+            <content>
+                <![CDATA[
+                    <p>Optimism also develops through personal experiences of working hard to
+                    achieve goals and to overcome challenges. These experiences increase children’s
+                    sense of control and competence and demonstrate that effort pays off. The right
+                    level of challenge will vary by age and by child. As parents, we can support our
+                    children as they take on greater and greater challenges.</p>
+                    <p>Parents naturally want to protect our children from difficult and painful
+                    experiences. Yet, these experiences are inevitable. And to some extent they are
+                    probably necessary for optimism to develop. It can help to keep in mind that the
+                    difficult situations our children encounter can provide opportunities for them
+                    to learn that many problems are temporary and surmountable.</p>
+                ]]>
+            </content>
+        </item>
+        <item type="text">
+            <title>Learn basic cognitive behavioral therapy strategies</title>
+            <content>
+                <![CDATA[
+                    <p>Programs like the&nbsp;<a href="http://www.ppc.sas.upenn.edu/prpsum.htm">
+                    Penn Prevention Program</a>&nbsp;can help. In the program, students are taught
+                    basic cognitive behavioral therapy strategies for thinking about the causes of
+                    events in a more optimistic fashion.</p>
+                ]]>
+            </content>
+        </item>
+    </build_items>
+</strength>

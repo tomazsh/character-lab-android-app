@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,6 +15,7 @@ import com.parse.ParseUser;
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.CharacterCardsAdapter;
+import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
 import org.characterlab.android.fragments.CharacterCardFragment;
 import org.characterlab.android.fragments.CharacterCardsFragment;
 import org.characterlab.android.fragments.LoginFragment;
@@ -28,13 +28,13 @@ import org.characterlab.android.models.Student;
 public class MainActivity extends FragmentActivity
         implements LoginFragment.LoginFragmentListener,
         LogoutDialogFragment.LogoutFragmentListener,
-        CharacterCardsFragment.CharacterCardsFragmentListener,
         CharacterCardFragment.CharacterCardFragmentListener,
+        CharacterCardsFragment.CharacterCardsFragmentListener,
         StudentListFragment.StudentListFragmentListener {
     LoginFragment mLoginFragment;
     CharacterCardsFragment mCharacterCardsFragment;
     StudentListFragment mStudentListFragment;
-    FragmentPagerAdapter adapterViewPager;
+    SmartFragmentStatePagerAdapter adapterViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,17 +139,15 @@ public class MainActivity extends FragmentActivity
     }
     //endregion
 
-    //region CharacterCardFragmentListener
+    //region CharacterCardsFragmentListener
 
     public void onStrengthCardClick(Strength strength) {
         Intent intent = new Intent(MainActivity.this, StrengthDetailsActivity.class);
         intent.putExtra(StrengthDetailsActivity.STRENGTH_KEY, strength);
         startActivity(intent);
     }
-    //endregion
 
-    //region CharacterCardsFragmentListener
-    public FragmentPagerAdapter getAdapterViewPager() {
+    public SmartFragmentStatePagerAdapter getAdapterViewPager() {
         return adapterViewPager;
     }
     //endregion

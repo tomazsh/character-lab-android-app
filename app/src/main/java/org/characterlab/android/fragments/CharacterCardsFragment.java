@@ -3,19 +3,19 @@ package org.characterlab.android.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
 
 public class CharacterCardsFragment extends Fragment {
     CharacterCardsFragmentListener mListener;
 
     public interface CharacterCardsFragmentListener {
-        FragmentPagerAdapter getAdapterViewPager();
+        SmartFragmentStatePagerAdapter getAdapterViewPager();
     }
 
     public CharacterCardsFragment() {
@@ -35,6 +35,7 @@ public class CharacterCardsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
     }
 
     // Inflate the view for the fragment based on layout XML

@@ -1,33 +1,24 @@
 package org.characterlab.android.activities;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseImageView;
-import com.parse.ParseUser;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.AssessmentCardsAdapter;
-import org.characterlab.android.adapters.CharacterCardsAdapter;
 import org.characterlab.android.fragments.AssessmentCardFragment;
 import org.characterlab.android.fragments.AssessmentCardsFragment;
-import org.characterlab.android.fragments.CharacterCardsFragment;
-import org.characterlab.android.fragments.LoginFragment;
-import org.characterlab.android.fragments.LogoutDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
 import org.characterlab.android.helpers.DialogHelper;
 import org.characterlab.android.helpers.ParseClient;

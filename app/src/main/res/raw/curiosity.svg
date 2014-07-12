@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1140px" height="450px" viewBox="0 0 1140 450" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>curiosity</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M13.4,4.2 C19.2,8.4 23,15.3 23,23 C23,30.8 19.2,37.6 13.4,41.8 L13.4,41.1 C12.6,41.7 11.7,42.3 10.7,42.9 L10.7,43.5 C9.6,44.1 8.4,44.6 7.1,45 L7.1,44.5 C6.2,44.8 5.4,45.1 4.4,45.2 L4.4,45.7 C2.9,46 1.3,46.2 -0.3,46.2 L-0.3,-0.2 C1.3,-0.2 2.9,5.68434189e-14 4.4,0.3 L4.4,0.9 C5.3,1.1 6.2,1.3 7.1,1.6 L7.1,1 C8.3,1.4 9.5,1.9 10.7,2.5 L10.7,3.2 C11.6,3.7 12.5,4.3 13.4,5 L13.4,4.2 L13.4,4.2 Z"></path>
+        <path id="path-3" d="M13.4,4.2 C19.2,8.4 23,15.3 23,23 C23,30.8 19.2,37.6 13.4,41.8 L13.4,41.1 C12.6,41.7 11.7,42.3 10.7,42.9 L10.7,43.5 C9.6,44.1 8.4,44.6 7.1,45 L7.1,44.5 C6.2,44.8 5.4,45.1 4.4,45.2 L4.4,45.7 C2.9,46 1.3,46.2 -0.3,46.2 L-0.3,-0.2 C1.3,-0.2 2.9,5.68434189e-14 4.4,0.3 L4.4,0.9 C5.3,1.1 6.2,1.3 7.1,1.6 L7.1,1 C8.3,1.4 9.5,1.9 10.7,2.5 L10.7,3.2 C11.6,3.7 12.5,4.3 13.4,5 L13.4,4.2 L13.4,4.2 Z"></path>
+    </defs>
+    <g id="SVGs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="curiosity" sketch:type="MSLayerGroup">
+            <g id="Background" fill="#46427B" sketch:type="MSShapeGroup">
+                <rect id="Rectangle-path" x="0" y="0" width="1140" height="450"></rect>
+            </g>
+            <g id="Layer_3" transform="translate(0.000000, 20.000000)">
+                <rect id="Rectangle-path" fill="#58595B" sketch:type="MSShapeGroup" x="0" y="326" width="1140" height="16"></rect>
+                <rect id="Rectangle-path" fill="#4D4D4F" sketch:type="MSShapeGroup" x="0" y="326" width="1140" height="4.7"></rect>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="506" y="258" width="40.7" height="68.1"></rect>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="592" y="245" width="45.1" height="80.3"></rect>
+                <rect id="Rectangle-path" fill="#4D4D4F" sketch:type="MSShapeGroup" x="0" y="342" width="1140" height="88"></rect>
+                <g id="Group" transform="translate(713.000000, 63.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.5,-0.3 L8,6.8 L5,6.8 L6.5,-0.3 Z" id="Shape"></path>
+                    <path d="M6.5,13.8 L5,6.8 L8,6.8 L6.5,13.8 Z" id="Shape"></path>
+                    <path d="M-0.5,6.8 L6.5,5.2 L6.5,8.3 L-0.5,6.8 Z" id="Shape"></path>
+                    <path d="M13.5,6.8 L6.5,8.3 L6.5,5.2 L13.5,6.8 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(901.000000, 3.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7.1,-0.3 L8.6,6.7 L5.6,6.7 L7.1,-0.3 Z" id="Shape"></path>
+                    <path d="M7.1,13.8 L5.6,6.8 L8.6,6.8 L7.1,13.8 Z" id="Shape"></path>
+                    <path d="M0.1,6.7 L7.1,5.2 L7.1,8.3 L0.1,6.7 Z" id="Shape"></path>
+                    <path d="M14.1,6.7 L7.1,8.3 L7.1,5.2 L14.1,6.7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(603.000000, 58.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.5,-0.3 L8,6.7 L5,6.7 L6.5,-0.3 Z" id="Shape"></path>
+                    <path d="M6.5,13.8 L5,6.7 L8,6.7 L6.5,13.8 Z" id="Shape"></path>
+                    <path d="M-0.5,6.7 L6.5,5.2 L6.5,8.2 L-0.5,6.7 Z" id="Shape"></path>
+                    <path d="M13.5,6.7 L6.5,8.2 L6.5,5.2 L13.5,6.7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(961.000000, 28.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.8,0.4 L8.4,7.5 L5.3,7.5 L6.8,0.4 Z" id="Shape"></path>
+                    <path d="M6.8,14.5 L5.3,7.5 L8.4,7.5 L6.8,14.5 Z" id="Shape"></path>
+                    <path d="M-0.2,7.5 L6.8,5.9 L6.8,9 L-0.2,7.5 Z" id="Shape"></path>
+                    <path d="M13.9,7.5 L6.8,9 L6.8,5.9 L13.9,7.5 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(511.000000, 93.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.5,-0.1 L9,6.9 L5.9,6.9 L7.5,-0.1 Z" id="Shape"></path>
+                    <path d="M7.5,13.9 L5.9,6.9 L9,6.9 L7.5,13.9 Z" id="Shape"></path>
+                    <path d="M0.4,6.9 L7.5,5.4 L7.5,8.4 L0.4,6.9 Z" id="Shape"></path>
+                    <path d="M14.5,6.9 L7.5,8.4 L7.5,5.4 L14.5,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(175.000000, 153.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.2,0 L8.8,7 L5.7,7 L7.2,0 Z" id="Shape"></path>
+                    <path d="M7.2,14.1 L5.7,7 L8.8,7 L7.2,14.1 Z" id="Shape"></path>
+                    <path d="M0.2,7 L7.2,5.5 L7.2,8.6 L0.2,7 Z" id="Shape"></path>
+                    <path d="M14.3,7 L7.2,8.6 L7.2,5.5 L14.3,7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(97.000000, 199.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.8,0.2 L8.3,7.3 L5.2,7.3 L6.8,0.2 Z" id="Shape"></path>
+                    <path d="M6.8,14.3 L5.2,7.3 L8.3,7.3 L6.8,14.3 Z" id="Shape"></path>
+                    <path d="M-0.3,7.3 L6.7,5.7 L6.7,8.8 L-0.3,7.3 Z" id="Shape"></path>
+                    <path d="M13.8,7.3 L6.8,8.8 L6.8,5.7 L13.8,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(27.000000, 215.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M12.1,-0.2 L14.8,12.2 L9.4,12.2 L12.1,-0.2 Z" id="Shape"></path>
+                    <path d="M12.1,24.6 L9.4,12.3 L14.8,12.3 L12.1,24.6 Z" id="Shape"></path>
+                    <path d="M-0.3,12.2 L12.1,9.5 L12.1,14.9 L-0.3,12.2 Z" id="Shape"></path>
+                    <path d="M24.5,12.2 L12.1,14.9 L12.1,9.5 L24.5,12.2 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(517.000000, 48.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.6,-0.4 L8.1,6.6 L5,6.6 L6.6,-0.4 Z" id="Shape"></path>
+                    <path d="M6.6,13.6 L5,6.6 L8.1,6.6 L6.6,13.6 Z" id="Shape"></path>
+                    <path d="M-0.5,6.6 L6.6,5.1 L6.6,8.1 L-0.5,6.6 Z" id="Shape"></path>
+                    <path d="M13.6,6.6 L6.6,8.1 L6.6,5.1 L13.6,6.6 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(67.000000, 94.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7,0.4 L8.6,7.4 L5.5,7.4 L7,0.4 Z" id="Shape"></path>
+                    <path d="M7,14.5 L5.5,7.4 L8.6,7.4 L7,14.5 Z" id="Shape"></path>
+                    <path d="M0,7.4 L7,5.9 L7,9 L0,7.4 Z" id="Shape"></path>
+                    <path d="M14.1,7.4 L7,9 L7,5.9 L14.1,7.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(619.000000, 93.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.9,-0.1 L8.4,6.9 L5.3,6.9 L6.9,-0.1 Z" id="Shape"></path>
+                    <path d="M6.9,13.9 L5.3,6.9 L8.4,6.9 L6.9,13.9 Z" id="Shape"></path>
+                    <path d="M-0.2,6.9 L6.9,5.4 L6.9,8.4 L-0.2,6.9 Z" id="Shape"></path>
+                    <path d="M13.9,6.9 L6.9,8.4 L6.9,5.4 L13.9,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(417.000000, 139.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.4,-0.1 L8.9,6.9 L5.8,6.9 L7.4,-0.1 Z" id="Shape"></path>
+                    <path d="M7.4,14 L5.8,7 L8.9,7 L7.4,14 Z" id="Shape"></path>
+                    <path d="M0.3,7 L7.4,5.4 L7.4,8.5 L0.3,7 Z" id="Shape"></path>
+                    <path d="M14.4,7 L7.4,8.5 L7.4,5.4 L14.4,7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(227.000000, 179.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.8,-0.1 L8.4,7 L5.3,7 L6.8,-0.1 Z" id="Shape"></path>
+                    <path d="M6.8,14 L5.3,7 L8.4,7 L6.8,14 Z" id="Shape"></path>
+                    <path d="M-0.2,7 L6.8,5.4 L6.8,8.5 L-0.2,7 Z" id="Shape"></path>
+                    <path d="M13.9,7 L6.9,8.5 L6.9,5.4 L13.9,7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(295.000000, 137.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.5,0.4 L8.1,7.4 L5,7.4 L6.5,0.4 Z" id="Shape"></path>
+                    <path d="M6.5,14.5 L5,7.4 L8.1,7.4 L6.5,14.5 Z" id="Shape"></path>
+                    <path d="M-0.5,7.4 L6.5,5.9 L6.5,9 L-0.5,7.4 Z" id="Shape"></path>
+                    <path d="M13.6,7.4 L6.5,9 L6.5,5.9 L13.6,7.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(705.000000, 132.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.5,-0.1 L9,6.9 L5.9,6.9 L7.5,-0.1 Z" id="Shape"></path>
+                    <path d="M7.5,14 L5.9,6.9 L9,6.9 L7.5,14 Z" id="Shape"></path>
+                    <path d="M0.4,6.9 L7.5,5.4 L7.5,8.4 L0.4,6.9 Z" id="Shape"></path>
+                    <path d="M14.5,6.9 L7.5,8.4 L7.5,5.4 L14.5,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(847.000000, 159.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M10.8,0.2 L13.2,11.2 L8.4,11.2 L10.8,0.2 Z" id="Shape"></path>
+                    <path d="M10.8,22.2 L8.4,11.2 L13.2,11.2 L10.8,22.2 Z" id="Shape"></path>
+                    <path d="M-0.2,11.2 L10.8,8.8 L10.8,13.6 L-0.2,11.2 Z" id="Shape"></path>
+                    <path d="M21.8,11.2 L10.8,13.6 L10.8,8.8 L21.8,11.2 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(663.000000, 97.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.4,-0.2 L8.9,6.9 L5.8,6.9 L7.4,-0.2 Z" id="Shape"></path>
+                    <path d="M7.4,13.9 L5.8,6.9 L8.9,6.9 L7.4,13.9 Z" id="Shape"></path>
+                    <path d="M0.3,6.9 L7.4,5.4 L7.4,8.4 L0.3,6.9 Z" id="Shape"></path>
+                    <path d="M14.4,6.9 L7.4,8.4 L7.4,5.4 L14.4,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(773.000000, 130.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,0.3 L8.5,7.4 L5.5,7.4 L7,0.3 Z" id="Shape"></path>
+                    <path d="M7,14.4 L5.5,7.4 L8.5,7.4 L7,14.4 Z" id="Shape"></path>
+                    <path d="M0,7.4 L7,5.9 L7,8.9 L0,7.4 Z" id="Shape"></path>
+                    <path d="M14,7.4 L7,8.9 L7,5.9 L14,7.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(435.000000, 70.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.7,0.2 L8.3,7.3 L5.2,7.3 L6.7,0.2 Z" id="Shape"></path>
+                    <path d="M6.7,14.3 L5.2,7.3 L8.3,7.3 L6.7,14.3 Z" id="Shape"></path>
+                    <path d="M-0.3,7.3 L6.7,5.7 L6.7,8.8 L-0.3,7.3 Z" id="Shape"></path>
+                    <path d="M13.8,7.3 L6.7,8.8 L6.7,5.7 L13.8,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(165.000000, 105.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.7,0.4 L8.2,7.4 L5.1,7.4 L6.7,0.4 Z" id="Shape"></path>
+                    <path d="M6.7,14.5 L5.1,7.5 L8.2,7.5 L6.7,14.5 Z" id="Shape"></path>
+                    <path d="M-0.4,7.4 L6.7,5.9 L6.7,9 L-0.4,7.4 Z" id="Shape"></path>
+                    <path d="M13.7,7.4 L6.7,9 L6.7,5.9 L13.7,7.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(30.000000, 45.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,-0.5 L8.5,6.5 L5.4,6.5 L7,-0.5 Z" id="Shape"></path>
+                    <path d="M7,13.6 L5.4,6.5 L8.5,6.5 L7,13.6 Z" id="Shape"></path>
+                    <path d="M-0.1,6.5 L6.9,5 L6.9,8.1 L-0.1,6.5 Z" id="Shape"></path>
+                    <path d="M14,6.5 L7,8.1 L7,5 L14,6.5 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(37.000000, 150.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,-0.5 L8.5,6.5 L5.5,6.5 L7,-0.5 Z" id="Shape"></path>
+                    <path d="M7,13.5 L5.5,6.5 L8.5,6.5 L7,13.5 Z" id="Shape"></path>
+                    <path d="M0,6.5 L7,5 L7,8 L0,6.5 Z" id="Shape"></path>
+                    <path d="M14,6.5 L7,8 L7,5 L14,6.5 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(569.000000, 87.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.5,-0.3 L9,6.8 L5.9,6.8 L7.5,-0.3 Z" id="Shape"></path>
+                    <path d="M7.5,13.8 L5.9,6.8 L9,6.8 L7.5,13.8 Z" id="Shape"></path>
+                    <path d="M0.4,6.8 L7.5,5.3 L7.5,8.3 L0.4,6.8 Z" id="Shape"></path>
+                    <path d="M14.5,6.8 L7.5,8.3 L7.5,5.3 L14.5,6.8 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(608.000000, 0.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M10.7,0 L12.9,10.4 L8.4,10.4 L10.7,0 Z" id="Shape"></path>
+                    <path d="M10.7,20.7 L8.4,10.4 L12.9,10.4 L10.7,20.7 Z" id="Shape"></path>
+                    <path d="M0.3,10.4 L10.7,8.1 L10.7,12.6 L0.3,10.4 Z" id="Shape"></path>
+                    <path d="M21,10.4 L10.7,12.6 L10.7,8.1 L21,10.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(1038.000000, 16.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.3,0.4 L8.8,7.4 L5.8,7.4 L7.3,0.4 Z" id="Shape"></path>
+                    <path d="M7.3,14.4 L5.8,7.4 L8.8,7.4 L7.3,14.4 Z" id="Shape"></path>
+                    <path d="M0.3,7.4 L7.3,5.9 L7.3,8.9 L0.3,7.4 Z" id="Shape"></path>
+                    <path d="M14.3,7.4 L7.3,8.9 L7.3,5.9 L14.3,7.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(928.000000, 118.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,-0.2 L8.5,6.8 L5.4,6.8 L7,-0.2 Z" id="Shape"></path>
+                    <path d="M7,13.9 L5.4,6.9 L8.5,6.9 L7,13.9 Z" id="Shape"></path>
+                    <path d="M-0.1,6.8 L7,5.3 L7,8.4 L-0.1,6.8 Z" id="Shape"></path>
+                    <path d="M14,6.8 L7,8.4 L7,5.3 L14,6.8 Z" id="Shape"></path>
+                </g>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="670" y="269" width="54.2" height="56.9"></rect>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="667" y="266" width="59.2" height="5.7"></rect>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="405" y="284" width="54.2" height="41.3"></rect>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="402" y="282" width="59.2" height="5.7"></rect>
+                <g id="Group" transform="translate(431.000000, 258.000000)" fill="#5D57A2" sketch:type="MSShapeGroup">
+                    <rect id="Rectangle-path" x="3" y="14" width="16.5" height="16.5"></rect>
+                    <path d="M10.7,-0.5 L21,14.2 L0.4,14.2 L10.7,-0.5 Z" id="Shape"></path>
+                </g>
+                <rect id="Rectangle-path" fill="#5D57A2" sketch:type="MSShapeGroup" x="485" y="280" width="40.7" height="45.6"></rect>
+                <g id="Group" transform="translate(724.000000, 350.000000)" sketch:type="MSShapeGroup">
+                    <path d="M102.3,3.8 L76.1,0.2 L47.4,6.7 L21.3,1.8 L0.3,53.8 L38.2,58.4 L75.5,50.9 L107.6,54.8 L102.3,3.8 Z" id="Shape" fill="#0B6B9B"></path>
+                    <path d="M76.1,0.2 L47.4,6.7 L21.3,1.8 L0.3,53.8 L38.2,58.4 L75.5,50.9 L76.1,0.2 Z" id="Shape" fill="#0087C8"></path>
+                    <path d="M47.4,6.7 L21.3,1.8 L0.3,53.8 L38.2,58.4 L47.4,6.7 Z" id="Shape" fill="#0B6B9B"></path>
+                    <circle id="Oval" fill="#B3B3B3" cx="32" cy="32" r="1"></circle>
+                    <g transform="translate(24.000000, 25.000000)" fill="#B3B3B3">
+                        <circle id="Oval" cx="1" cy="8" r="1"></circle>
+                        <circle id="Oval" cx="9" cy="14" r="1"></circle>
+                        <circle id="Oval" cx="14" cy="1" r="1"></circle>
+                        <path d="M0.9,8.4 L0.7,7.4 L7.6,6.2 L13.9,0.1 L14.6,0.8 L8.1,7.1 L0.9,8.4 Z" id="Shape"></path>
+                        <rect id="Rectangle-path" transform="translate(7.942700, 10.520700) rotate(79.058640) translate(-7.942700, -10.520700) " x="4.44277826" y="10.0207112" width="7.09984124" height="0.99997764"></rect>
+                    </g>
+                    <g transform="translate(53.000000, 20.000000)" fill="#E6E6E6">
+                        <path d="M4.7,12.6 L0.8,6.5 L3,0.7 L9,0.7 L10.4,10.4 L4.7,12.6 L4.7,12.6 Z M1.9,6.4 L5.1,11.4 L9.3,9.8 L8.2,1.8 L3.7,1.8 L1.9,6.4 L1.9,6.4 Z" id="Shape"></path>
+                        <rect id="Rectangle-path" transform="translate(9.876650, 15.500050) rotate(33.373836) translate(-9.876650, -15.500050) " x="3.87664394" y="15.0000495" width="12.2000123" height="1.00000101"></rect>
+                        <circle id="Oval" cx="3" cy="1" r="1"></circle>
+                        <circle id="Oval" cx="9" cy="1" r="1"></circle>
+                        <circle id="Oval" cx="10" cy="10" r="1"></circle>
+                        <circle id="Oval" cx="1" cy="6" r="1"></circle>
+                        <circle id="Oval" cx="15" cy="19" r="1"></circle>
+                        <circle id="Oval" cx="5" cy="12" r="1"></circle>
+                    </g>
+                    <g transform="translate(31.000000, 42.000000)">
+                        <path d="M5.9,11.5 L4.9,11.5 L4.9,8.2 L1.2,9.9 L0.8,9 L5.9,6.7 L5.9,11.5 Z" id="Shape" fill="#B3B3B3"></path>
+                        <path d="M7.9,2.4 L4.3,1.4 L4.5,0.4 L8,1.4 L9.8,1.9 L9.5,2.9 L7.9,2.4 Z" id="Shape" fill="#B3B3B3"></path>
+                        <rect id="Rectangle-path" fill="#B3B3B3" transform="translate(6.344900, 4.902050) rotate(24.463397) translate(-6.344900, -4.902050) " x="5.84491429" y="1.90213573" width="0.999971425" height="6.09982569"></rect>
+                        <circle id="Oval" fill="#F2F2F2" cx="13" cy="2" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="4" cy="1" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="1" cy="10" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="5" cy="12" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="8" cy="2" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="5" cy="8" r="1"></circle>
+                        <path d="M9.8,1.9 L12.7,1.3 L12.8,2 L9.5,2.9 L9.8,1.9 Z" id="Shape" fill="#F2F2F2"></path>
+                    </g>
+                    <g transform="translate(69.000000, 15.000000)">
+                        <path d="M19.7,22.3 L18.3,11.3 L24.6,7.8 L30.1,19.4 L19.7,22.3 L19.7,22.3 Z M19.5,11.9 L20.6,21.1 L28.7,18.9 L24.2,9.3 L19.5,11.9 L19.5,11.9 Z" id="Shape" fill="#999999"></path>
+                        <path d="M24.9,8.8 L24,8.4 L25.7,4.8 L29.9,3.6 L30.2,4.6 L26.4,5.7 L24.9,8.8 Z" id="Shape" fill="#999999"></path>
+                        <rect id="Rectangle-path" fill="#999999" transform="translate(31.104950, 19.377550) rotate(15.313410) translate(-31.104950, -19.377550) " x="29.1049409" y="18.8775477" width="4.20001903" height="1.00000453"></rect>
+                        <path d="M14.6,14.1 L10.9,12.7 L16.7,3.3 L14.9,1.3 L15.7,0.6 L17.9,3.2 L12.4,12.2 L14.5,13 L18.7,11.2 L19.1,12.1 L14.6,14.1 Z" id="Shape" fill="#999999"></path>
+                        <path d="M11.4,12.8 L6.8,10 L4,11 L0.5,11 L0.5,10 L4,10 L6.9,8.9 L11.9,12 L11.4,12.8 Z" id="Shape" fill="#999999"></path>
+                        <circle id="Oval" fill="#B3B3B3" cx="33" cy="20" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="29" cy="19" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="20" cy="22" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="30" cy="4" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="26" cy="5" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="24" cy="9" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="19" cy="12" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="15" cy="14" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="12" cy="12" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="17" cy="3" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="15" cy="1" r="1"></circle>
+                        <circle id="Oval" fill="#B3B3B3" cx="7" cy="10" r="1"></circle>
+                        <circle id="Oval" fill="#E6E6E6" cx="4" cy="11" r="1"></circle>
+                        <circle id="Oval" fill="#E6E6E6" cx="1" cy="10" r="1"></circle>
+                        <path d="M6.8,10 L4,11 L0.5,11 L0.5,10 L4,10 L6.9,8.9 L6.8,10 Z" id="Shape" fill="#E6E6E6"></path>
+                        <path d="M6.8,10.5 C6.3,10.5 5.8,10.1 5.8,9.5 C5.8,8.9 6.2,8.5 6.8,8.5 L6.8,10.5 L6.8,10.5 Z" id="Shape" fill="#E6E6E6"></path>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(471.000000, 177.000000)" sketch:type="MSShapeGroup">
+                    <path d="M96.2,189.8 C94.9,189.8 93.9,188.8 93.9,187.5 L93.9,107.2 C93.9,105.9 94.9,104.9 96.2,104.9 C97.5,104.9 98.5,105.9 98.5,107.2 L98.5,187.5 C98.5,188.7 97.4,189.8 96.2,189.8 L96.2,189.8 Z" id="Shape" fill="#D0D2D3"></path>
+                    <rect id="Rectangle-path" fill="#404041" x="63" y="160" width="66.7" height="4.5"></rect>
+                    <path d="M88.3,113 L71.6,75.8 L126.8,62.6 L104.1,113 L88.3,113 Z" id="Shape" fill="#587088"></path>
+                    <path d="M89.7,107.2 L75.1,74.8 L123.2,63.2 L103.4,107.2 L89.7,107.2 Z" id="Shape" fill="#556476"></path>
+                    <circle id="Oval" fill="#4D5560" cx="96.3" cy="108.3" r="9.3"></circle>
+                    <path d="M49.7,189.9 C49.3,189.9 48.9,189.8 48.6,189.6 C47.5,189 47.1,187.6 47.8,186.5 L94.2,106.1 C94.8,105 96.2,104.6 97.3,105.3 C98.4,105.9 98.8,107.3 98.1,108.4 L51.7,188.8 C51.3,189.5 50.5,189.9 49.7,189.9 L49.7,189.9 Z" id="Shape" fill="#D0D2D3"></path>
+                    <path d="M142.6,189.9 C141.8,189.9 141.1,189.5 140.6,188.8 L94.2,108.4 C93.6,107.3 93.9,105.9 95,105.3 C96.1,104.7 97.5,105 98.1,106.1 L144.5,186.5 C145.1,187.6 144.8,189 143.7,189.6 C143.4,189.8 143,189.9 142.6,189.9 L142.6,189.9 Z" id="Shape" fill="#D0D2D3"></path>
+                    <circle id="Oval" fill="#3D3F45" cx="95.9" cy="107.9" r="7.9"></circle>
+                    <g>
+                        <circle id="Oval" fill="#8AC1E8" cx="151.3" cy="29.3" r="20.3"></circle>
+                        <g>
+                            <path d="M166.1,46.6 L127.4,68.9 C124.5,70.6 120.8,69.6 119.1,66.7 L111.1,52.9 L102.2,37.4 C100.5,34.5 101.5,30.8 104.4,29.1 L143.1,6.8 L166.1,46.6 L166.1,46.6 Z" id="Shape" fill="#0F8ECE"></path>
+                            <path d="M119.1,66.7 L75,92.2 C72.1,93.9 68.4,92.9 66.7,90 L61.7,81.4 L55.8,71.2 C54.1,68.3 55.1,64.6 58,62.9 L102.1,37.4 L111,52.9 L119.1,66.7 L119.1,66.7 Z" id="Shape" fill="#0F8ECE"></path>
+                            <path d="M21.5,120.8 C22.2,122 21.8,123.6 20.5,124.4 L19.4,125.1 C18.2,125.8 16.6,125.4 15.8,124.1 L0.8,98.2 C0.1,97 0.5,95.4 1.8,94.6 L2.9,93.9 C4.1,93.2 5.7,93.6 6.5,94.9 L21.5,120.8 L21.5,120.8 Z" id="Shape" fill="#F79739"></path>
+                            <rect id="Rectangle-path" fill="#0F8ECE" transform="translate(37.671100, 93.824300) rotate(149.999272) translate(-37.671100, -93.824300) " x="10.171705" y="82.324553" width="54.498801" height="22.499505"></rect>
+                            <path d="M166.1,46.6 L127.4,68.9 C124.5,70.6 120.8,69.6 119.1,66.7 L110.9,52.5 L154.8,27.1 L166.1,46.6 L166.1,46.6 Z" id="Shape" fill="#2E67B1"></path>
+                            <path d="M119.1,66.7 L75,92.2 C72.1,93.9 68.4,92.9 66.7,90 L61.6,81.1 L111,52.6 L119.1,66.7 L119.1,66.7 Z" id="Shape" fill="#2E67B1"></path>
+                            <rect id="Rectangle-path" fill="#2E67B1" transform="translate(40.658700, 99.079900) rotate(149.999272) translate(-40.658700, -99.079900) " x="13.159305" y="93.580021" width="54.498801" height="10.6997646"></rect>
+                            <path d="M21.5,120.8 C22.2,122 21.8,123.6 20.5,124.4 L19.4,125.1 C18.2,125.8 16.6,125.4 15.8,124.1 L8.6,111.6 L14.2,108.3 L21.5,120.8 L21.5,120.8 Z" id="Shape" fill="#F37B35"></path>
+                            <path d="M175.6,41.1 C176.3,42.3 175.9,43.9 174.6,44.7 L169.5,47.6 C168.3,48.3 166.7,47.9 165.9,46.6 L142.9,6.8 C142.2,5.6 142.6,4 143.9,3.2 L149,0.3 C150.2,-0.4 151.8,1.19348975e-14 152.6,1.3 L175.6,41.1 L175.6,41.1 Z" id="Shape" fill="#F79739"></path>
+                            <path d="M175.6,41.1 C176.3,42.3 175.9,43.9 174.6,44.7 L169.5,47.6 C168.3,48.3 166.7,47.9 165.9,46.6 L154.7,27.2 L164.3,21.7 L175.6,41.1 L175.6,41.1 Z" id="Shape" fill="#F37B35"></path>
+                        </g>
+                        <rect id="Rectangle-path" fill="#FFDE28" transform="translate(109.194900, 52.820500) rotate(149.999272) translate(-109.194900, -52.820500) " x="107.194944" y="35.820874" width="3.5999208" height="33.7992564"></rect>
+                        <rect id="Rectangle-path" fill="#FFDE28" transform="translate(59.843700, 81.875400) rotate(149.999272) translate(-59.843700, -81.875400) " x="57.843744" y="70.375653" width="3.5999208" height="22.999494"></rect>
+                        <rect id="Rectangle-path" fill="#FDCE09" transform="translate(113.315300, 61.208900) rotate(149.999272) translate(-113.315300, -61.208900) " x="111.315344" y="53.209076" width="3.5999208" height="16.2996414"></rect>
+                        <rect id="Rectangle-path" fill="#FDCE09" transform="translate(62.831400, 87.131100) rotate(149.999272) translate(-62.831400, -87.131100) " x="60.831444" y="81.631221" width="3.5999208" height="11.1997536"></rect>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(307.000000, 337.000000)">
+                    <ellipse id="Oval" fill="#FFF490" sketch:type="MSShapeGroup" cx="17.9" cy="32" rx="17.9" ry="21"></ellipse>
+                    <path d="M67.3,18.3 L59.9,18.3 C59.9,18.3 61.7,16.8 61.7,16.1 L61.7,5.7 C61.7,4.7 60.9,3.9 59.9,3.9 L28.6,3.9 C27.6,3.9 26.8,4.7 26.8,5.7 L26.8,11.6 L23.1,11.6 L23.1,5.7 C23.1,2.7 25.6,0.2 28.6,0.2 L59.9,0.2 C62.9,0.2 65.4,2.7 65.4,5.7 L65.4,16.1 C65.5,16.8 67.3,18.3 67.3,18.3 L67.3,18.3 Z" id="Shape" fill="#333333" sketch:type="MSShapeGroup"></path>
+                    <path d="M83.1,42.8 C83.1,44.4 81.8,45.7 80.2,45.7 L32.7,45.7 C31.1,45.7 29.8,44.4 29.8,42.8 L29.8,21.2 C29.8,19.6 31.1,18.3 32.7,18.3 L80.2,18.3 C81.8,18.3 83.1,19.6 83.1,21.2 L83.1,42.8 L83.1,42.8 Z" id="Shape" fill="#FFDE28" sketch:type="MSShapeGroup"></path>
+                    <path d="M7.5,57.1 C7.5,57.6 7.9,58 8.4,58 L14.9,58 C15.4,58 15.8,57.6 15.8,57.1 L15.8,6.9 C15.8,6.4 15.4,6 14.9,6 L8.4,6 C7.9,6 7.5,6.4 7.5,6.9 L7.5,57.1 L7.5,57.1 Z" id="Shape" fill="#333333" sketch:type="MSShapeGroup"></path>
+                    <path d="M78.2,56.6 C78.7,56.6 79.1,56.2 79.1,55.7 L79.1,46.6 C79.1,46.1 78.7,45.7 78.2,45.7 L39.9,45.7 C39.4,45.7 39,46.1 39,46.6 L39,55.7 C39,56.2 39.4,56.6 39.9,56.6 L78.2,56.6 L78.2,56.6 Z" id="Shape" fill="#000000" sketch:type="MSShapeGroup"></path>
+                    <path d="M29.4,13.2 C35.2,17.4 39,24.3 39,32 C39,39.8 35.2,46.6 29.4,50.8 L29.4,49.7 C28.6,50.3 27.7,50.9 26.7,51.5 L26.7,52.6 C25.6,53.2 24.4,53.7 23.1,54.1 L23.1,53.1 C22.2,53.4 21.4,53.7 20.4,53.8 L20.4,54.7 C18.9,55 17.3,55.2 15.7,55.2 L15.7,8.8 C17.3,8.8 18.9,9 20.4,9.3 L20.4,10.2 C21.3,10.4 22.2,10.6 23.1,10.9 L23.1,9.9 C24.3,10.3 25.5,10.8 26.7,11.4 L26.7,12.5 C27.6,13 28.5,13.6 29.4,14.3 L29.4,13.2 L29.4,13.2 Z" id="Shape" fill="#FFDE28" sketch:type="MSShapeGroup"></path>
+                    <path d="M77.4,18.4 C77.4,16.5 75.9,15 74,15 C73.2,15 72.6,14.4 72.6,13.6 C72.6,12.8 73.2,12.2 74,12.2 C77.4,12.2 80.1,15 80.1,18.3 L77.4,18.3 L77.4,18.4 Z" id="Shape" fill="#FDCE09" sketch:type="MSShapeGroup"></path>
+                    <path d="M83.1,42.8 C83.1,44.4 81.8,45.7 80.2,45.7 L32.7,45.7 C31.1,45.7 29.8,44.4 29.8,42.8 L29.8,32 L83.1,32 L83.1,42.8 L83.1,42.8 Z" id="Shape" fill="#FDCE09" sketch:type="MSShapeGroup"></path>
+                    <path d="M39,32 C39,32 35.2,46.6 29.4,50.8 L29.4,49.7 C28.6,50.3 27.7,50.9 26.7,51.5 L26.7,52.6 C25.6,53.2 24.4,53.7 23.1,54.1 L23.1,53.1 C22.2,53.4 21.4,53.7 20.4,53.8 L20.4,54.7 C18.9,55 17.3,55.2 15.7,55.2 L15.7,32 L39,32 L39,32 Z" id="Shape" fill="#FDCE09" sketch:type="MSShapeGroup"></path>
+                    <g transform="translate(16.000000, 9.000000)" id="Clipped">
+                        <g>
+                            <mask id="mask-2" sketch:name="SVGID_1_" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="SVGID_1_"></g>
+                            <g id="Group" mask="url(#mask-2)" fill="#FDC309" sketch:type="MSShapeGroup">
+                                <g transform="translate(5.000000, -1.000000)" id="Rectangle-path">
+                                    <rect x="0" y="0" width="2.7" height="50"></rect>
+                                    <rect x="6" y="0" width="2.7" height="50"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <g>
+                            <mask id="mask-4" sketch:name="SVGID_1_" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="SVGID_1_"></g>
+                            <g id="Group" mask="url(#mask-4)" fill="#F2B902" sketch:type="MSShapeGroup">
+                                <g transform="translate(5.000000, 23.000000)" id="Rectangle-path">
+                                    <rect x="0" y="0" width="2.7" height="26"></rect>
+                                    <rect x="6" y="0" width="2.7" height="26"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <rect id="Rectangle-path" fill="#333333" sketch:type="MSShapeGroup" x="58" y="28" width="17.2" height="8.9"></rect>
+                    <rect id="Rectangle-path" fill="#000000" sketch:type="MSShapeGroup" x="58" y="32" width="17.2" height="4.5"></rect>
+                    <path d="M7.5,57.1 C7.5,57.6 7.9,58 8.4,58 L14.9,58 C15.4,58 15.8,57.6 15.8,57.1 L15.8,32 L7.5,32 L7.5,57.1 L7.5,57.1 Z" id="Shape" fill="#000000" sketch:type="MSShapeGroup"></path>
+                </g>
+                <rect id="Rectangle-path" fill="#666666" sketch:type="MSShapeGroup" x="67" y="311" width="103" height="54.2"></rect>
+                <rect id="Rectangle-path" fill="#808080" sketch:type="MSShapeGroup" x="141" y="251" width="21" height="59.9"></rect>
+                <path d="M162.2,231.7 L140.8,231.7 L136.8,251.7 L166.2,251.7 L162.2,231.7 Z" id="Shape" fill="#999999" sketch:type="MSShapeGroup"></path>
+                <rect id="Rectangle-path" fill="#666666" sketch:type="MSShapeGroup" x="152" y="251" width="10.5" height="59.9"></rect>
+                <path d="M162.2,231.7 L151.5,231.7 L151.5,251.7 L166.2,251.7 L162.2,231.7 Z" id="Shape" fill="#808080" sketch:type="MSShapeGroup"></path>
+                <rect id="Rectangle-path" fill="#808080" sketch:type="MSShapeGroup" x="104" y="267" width="21" height="44.5"></rect>
+                <rect id="Rectangle-path" fill="#666666" sketch:type="MSShapeGroup" x="114" y="267" width="10.5" height="44.5"></rect>
+                <path d="M125,247.8 L103.5,247.8 L99.5,267.8 L129,267.8 L125,247.8 Z" id="Shape" fill="#999999" sketch:type="MSShapeGroup"></path>
+                <path d="M125,247.8 L114.2,247.8 L114.2,267.8 L129,267.8 L125,247.8 Z" id="Shape" fill="#808080" sketch:type="MSShapeGroup"></path>
+                <rect id="Rectangle-path" fill="#999999" sketch:type="MSShapeGroup" x="65" y="311" width="107" height="3.1"></rect>
+                <rect id="Rectangle-path" fill="#666666" sketch:type="MSShapeGroup" x="942" y="319" width="151" height="27.2"></rect>
+                <g id="Group" transform="translate(975.000000, 245.000000)" sketch:type="MSShapeGroup">
+                    <path d="M0,74 L0,3.8 C0,1.6 1.8,-0.2 4,-0.2 C6.2,-0.2 8,1.6 8,3.8 L8,74 L0,74 L0,74 Z" id="Shape" fill="#999999"></path>
+                    <path d="M4,74 L4,-0.2 C6.2,-0.2 8,1.6 8,3.8 L8,74 L4,74 L4,74 Z" id="Shape" fill="#808080"></path>
+                </g>
+                <g id="Group" transform="translate(1052.000000, 245.000000)" sketch:type="MSShapeGroup">
+                    <path d="M0.3,74 L0.3,3.8 C0.3,1.6 2.1,-0.2 4.3,-0.2 C6.5,-0.2 8.3,1.6 8.3,3.8 L8.3,74 L0.3,74 L0.3,74 Z" id="Shape" fill="#999999"></path>
+                    <path d="M4.3,74 L4.3,-0.2 C6.5,-0.2 8.3,1.6 8.3,3.8 L8.3,74 L4.3,74 L4.3,74 Z" id="Shape" fill="#808080"></path>
+                </g>
+                <path d="M943,319 L942,319 L978.6,262.4 C978.6,262.4 978.9,261.8 979.4,262.2 C979.9,262.6 979.5,263 979.5,263 L943,319 L943,319 Z" id="Shape" fill="#666666" sketch:type="MSShapeGroup"></path>
+                <path d="M1092,319 L1093,319 L1056.4,262.4 C1056.4,262.4 1056.1,261.8 1055.6,262.2 C1055.1,262.6 1055.5,263 1055.5,263 L1092,319 L1092,319 Z" id="Shape" fill="#666666" sketch:type="MSShapeGroup"></path>
+                <rect id="Rectangle-path" fill="#999999" sketch:type="MSShapeGroup" x="983" y="298" width="69.3" height="4.7"></rect>
+                <rect id="Rectangle-path" fill="#808080" sketch:type="MSShapeGroup" x="983" y="300" width="69.3" height="2.3"></rect>
+                <path d="M124,41.3 C132.3,61 154,57.8 140.5,63 C127,68.2 111.9,61.4 106.7,48 C101.5,34.6 108.3,19.4 121.7,14.2 C135.1,9 115.6,21.6 124,41.3 L124,41.3 Z" id="Shape" fill="#F8F4B0" sketch:type="MSShapeGroup"></path>
+                <g id="Group" transform="translate(387.000000, 25.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.2,-0.1 L8.7,6.9 L5.6,6.9 L7.2,-0.1 Z" id="Shape"></path>
+                    <path d="M7.2,14 L5.6,7 L8.7,7 L7.2,14 Z" id="Shape"></path>
+                    <path d="M0.1,7 L7.2,5.4 L7.2,8.5 L0.1,7 Z" id="Shape"></path>
+                    <path d="M14.2,7 L7.2,8.5 L7.2,5.4 L14.2,7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(717.000000, 6.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.7,0.2 L8.3,7.3 L5.2,7.3 L6.7,0.2 Z" id="Shape"></path>
+                    <path d="M6.7,14.3 L5.2,7.3 L8.3,7.3 L6.7,14.3 Z" id="Shape"></path>
+                    <path d="M-0.3,7.3 L6.7,5.7 L6.7,8.8 L-0.3,7.3 Z" id="Shape"></path>
+                    <path d="M13.8,7.3 L6.7,8.8 L6.7,5.7 L13.8,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(656.000000, 39.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7.3,0 L8.9,7 L5.8,7 L7.3,0 Z" id="Shape"></path>
+                    <path d="M7.3,14.1 L5.8,7 L8.9,7 L7.3,14.1 Z" id="Shape"></path>
+                    <path d="M0.3,7 L7.3,5.5 L7.3,8.6 L0.3,7 Z" id="Shape"></path>
+                    <path d="M14.4,7 L7.4,8.6 L7.4,5.5 L14.4,7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(764.000000, 73.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7,0.3 L8.5,7.3 L5.4,7.3 L7,0.3 Z" id="Shape"></path>
+                    <path d="M7,14.4 L5.4,7.3 L8.5,7.3 L7,14.4 Z" id="Shape"></path>
+                    <path d="M-0.1,7.3 L7,5.8 L7,8.9 L-0.1,7.3 Z" id="Shape"></path>
+                    <path d="M14,7.3 L7,8.9 L7,5.8 L14,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(1086.000000, 70.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7,0.2 L8.5,7.3 L5.5,7.3 L7,0.2 Z" id="Shape"></path>
+                    <path d="M7,14.3 L5.5,7.3 L8.5,7.3 L7,14.3 Z" id="Shape"></path>
+                    <path d="M0,7.3 L7,5.7 L7,8.8 L0,7.3 Z" id="Shape"></path>
+                    <path d="M14,7.3 L7,8.8 L7,5.7 L14,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(830.000000, 100.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,-0.1 L8.5,6.9 L5.5,6.9 L7,-0.1 Z" id="Shape"></path>
+                    <path d="M7,14 L5.5,6.9 L8.5,6.9 L7,14 Z" id="Shape"></path>
+                    <path d="M0,6.9 L7,5.4 L7,8.5 L0,6.9 Z" id="Shape"></path>
+                    <path d="M14,6.9 L7,8.5 L7,5.4 L14,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(968.000000, 85.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.9,0.2 L8.4,7.2 L5.3,7.2 L6.9,0.2 Z" id="Shape"></path>
+                    <path d="M6.9,14.3 L5.3,7.3 L8.4,7.3 L6.9,14.3 Z" id="Shape"></path>
+                    <path d="M-0.2,7.3 L6.8,5.7 L6.8,8.8 L-0.2,7.3 Z" id="Shape"></path>
+                    <path d="M13.9,7.3 L6.9,8.8 L6.9,5.7 L13.9,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(994.000000, 181.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,-0.5 L8.5,6.5 L5.5,6.5 L7,-0.5 Z" id="Shape"></path>
+                    <path d="M7,13.5 L5.5,6.5 L8.5,6.5 L7,13.5 Z" id="Shape"></path>
+                    <path d="M0,6.5 L7,5 L7,8 L0,6.5 Z" id="Shape"></path>
+                    <path d="M14,6.5 L7,8 L7,5 L14,6.5 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(805.000000, 18.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.5,-0.1 L8,6.9 L5,6.9 L6.5,-0.1 Z" id="Shape"></path>
+                    <path d="M6.5,14 L5,6.9 L8,6.9 L6.5,14 Z" id="Shape"></path>
+                    <path d="M-0.5,6.9 L6.5,5.4 L6.5,8.5 L-0.5,6.9 Z" id="Shape"></path>
+                    <path d="M13.6,6.9 L6.5,8.5 L6.5,5.4 L13.6,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(882.000000, 40.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M10.5,-0.3 L12.8,10 L8.3,10 L10.5,-0.3 Z" id="Shape"></path>
+                    <path d="M10.5,20.3 L8.3,10 L12.8,10 L10.5,20.3 Z" id="Shape"></path>
+                    <path d="M0.2,10 L10.5,7.8 L10.5,12.3 L0.2,10 Z" id="Shape"></path>
+                    <path d="M20.8,10 L10.5,12.3 L10.5,7.8 L20.8,10 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(1081.000000, 154.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M10.5,0 L12.8,10.3 L8.3,10.3 L10.5,0 Z" id="Shape"></path>
+                    <path d="M10.5,20.7 L8.3,10.4 L12.8,10.4 L10.5,20.7 Z" id="Shape"></path>
+                    <path d="M0.2,10.3 L10.5,8.1 L10.5,12.6 L0.2,10.3 Z" id="Shape"></path>
+                    <path d="M20.9,10.3 L10.6,12.6 L10.6,8.1 L20.9,10.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(1018.000000, 111.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M6.7,-0.2 L8.2,6.8 L5.2,6.8 L6.7,-0.2 Z" id="Shape"></path>
+                    <path d="M6.7,13.8 L5.2,6.8 L8.2,6.8 L6.7,13.8 Z" id="Shape"></path>
+                    <path d="M-0.3,6.8 L6.7,5.3 L6.7,8.3 L-0.3,6.8 Z" id="Shape"></path>
+                    <path d="M13.7,6.8 L6.7,8.3 L6.7,5.3 L13.7,6.8 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(546.000000, 5.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7.2,-0.3 L8.7,6.7 L5.6,6.7 L7.2,-0.3 Z" id="Shape"></path>
+                    <path d="M7.2,13.8 L5.6,6.7 L8.7,6.7 L7.2,13.8 Z" id="Shape"></path>
+                    <path d="M0.1,6.7 L7.1,5.2 L7.1,8.3 L0.1,6.7 Z" id="Shape"></path>
+                    <path d="M14.2,6.7 L7.2,8.3 L7.2,5.2 L14.2,6.7 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(472.000000, 6.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7.4,0.2 L9,7.3 L5.9,7.3 L7.4,0.2 Z" id="Shape"></path>
+                    <path d="M7.4,14.3 L5.9,7.3 L9,7.3 L7.4,14.3 Z" id="Shape"></path>
+                    <path d="M0.4,7.3 L7.4,5.7 L7.4,8.8 L0.4,7.3 Z" id="Shape"></path>
+                    <path d="M14.5,7.3 L7.4,8.8 L7.4,5.7 L14.5,7.3 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(293.000000, 8.000000)" fill="#767395" sketch:type="MSShapeGroup">
+                    <path d="M7,-0.2 L8.5,6.8 L5.5,6.8 L7,-0.2 Z" id="Shape"></path>
+                    <path d="M7,13.8 L5.5,6.8 L8.5,6.8 L7,13.8 Z" id="Shape"></path>
+                    <path d="M0,6.8 L7,5.3 L7,8.3 L0,6.8 Z" id="Shape"></path>
+                    <path d="M14,6.8 L7,8.3 L7,5.3 L14,6.8 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(397.000000, 61.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.5,0.2 L9,7.2 L5.9,7.2 L7.5,0.2 Z" id="Shape"></path>
+                    <path d="M7.5,14.3 L5.9,7.3 L9,7.3 L7.5,14.3 Z" id="Shape"></path>
+                    <path d="M0.4,7.2 L7.5,5.7 L7.5,8.8 L0.4,7.2 Z" id="Shape"></path>
+                    <path d="M14.5,7.2 L7.5,8.8 L7.5,5.7 L14.5,7.2 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(241.000000, 27.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.9,-0.1 L8.5,6.9 L5.4,6.9 L6.9,-0.1 Z" id="Shape"></path>
+                    <path d="M6.9,14 L5.4,7 L8.5,7 L6.9,14 Z" id="Shape"></path>
+                    <path d="M-0.1,6.9 L6.9,5.4 L6.9,8.5 L-0.1,6.9 Z" id="Shape"></path>
+                    <path d="M14,6.9 L6.9,8.5 L6.9,5.4 L14,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(257.000000, 66.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M8.9,0.3 L10.9,9.6 L6.9,9.6 L8.9,0.3 Z" id="Shape"></path>
+                    <path d="M8.9,18.9 L6.9,9.6 L10.9,9.6 L8.9,18.9 Z" id="Shape"></path>
+                    <path d="M-0.4,9.6 L8.9,7.6 L8.9,11.7 L-0.4,9.6 Z" id="Shape"></path>
+                    <path d="M18.2,9.6 L8.9,11.7 L8.9,7.6 L18.2,9.6 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(336.000000, 98.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.9,0.4 L8.4,7.4 L5.4,7.4 L6.9,0.4 Z" id="Shape"></path>
+                    <path d="M6.9,14.4 L5.4,7.4 L8.4,7.4 L6.9,14.4 Z" id="Shape"></path>
+                    <path d="M-0.1,7.4 L6.9,5.9 L6.9,8.9 L-0.1,7.4 Z" id="Shape"></path>
+                    <path d="M14,7.4 L6.9,8.9 L6.9,5.9 L14,7.4 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(107.000000, 134.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M7.2,-0.1 L8.8,6.9 L5.7,6.9 L7.2,-0.1 Z" id="Shape"></path>
+                    <path d="M7.2,13.9 L5.7,6.9 L8.8,6.9 L7.2,13.9 Z" id="Shape"></path>
+                    <path d="M0.2,6.9 L7.2,5.4 L7.2,8.4 L0.2,6.9 Z" id="Shape"></path>
+                    <path d="M14.3,6.9 L7.3,8.4 L7.3,5.4 L14.3,6.9 Z" id="Shape"></path>
+                </g>
+                <g id="Group" transform="translate(930.000000, 196.000000)" fill="#9D99C6" sketch:type="MSShapeGroup">
+                    <path d="M6.5,-0.3 L8,6.7 L5,6.7 L6.5,-0.3 Z" id="Shape"></path>
+                    <path d="M6.5,13.8 L5,6.8 L8,6.8 L6.5,13.8 Z" id="Shape"></path>
+                    <path d="M-0.5,6.7 L6.5,5.2 L6.5,8.3 L-0.5,6.7 Z" id="Shape"></path>
+                    <path d="M13.5,6.7 L6.5,8.3 L6.5,5.2 L13.5,6.7 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

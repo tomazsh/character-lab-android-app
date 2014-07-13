@@ -3,6 +3,7 @@ package org.characterlab.android.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import com.parse.ParseException;
 import com.parse.ParseImageView;
 
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.Utils;
 import org.characterlab.android.models.Strength;
@@ -27,20 +29,27 @@ import org.characterlab.android.models.StudentDetailViewModel;
 import org.characterlab.android.views.Bar;
 import org.characterlab.android.views.BarGraph;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarClickedListener {
     Student mStudent;
     List<StrengthAssessment> assessments;
 
     private BarGraph barGraph;
-    private TextView tvStDetailsStrong;
-    private ImageView ivStDetailsStrong;
-    private TextView tvStDetailsWeak;
-    private ImageView ivStDetailsWeak;
-    private TextView tvStDetailsImproved;
-    private ImageView ivStDetailsImproved;
+    private ParseImageView pivStDet;
+    private TextView tvLastMeasuredValue;
+    ViewPager vpStDetPager;
+    StudentDetailsSummaryCardsAdapter adapter;
+
+//    private TextView tvStDetailsStrong;
+//    private ImageView ivStDetailsStrong;
+//    private TextView tvStDetailsWeak;
+//    private ImageView ivStDetailsWeak;
+//    private TextView tvStDetailsImproved;
+//    private ImageView ivStDetailsImproved;
 
     StudentDetailsFragmentListener listener;
 
@@ -55,6 +64,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assessments = new ArrayList<StrengthAssessment>();
+        adapter = new StudentDetailsSummaryCardsAdapter(getActivity().getSupportFragmentManager());
         Log.d("debug", "Details Frag Create, Student: " + mStudent);
     }
 
@@ -64,12 +74,16 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         Log.d("debug", "Details Frag CreateView, Student: " + mStudent);
         View v =  inflater.inflate(R.layout.fragment_student_details, container, false);
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
-        tvStDetailsStrong = (TextView) v.findViewById(R.id.tvStDetailsStrong);
-        ivStDetailsStrong = (ImageView) v.findViewById(R.id.ivStDetailsStrong);
-        tvStDetailsWeak = (TextView) v.findViewById(R.id.tvStDetailsWeak);
-        ivStDetailsWeak = (ImageView) v.findViewById(R.id.ivStDetailsWeak);
-        tvStDetailsImproved = (TextView) v.findViewById(R.id.tvStDetailsImproved);
-        ivStDetailsImproved = (ImageView) v.findViewById(R.id.ivStDetailsImproved);
+        pivStDet = (ParseImageView) v.findViewById(R.id.pivStDet);
+        tvLastMeasuredValue = (TextView) v.findViewById(R.id.tvLastMeasuredValue);
+        vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
+
+//        tvStDetailsStrong = (TextView) v.findViewById(R.id.tvStDetailsStrong);
+//        ivStDetailsStrong = (ImageView) v.findViewById(R.id.ivStDetailsStrong);
+//        tvStDetailsWeak = (TextView) v.findViewById(R.id.tvStDetailsWeak);
+//        ivStDetailsWeak = (ImageView) v.findViewById(R.id.ivStDetailsWeak);
+//        tvStDetailsImproved = (TextView) v.findViewById(R.id.tvStDetailsImproved);
+//        ivStDetailsImproved = (ImageView) v.findViewById(R.id.ivStDetailsImproved);
 
         ParseClient.getAllAssessmentsForStudent(mStudent,
                 new FindCallback<StrengthAssessment>() {
@@ -104,14 +118,20 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
     private void updateView(StudentDetailViewModel viewModel) {
 
-        tvStDetailsStrong.setText(viewModel.getStrongest().getName());
-        ivStDetailsStrong.setImageResource(viewModel.getStrongest().getIconCircleId());
+//        tvStDetailsStrong.setText(viewModel.getStrongest().getName());
+//        ivStDetailsStrong.setImageResource(viewModel.getStrongest().getIconId());
+//
+//        tvStDetailsWeak.setText(viewModel.getWeakest().getName());
+//        ivStDetailsWeak.setImageResource(viewModel.getWeakest().getIconId());
+//
+//        tvStDetailsImproved.setText(viewModel.getMostImproved().getName());
+//        ivStDetailsImproved.setImageResource(viewModel.getMostImproved().getIconId());
 
-        tvStDetailsWeak.setText(viewModel.getWeakest().getName());
-        ivStDetailsWeak.setImageResource(viewModel.getWeakest().getIconCircleId());
+        pivStDet.setParseFile(mStudent.getProfileImage());
+        pivStDet.loadInBackground();
 
-        tvStDetailsImproved.setText(viewModel.getMostImproved().getName());
-        ivStDetailsImproved.setImageResource(viewModel.getMostImproved().getIconCircleId());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
+        tvLastMeasuredValue.setText(dateFormat.format(viewModel.getLastAssessmentDate()));
 
         ArrayList<Bar> bars = new ArrayList<Bar>();
         for (Strength strength : Strength.values()) {
@@ -130,6 +150,10 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
         barGraph.setBars(bars);
         barGraph.setOnBarClickedListener(this);
+
+        vpStDetPager.setClipToPadding(false);
+        vpStDetPager.setPageMargin(12);
+        vpStDetPager.setAdapter(adapter);
     }
 
     //region Getters abd Setters
@@ -148,5 +172,16 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     public void onClick(String name) {
         listener.onBarGraphClick(name);
     }
+
+    private void setContainerFragment(Fragment fragment) {
+        if (fragment.isAdded() && !fragment.isDetached() && !fragment.isRemoving()) {
+            return;
+        }
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.newAssessmentContainer, fragment)
+                .commit();
+    }
+
 
 }

@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.parse.ParseImageView;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
 import org.characterlab.android.fragments.StrengthHistoryFragment;
 import org.characterlab.android.fragments.StudentDetailsFragment;
 import org.characterlab.android.helpers.ParseClient;
@@ -31,6 +33,7 @@ public class StudentDetailsActivity extends FragmentActivity  implements Student
     public static final String STUDENT_KEY = "studentId";
     private Student mStudent;
 
+    private StudentDetailsSummaryCardsAdapter adapterViewPager;
     private StudentDetailsFragment mStudentDetailsFragment;
     private StrengthHistoryFragment mStrengthHistoryFragment;
 
@@ -39,18 +42,20 @@ public class StudentDetailsActivity extends FragmentActivity  implements Student
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_details);
 
-        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getActionBar().setCustomView(R.layout.student_details_actionbar);
+        adapterViewPager = new StudentDetailsSummaryCardsAdapter(getSupportFragmentManager());
+//        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        getActionBar().setCustomView(R.layout.student_details_actionbar);
 
         String studentId = (String) getIntent().getSerializableExtra(STUDENT_KEY);
         mStudent = (studentId != null && !studentId.isEmpty()) ? (Student) CharacterLabApplication.readFromCache(studentId) : null;
         if  (mStudent != null) {
-            View v = getActionBar().getCustomView();
-            TextView abTvStudentDetailsName = (TextView) v.findViewById(R.id.abTvStudentDetailsName);
-            ParseImageView abPivStudentDetailsImage = (ParseImageView) v.findViewById(R.id.abPivStudentDetailsImage);
-            abTvStudentDetailsName.setText(mStudent.getName());
-            abPivStudentDetailsImage.setParseFile(mStudent.getProfileImage());
-            abPivStudentDetailsImage.loadInBackground();
+//            View v = getActionBar().getCustomView();
+//            TextView abTvStudentDetailsName = (TextView) v.findViewById(R.id.abTvStudentDetailsName);
+//            ParseImageView abPivStudentDetailsImage = (ParseImageView) v.findViewById(R.id.abPivStudentDetailsImage);
+//            abTvStudentDetailsName.setText(mStudent.getName());
+//            abPivStudentDetailsImage.setParseFile(mStudent.getProfileImage());
+//            abPivStudentDetailsImage.loadInBackground();
+              getActionBar().setTitle(mStudent.getName());
         }
 
         if (savedInstanceState == null) {
@@ -90,5 +95,9 @@ public class StudentDetailsActivity extends FragmentActivity  implements Student
     public void onBarGraphClick(String strengthName) {
         Strength strength = Strength.fromName(strengthName);
         showStrengthHistoryFragment(strength);
+    }
+
+    public FragmentPagerAdapter getAdapterViewPager() {
+        return adapterViewPager;
     }
 }

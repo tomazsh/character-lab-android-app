@@ -2,7 +2,6 @@ package org.characterlab.android.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 
 import org.characterlab.android.fragments.AssessmentCardFragment;
 import org.characterlab.android.models.Strength;
@@ -10,7 +9,7 @@ import org.characterlab.android.models.Strength;
 /**
  * Created by mandar.b on 7/9/2014.
  */
-public class AssessmentCardsAdapter extends FragmentPagerAdapter  {
+public class AssessmentCardsAdapter extends SmartFragmentStatePagerAdapter  {
 
     private static int NUM_ITEMS = 7;
 

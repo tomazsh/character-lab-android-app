@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.AssessmentCardsAdapter;
 import org.characterlab.android.adapters.CharacterCardsAdapter;
 import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
 
@@ -44,7 +45,7 @@ public class AssessmentCardsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FragmentManager fragManager = myContext.getSupportFragmentManager();
-        adapterViewPager = new CharacterCardsAdapter(fragManager);
+        adapterViewPager = new AssessmentCardsAdapter(fragManager);
     }
 
     // Inflate the view for the fragment based on layout XML

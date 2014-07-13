@@ -2,175 +2,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
     android:orientation="vertical"
-    tools:context="org.characterlab.android.fragments.StudentDetails">
+    tools:context="org.characterlab.android.fragments.StudentDetails"
+    android:background="@android:color/darker_gray">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/overview_label"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:id="@+id/tvStudentDetailOverview"/>
+        android:background="@color/character_card_title_text_color"
+        android:padding="5dp">
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="10dp">-->
+        <com.parse.ParseImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/pivStDet"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_launcher"
+            android:layout_margin="10dp"/>
 
-        <!--<com.parse.ParseImageView-->
-            <!--android:layout_width="40dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:src="@drawable/ic_launcher"-->
-            <!--android:id="@+id/pivStudentDetailTraitImage" />-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvLastMeasuredLabel"
+            android:layout_toRightOf="@+id/pivStDet"
+            android:layout_alignParentTop="true"
+            android:text="Last Measured:"
+            android:layout_marginTop="10dp"/>
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:layout_below="@+id/pivStudentDetailTraitImage"-->
-            <!--android:id="@+id/tvStudentDetailsStrongTrait"-->
-            <!--android:layout_marginTop="30dp"-->
-            <!--android:textSize="15sp"-->
-            <!--android:text="@string/strong_trait_label"/>-->
-
-    <!--</RelativeLayout>-->
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_margin="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvLastMeasuredValue"
+            android:layout_below="@+id/tvLastMeasuredLabel"
+            android:layout_toRightOf="@+id/pivStDet"
+            android:text="Yesterday"
+            />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="20dp">
+            android:layout_below="@+id/tvLastMeasuredValue"
+            android:layout_toRightOf="@+id/pivStDet"
+            android:layout_marginTop="10dp"
+        >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/strong_trait_label"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:id="@+id/ivStDetailsStrong"
-                android:src="@drawable/ic_launcher"/>
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="@string/strong_trait_label"
-                android:textSize="12sp"
-                android:id="@+id/tvStDetailsStrong"
-                android:gravity="center"
+                android:id="@+id/tvMeasureStrengthsLabel"
+                android:text="Measure Strengths"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
             />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="20dp">
+    </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/need_help_label"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:id="@+id/ivStDetailsWeak"
-                android:src="@drawable/ic_launcher"/>
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="@string/need_help_label"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:id="@+id/tvStDetailsWeak"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_margin="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/improvement_label"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                />
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:id="@+id/ivStDetailsImproved"
-                android:src="@drawable/ic_launcher"/>
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="wrap_content"
-                android:text="@string/improvement_label"
-                android:textSize="12sp"
-                android:gravity="center"
-                android:id="@+id/tvStDetailsImproved"
-                />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/details_label"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:id="@+id/tvStudentDetailDetails"/>
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
 
-        <org.characterlab.android.views.BarGraph
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Summary"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textSize="15sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_margin="2dp"-->
+            <!--/>-->
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vpStDetPager"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/bgStudentDetail"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_height="140dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="12dp"
+            android:layout_weight="1"
+            android:background="@color/character_lab_green_color"
+            >
+        </android.support.v4.view.ViewPager>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Strength Breakdown"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/character_card_title_text_color"-->
+            <!--android:padding="5dp">-->
+
+            <org.characterlab.android.views.BarGraph
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:id="@+id/bgStudentDetail"
+                android:layout_marginRight="10dp"
+            />
+        <!--</LinearLayout>-->
 
     </LinearLayout>
 

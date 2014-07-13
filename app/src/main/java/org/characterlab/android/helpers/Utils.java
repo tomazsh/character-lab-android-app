@@ -41,6 +41,7 @@ public class Utils {
                     if (assessment.getGroupId() > maxGroupId) {
                         maxGroupId = assessment.getGroupId();
                         latestAssessment = assessment.getScore();
+                        viewModel.setLastAssessmentDate(assessment.getCreatedAt());
                     }
                 }
                 avg = avg / assessmentsByStrength.get(strength).size();

@@ -1,5 +1,6 @@
 package org.characterlab.android.models;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ public class StudentDetailViewModel {
     private Strength strongest;
     private Strength weakest;
     private Strength mostImproved;
+    private Date lastAssessmentDate;
     private Map<Strength, Integer> latestAssessments;
     private Map<Strength, Integer> avgAssessmentValues;
 
@@ -58,6 +60,14 @@ public class StudentDetailViewModel {
 
     public void setAvgAssessmentValues(Map<Strength, Integer> avgAssessmentValues) {
         this.avgAssessmentValues = avgAssessmentValues;
+    }
+
+    public Date getLastAssessmentDate() {
+        return lastAssessmentDate;
+    }
+
+    public void setLastAssessmentDate(Date lastAssessmentDate) {
+        this.lastAssessmentDate = lastAssessmentDate;
     }
 
 

@@ -81,7 +81,8 @@ public class BarGraph extends View {
             barPath.addRect(new RectF(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding), Path.Direction.CW);
             barToDraw.setPath(barPath);
             barToDraw.setRegion(new Region(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding));
-            this.paint.setColor(barToDraw.getColor());
+            //this.paint.setColor(barToDraw.getColor());
+            this.paint.setColor(Color.parseColor("#FFFF00"));
             this.paint.setAlpha(125);
             canvas.drawRect(barRect, this.paint);
 
@@ -94,7 +95,7 @@ public class BarGraph extends View {
             bottom = (int) (top + currentAvgValueBarHeight);
 
             avgBarRect.set(left, top, right, bottom);
-            this.paint.setColor(Color.parseColor("#B8BEBE"));
+            this.paint.setColor(Color.parseColor("#33CCFF"));
             this.paint.setAlpha(125);
             canvas.drawRect(avgBarRect, this.paint);
 

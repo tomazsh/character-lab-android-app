@@ -17,7 +17,8 @@ import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
 public class CharacterCardsFragment extends Fragment {
     private FragmentActivity myContext;
     private SmartFragmentStatePagerAdapter adapterViewPager;
-    private static int selectedItemIndex = -1;
+    private int selectedItemIndex = 0;
+    private final String SELECTED_ITEM_INDEX_KEY = "selectedItemIndex";
 
     public interface CharacterCardsFragmentListener {
         SmartFragmentStatePagerAdapter getAdapterViewPager();
@@ -48,7 +49,8 @@ public class CharacterCardsFragment extends Fragment {
         vpPager.setClipToPadding(false);
         vpPager.setPageMargin(12);
         vpPager.setAdapter(adapterViewPager);
-        if (selectedItemIndex >= 0) {
+        if (savedInstanceState != null) {
+            selectedItemIndex = savedInstanceState.getInt(SELECTED_ITEM_INDEX_KEY);
             vpPager.setCurrentItem(selectedItemIndex);
         }
         vpPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -71,5 +73,11 @@ public class CharacterCardsFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SELECTED_ITEM_INDEX_KEY, selectedItemIndex);
     }
 }

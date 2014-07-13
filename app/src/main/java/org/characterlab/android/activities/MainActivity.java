@@ -30,6 +30,7 @@ public class MainActivity extends FragmentActivity
         StudentListFragment.StudentListFragmentListener {
     LoginFragment mLoginFragment;
     CharacterCardsFragment mCharacterCardsFragment;
+    private final String CHARACTER_CARDS_FRAGMENT_TAG = "charactercardsfragmenttag";
     StudentListFragment mStudentListFragment;
 
     @Override
@@ -41,6 +42,12 @@ public class MainActivity extends FragmentActivity
         if (user == null) {
             showLoginFragment();
         } else {
+            if (savedInstanceState != null) { // saved instance state, fragment may exist
+                // on savedInstanceState don't recreate fragments,
+                // look up the instance that already exists by tag
+                mCharacterCardsFragment = (CharacterCardsFragment)
+                        getSupportFragmentManager().findFragmentByTag(CHARACTER_CARDS_FRAGMENT_TAG);
+            }
             showCharacterCardsFragment();
         }
     }
@@ -87,6 +94,10 @@ public class MainActivity extends FragmentActivity
     private void showCharacterCardsFragment() {
         if (mCharacterCardsFragment == null) {
             mCharacterCardsFragment = new CharacterCardsFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, mCharacterCardsFragment, CHARACTER_CARDS_FRAGMENT_TAG)
+                    .commit();
         }
         getActionBar().show();
         setContainerFragment(mCharacterCardsFragment);

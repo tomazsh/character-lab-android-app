@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.parse.ParseException;
 import com.parse.ParseImageView;
 
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.MeasurementRecordsListAdapter;
 import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.Utils;
@@ -41,13 +43,16 @@ import java.util.Locale;
 public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarClickedListener {
     Student mStudent;
     List<StrengthAssessment> assessments;
+    List<StrengthAssessment> assessmentsDateWiseList;
 
     private BarGraph barGraph;
     private ParseImageView pivStDet;
     private TextView tvLastMeasuredValue;
     private LinearLayout llStDetMeasureStrength;
+    private ListView lvStDetMeasurementRecord;
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
+    MeasurementRecordsListAdapter measurementRecordsListAdapter;
 
     private StudentDetailsFragmentListener listener;
 
@@ -86,6 +91,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         tvLastMeasuredValue = (TextView) v.findViewById(R.id.tvLastMeasuredValue);
         llStDetMeasureStrength = (LinearLayout) v.findViewById(R.id.llStDetMeasureStrength);
         vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
+        lvStDetMeasurementRecord = (ListView) v.findViewById(R.id.lvStDetMeasurementRecord);
 
         llStDetMeasureStrength.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +151,11 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         vpStDetPager.setClipToPadding(false);
         vpStDetPager.setPageMargin(12);
         vpStDetPager.setAdapter(adapter);
+
+        assessmentsDateWiseList = viewModel.getAssessmentsDatewiseList();
+        measurementRecordsListAdapter = new MeasurementRecordsListAdapter(getActivity(), assessmentsDateWiseList);
+        lvStDetMeasurementRecord.setAdapter(measurementRecordsListAdapter);
+
     }
 
     //region Getters abd Setters

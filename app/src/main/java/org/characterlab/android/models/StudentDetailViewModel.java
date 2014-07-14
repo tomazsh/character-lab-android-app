@@ -14,6 +14,7 @@ public class StudentDetailViewModel {
     private Date lastAssessmentDate;
     private Map<Strength, Integer> latestAssessments;
     private Map<Strength, Integer> avgAssessmentValues;
+    private List<StrengthAssessment> assessmentsDatewiseList;
 
     public StudentDetailViewModel() {
         latestAssessments = new HashMap<Strength, Integer>();
@@ -51,6 +52,15 @@ public class StudentDetailViewModel {
     public void setSortedLatestAssessments(List<StrengthAssessment> sortedLatestAssessments) {
         this.sortedLatestAssessments = sortedLatestAssessments;
     }
+
+    public List<StrengthAssessment> getAssessmentsDatewiseList() {
+        return assessmentsDatewiseList;
+    }
+
+    public void setAssessmentsDatewiseList(List<StrengthAssessment> assessmentsDatewiseList) {
+        this.assessmentsDatewiseList = assessmentsDatewiseList;
+    }
+
 
     // helpers
     public void putLatestAssessment(Strength strength, int assessedValue) {

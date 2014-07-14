@@ -44,5 +44,6 @@
 
     <string name="bad_students_title">Students, who need help</string>
     <string name="good_students_title">Students, who are doing good</string>
+    <string name="measurement_record">Measurement Records</string>
 
 </resources>

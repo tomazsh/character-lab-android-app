@@ -55,46 +55,28 @@ public class Utils {
             sortedAssessments.add(latestAssessment);
         }
 
-//        int strongest = Integer.MIN_VALUE;
-//        int weakest = Integer.MAX_VALUE;
-//        int mostImproved = Integer.MIN_VALUE;
-//
-//        for (Strength strength : Strength.values()) {
-//            int avg = viewModel.getAvgAssessmentValues().containsKey(strength) ? viewModel.getAvgAssessmentValue(strength) : -1;
-//            int latest = viewModel.getLatestAssessments().containsKey(strength) ? viewModel.getLatestAssessmentValue(strength) : -1;
-//
-//            if (latest > -1) {
-//                if (latest >= strongest) {
-//                    strongest = latest;
-//                    viewModel.setStrongest(strength);
-//                }
-//
-//                if (latest <= weakest) {
-//                    weakest = latest;
-//                    viewModel.setWeakest(strength);
-//                }
-//            }
-//
-//            if (avg > -1 && latest > -1) {
-//                if ((latest - avg) >= mostImproved) {
-//                    mostImproved = (latest - avg);
-//                    viewModel.setMostImproved(strength);
-//                }
-//            }
-//        }
-
-
-        Collections.sort(sortedAssessments, new StrengthAssessmentComparator());
+        List<StrengthAssessment> assessmentsDatewiseList = assessmentsByStrength.get(Strength.GRATITUDE);
+        Collections.sort(assessmentsDatewiseList, new StrengthAssessmentDatewiseComparator());
+        Collections.sort(sortedAssessments, new StrengthAssessmentScorewiseComparator());
         viewModel.setSortedLatestAssessments(sortedAssessments);
+        viewModel.setAssessmentsDatewiseList(assessmentsDatewiseList);
 
         return viewModel;
     }
 
-    static class StrengthAssessmentComparator implements Comparator<StrengthAssessment> {
+    static class StrengthAssessmentScorewiseComparator implements Comparator<StrengthAssessment> {
         @Override
         public int compare(StrengthAssessment lhs, StrengthAssessment rhs) {
             return rhs.getScore() - lhs.getScore();
         }
     }
+
+    static class StrengthAssessmentDatewiseComparator implements Comparator<StrengthAssessment> {
+        @Override
+        public int compare(StrengthAssessment lhs, StrengthAssessment rhs) {
+            return (int) (rhs.getCreatedAt().getTime() - lhs.getCreatedAt().getTime());
+        }
+    }
+
 
 }

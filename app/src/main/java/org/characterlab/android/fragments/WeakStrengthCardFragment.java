@@ -47,7 +47,6 @@ public class WeakStrengthCardFragment extends Fragment {
         weakStrength2 = Strength.valueOf(weakStrength2Str);
         String weakStrength3Str = getArguments().getString("weak3");
         weakStrength3 = Strength.valueOf(weakStrength3Str);
-
     }
 
     @Override

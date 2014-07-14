@@ -49,7 +49,6 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private TextView tvLastMeasuredValue;
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
-
     StudentDetailsFragmentListener listener;
 
     public StudentDetailsFragment() {

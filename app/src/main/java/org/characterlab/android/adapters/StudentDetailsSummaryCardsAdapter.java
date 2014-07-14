@@ -24,15 +24,6 @@ public class StudentDetailsSummaryCardsAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
     }
 
-    public void setAssessmentList(List<StrengthAssessment> assessmentList) {
-        this.assessmentList = assessmentList;
-    }
-
-    public List<StrengthAssessment> getAssessmentList() {
-
-        return assessmentList;
-    }
-
     @Override
     public float getPageWidth(int position)
     {
@@ -71,6 +62,15 @@ public class StudentDetailsSummaryCardsAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return "Character " + (position + 1);
+    }
+
+    public void setAssessmentList(List<StrengthAssessment> assessmentList) {
+        this.assessmentList = assessmentList;
+    }
+
+    public List<StrengthAssessment> getAssessmentList() {
+
+        return assessmentList;
     }
 
 }

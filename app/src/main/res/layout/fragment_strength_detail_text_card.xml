@@ -25,6 +25,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignBaseline="@+id/title_text_view"
         android:maxLines="5"
+        android:text="2/3"
         android:lineSpacingMultiplier="1.25"
         android:textSize="16sp" />
     <TextView

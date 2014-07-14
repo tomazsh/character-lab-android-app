@@ -2,6 +2,7 @@ package org.characterlab.android.models;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,9 +10,7 @@ import java.util.Map;
  */
 public class StudentDetailViewModel {
 
-    private Strength strongest;
-    private Strength weakest;
-    private Strength mostImproved;
+    private List<StrengthAssessment> sortedLatestAssessments;
     private Date lastAssessmentDate;
     private Map<Strength, Integer> latestAssessments;
     private Map<Strength, Integer> avgAssessmentValues;
@@ -19,31 +18,6 @@ public class StudentDetailViewModel {
     public StudentDetailViewModel() {
         latestAssessments = new HashMap<Strength, Integer>();
         avgAssessmentValues = new HashMap<Strength, Integer>();
-    }
-
-    public Strength getStrongest() {
-        return strongest;
-
-    }
-
-    public void setStrongest(Strength strongest) {
-        this.strongest = strongest;
-    }
-
-    public Strength getWeakest() {
-        return weakest;
-    }
-
-    public void setWeakest(Strength weakest) {
-        this.weakest = weakest;
-    }
-
-    public Strength getMostImproved() {
-        return mostImproved;
-    }
-
-    public void setMostImproved(Strength mostImproved) {
-        this.mostImproved = mostImproved;
     }
 
     public Map<Strength, Integer> getLatestAssessments() {
@@ -70,6 +44,13 @@ public class StudentDetailViewModel {
         this.lastAssessmentDate = lastAssessmentDate;
     }
 
+    public List<StrengthAssessment> getSortedLatestAssessments() {
+        return sortedLatestAssessments;
+    }
+
+    public void setSortedLatestAssessments(List<StrengthAssessment> sortedLatestAssessments) {
+        this.sortedLatestAssessments = sortedLatestAssessments;
+    }
 
     // helpers
     public void putLatestAssessment(Strength strength, int assessedValue) {

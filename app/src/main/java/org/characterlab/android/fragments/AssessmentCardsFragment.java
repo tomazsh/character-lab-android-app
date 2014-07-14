@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.AssessmentCardsAdapter;
-import org.characterlab.android.adapters.CharacterCardsAdapter;
 import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
 
 /**

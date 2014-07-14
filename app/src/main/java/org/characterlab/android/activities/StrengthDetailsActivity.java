@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentManager;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
-import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
 import org.characterlab.android.fragments.StrengthDetailsFragment;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthInfo;
-import org.characterlab.android.models.StrengthInfoItem;
 import org.characterlab.android.models.Student;
 
 public class StrengthDetailsActivity extends FragmentActivity

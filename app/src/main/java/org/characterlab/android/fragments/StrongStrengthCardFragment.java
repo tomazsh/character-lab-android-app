@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.models.Strength;
-import org.characterlab.android.models.StrengthInfo;
-import org.characterlab.android.models.StudentDetailViewModel;
 
 /**
  * Created by mandar.b on 7/11/2014.

@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
-import org.characterlab.android.models.Strength;
-import org.characterlab.android.models.StrengthInfo;
 import org.characterlab.android.models.StrengthInfoItem;
 
 public class StrengthDetailsTextCardFragment extends Fragment {

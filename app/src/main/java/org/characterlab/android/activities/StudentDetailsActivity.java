@@ -1,48 +1,25 @@
 package org.characterlab.android.activities;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
-import android.view.Menu;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseImageView;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
-import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
-import org.characterlab.android.fragments.StrengthHistoryFragment;
 import org.characterlab.android.fragments.StudentDetailsFragment;
-import org.characterlab.android.helpers.ParseClient;
-import org.characterlab.android.models.Strength;
-import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.Student;
-import org.characterlab.android.views.BarGraph;
 
-import java.util.List;
-
-public class StudentDetailsActivity extends FragmentActivity  implements StudentDetailsFragment.StudentDetailsFragmentListener {
+public class StudentDetailsActivity extends FragmentActivity {
     public static final String STUDENT_KEY = "studentId";
     private Student mStudent;
-
-    private StudentDetailsSummaryCardsAdapter adapterViewPager;
     private StudentDetailsFragment mStudentDetailsFragment;
-    private StrengthHistoryFragment mStrengthHistoryFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_details);
 
-        adapterViewPager = new StudentDetailsSummaryCardsAdapter(getSupportFragmentManager());
+//        adapterViewPager = new StudentDetailsSummaryCardsAdapter(getSupportFragmentManager());
 //        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 //        getActionBar().setCustomView(R.layout.student_details_actionbar);
 
@@ -82,22 +59,4 @@ public class StudentDetailsActivity extends FragmentActivity  implements Student
         setContainerFragment(mStudentDetailsFragment);
     }
 
-    private void showStrengthHistoryFragment(Strength strength) {
-        if (mStrengthHistoryFragment == null) {
-            mStrengthHistoryFragment = new StrengthHistoryFragment();
-        }
-        mStrengthHistoryFragment.setStudent(mStudent);
-        mStrengthHistoryFragment.setStrength(strength);
-        setContainerFragment(mStrengthHistoryFragment);
-    }
-
-    @Override
-    public void onBarGraphClick(String strengthName) {
-        Strength strength = Strength.fromName(strengthName);
-        showStrengthHistoryFragment(strength);
-    }
-
-    public FragmentPagerAdapter getAdapterViewPager() {
-        return adapterViewPager;
-    }
 }

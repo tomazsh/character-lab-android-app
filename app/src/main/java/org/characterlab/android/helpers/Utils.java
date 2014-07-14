@@ -5,6 +5,8 @@ import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.StudentDetailViewModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,10 +30,12 @@ public class Utils {
             assessmentsByStrength.get(strength).add(assessment);
         }
 
+        List<StrengthAssessment> sortedAssessments = new ArrayList<StrengthAssessment>();
         for (Strength strength : assessmentsByStrength.keySet()) {
             float avg = 0.0f;
             int maxGroupId = -1;
-            int latestAssessment = 0;
+//            int latestAssessment = 0;
+            StrengthAssessment latestAssessment = null;
 
             if (assessmentsByStrength.get(strength) != null &&
                 !assessmentsByStrength.get(strength).isEmpty()) {
@@ -40,45 +44,57 @@ public class Utils {
                     avg += assessment.getScore();
                     if (assessment.getGroupId() > maxGroupId) {
                         maxGroupId = assessment.getGroupId();
-                        latestAssessment = assessment.getScore();
-                        viewModel.setLastAssessmentDate(assessment.getCreatedAt());
+                        latestAssessment = assessment;
                     }
                 }
                 avg = avg / assessmentsByStrength.get(strength).size();
             }
             viewModel.putAvgAssessment(strength, (int)avg);
-            viewModel.putLatestAssessment(strength, latestAssessment);
+            viewModel.putLatestAssessment(strength, latestAssessment.getScore());
+            viewModel.setLastAssessmentDate(latestAssessment.getCreatedAt());
+            sortedAssessments.add(latestAssessment);
         }
 
-        int strongest = Integer.MIN_VALUE;
-        int weakest = Integer.MAX_VALUE;
-        int mostImproved = Integer.MIN_VALUE;
+//        int strongest = Integer.MIN_VALUE;
+//        int weakest = Integer.MAX_VALUE;
+//        int mostImproved = Integer.MIN_VALUE;
+//
+//        for (Strength strength : Strength.values()) {
+//            int avg = viewModel.getAvgAssessmentValues().containsKey(strength) ? viewModel.getAvgAssessmentValue(strength) : -1;
+//            int latest = viewModel.getLatestAssessments().containsKey(strength) ? viewModel.getLatestAssessmentValue(strength) : -1;
+//
+//            if (latest > -1) {
+//                if (latest >= strongest) {
+//                    strongest = latest;
+//                    viewModel.setStrongest(strength);
+//                }
+//
+//                if (latest <= weakest) {
+//                    weakest = latest;
+//                    viewModel.setWeakest(strength);
+//                }
+//            }
+//
+//            if (avg > -1 && latest > -1) {
+//                if ((latest - avg) >= mostImproved) {
+//                    mostImproved = (latest - avg);
+//                    viewModel.setMostImproved(strength);
+//                }
+//            }
+//        }
 
-        for (Strength strength : Strength.values()) {
-            int avg = viewModel.getAvgAssessmentValues().containsKey(strength) ? viewModel.getAvgAssessmentValue(strength) : -1;
-            int latest = viewModel.getLatestAssessments().containsKey(strength) ? viewModel.getLatestAssessmentValue(strength) : -1;
 
-            if (latest > -1) {
-                if (latest >= strongest) {
-                    strongest = latest;
-                    viewModel.setStrongest(strength);
-                }
-
-                if (latest <= weakest) {
-                    weakest = latest;
-                    viewModel.setWeakest(strength);
-                }
-            }
-
-            if (avg > -1 && latest > -1) {
-                if ((latest - avg) >= mostImproved) {
-                    mostImproved = (latest - avg);
-                    viewModel.setMostImproved(strength);
-                }
-            }
-        }
+        Collections.sort(sortedAssessments, new StrengthAssessmentComparator());
+        viewModel.setSortedLatestAssessments(sortedAssessments);
 
         return viewModel;
+    }
+
+    static class StrengthAssessmentComparator implements Comparator<StrengthAssessment> {
+        @Override
+        public int compare(StrengthAssessment lhs, StrengthAssessment rhs) {
+            return rhs.getScore() - lhs.getScore();
+        }
     }
 
 }

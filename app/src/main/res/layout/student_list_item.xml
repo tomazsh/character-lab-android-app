@@ -9,7 +9,8 @@
         android:layout_height="40dp"
         android:layout_margin="5dp"
         android:src="@drawable/ic_launcher"
-        android:id="@+id/pivListStudentImage" />
+        android:id="@+id/pivListStudentImage"
+        android:padding="2dp"/>
 
     <TextView
         android:layout_width="fill_parent"

@@ -1,38 +1,56 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.BlankFragment">
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".fragments.BlankFragment">-->
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/llStrongStrengthFrag"
-        android:background="@drawable/character_card_bg"
-        android:layout_margin="5dp"
+        android:background="@drawable/strength_details_card_bg"
+        android:padding="10dp"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/llStrongCard"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:id="@+id/tvStrongCardStronglabel"
-            android:text="@string/strong_trait_label"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            />
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvStrongCardStronglabel"
+                android:text="@string/strong_trait_label"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvStrongCardPageCount"
+                android:text="2/5"
+                android:textSize="13sp"
+                android:layout_marginLeft="10dp"
+                />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/tvStrongCardStronglabel"
+            android:layout_below="@+id/llStrongCard"
             android:layout_margin="5dp"
-            android:gravity="center_horizontal">
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -53,9 +71,11 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:text="@string/strong_trait_label"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:id="@+id/tvStDetailsStrong"
                     android:gravity="center"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
                     />
 
             </LinearLayout>
@@ -79,13 +99,15 @@
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:text="@string/improvement_label"
-                    android:textSize="15sp"
+                    android:textSize="12sp"
                     android:gravity="center"
                     android:id="@+id/tvStDetailsImproved"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
                     />
             </LinearLayout>
 
         </LinearLayout>
 
     </RelativeLayout>
-</FrameLayout>
+<!--</FrameLayout>-->

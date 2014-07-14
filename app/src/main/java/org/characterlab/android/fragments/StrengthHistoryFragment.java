@@ -43,7 +43,6 @@ public class StrengthHistoryFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_strength_history, container, false);
         ivHistoryStrengthLogo = (ImageView) v.findViewById(R.id.ivHistoryStrengthLogo);
         tvHistoryStrengthTitle = (TextView) v.findViewById(R.id.tvHistoryStrengthTitle);
-        tvHistoryStrengthDescr = (TextView) v.findViewById(R.id.tvHistoryStrengthDescr);
         tvHistoryAvgScore = (TextView) v.findViewById(R.id.tvHistoryAvgScore);
         lineView = (LineView) v.findViewById(R.id.line_view);
 

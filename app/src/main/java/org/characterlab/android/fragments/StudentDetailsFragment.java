@@ -159,7 +159,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                 new FindCallback<StrengthAssessment>() {
                     public void done(List<StrengthAssessment> list, ParseException e) {
                         if (e == null) {
-                            updateView(list, strength);
+                            showLineGraphDialog(list, strength);
                         } else {
                             e.printStackTrace();
                         }
@@ -168,7 +168,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         );
     }
 
-    private void updateView(List<StrengthAssessment> assessments, Strength strength) {
+    private void showLineGraphDialog(List<StrengthAssessment> assessments, Strength strength) {
         final ContextThemeWrapper context = new ContextThemeWrapper(getActivity(),
                 android.R.style.Theme_Holo_Light_Dialog);
 

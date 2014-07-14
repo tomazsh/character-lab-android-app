@@ -1,5 +1,6 @@
 package org.characterlab.android.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,7 +10,9 @@ import org.characterlab.android.R;
 import org.characterlab.android.fragments.StudentDetailsFragment;
 import org.characterlab.android.models.Student;
 
-public class StudentDetailsActivity extends FragmentActivity {
+public class StudentDetailsActivity extends FragmentActivity
+             implements StudentDetailsFragment.StudentDetailsFragmentListener {
+
     public static final String STUDENT_KEY = "studentId";
     private Student mStudent;
     private StudentDetailsFragment mStudentDetailsFragment;
@@ -59,4 +62,10 @@ public class StudentDetailsActivity extends FragmentActivity {
         setContainerFragment(mStudentDetailsFragment);
     }
 
+    @Override
+    public void onMeasureStrengthClicked() {
+        Intent newAssessmentIntent = new Intent(this, NewAssessmentActivity.class);
+        newAssessmentIntent.putExtra("studentId", mStudent.getObjectId());
+        startActivity(newAssessmentIntent);
+    }
 }

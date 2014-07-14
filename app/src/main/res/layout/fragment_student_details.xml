@@ -52,6 +52,8 @@
                 android:layout_below="@+id/tvLastMeasuredValue"
                 android:layout_toRightOf="@+id/pivStDet"
                 android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:id="@+id/llStDetMeasureStrength"
             >
 
                 <ImageView

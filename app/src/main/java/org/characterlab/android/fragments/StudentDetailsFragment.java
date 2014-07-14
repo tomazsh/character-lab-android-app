@@ -1,5 +1,6 @@
 package org.characterlab.android.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -11,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -42,10 +45,17 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private BarGraph barGraph;
     private ParseImageView pivStDet;
     private TextView tvLastMeasuredValue;
+    private LinearLayout llStDetMeasureStrength;
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
 
+    private StudentDetailsFragmentListener listener;
+
     public StudentDetailsFragment() {
+    }
+
+    public interface StudentDetailsFragmentListener {
+        void onMeasureStrengthClicked();
     }
 
     @Override
@@ -57,6 +67,16 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     }
 
     @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            listener = (StudentDetailsFragmentListener) activity;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Log.d("debug", "Details Frag CreateView, Student: " + mStudent);
@@ -64,7 +84,15 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
         pivStDet = (ParseImageView) v.findViewById(R.id.pivStDet);
         tvLastMeasuredValue = (TextView) v.findViewById(R.id.tvLastMeasuredValue);
+        llStDetMeasureStrength = (LinearLayout) v.findViewById(R.id.llStDetMeasureStrength);
         vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
+
+        llStDetMeasureStrength.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onMeasureStrengthClicked();
+            }
+        });
 
         ParseClient.getAllAssessmentsForStudent(mStudent,
                 new FindCallback<StrengthAssessment>() {

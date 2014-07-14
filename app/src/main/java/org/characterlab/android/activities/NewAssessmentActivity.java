@@ -35,15 +35,21 @@ public class NewAssessmentActivity extends FragmentActivity
     NewAssessmentViewModel viewModel;
     private static Student selectedStudent;
 
-    Button btnNewAssessmentSave;
+//    Button btnNewAssessmentSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_assessment);
-
         viewModel = new NewAssessmentViewModel();
-        showStudentListFragment();
+
+        String studentId = getIntent().getStringExtra("studentId");
+        if (studentId != null) {
+            Student student = (Student) CharacterLabApplication.readFromCache(studentId);
+            onStudentListItemClick(student);
+        } else {
+            showStudentListFragment();
+        }
     }
 
     @Override

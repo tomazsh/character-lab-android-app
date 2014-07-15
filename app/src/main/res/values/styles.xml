@@ -6,4 +6,10 @@
     <!--<color name="character_lab_yellow_color">#FFDD00</color>-->
     <!--<color name="character_lab_green_color">#00cccc</color>-->
     <!--<color name="character_lab_dark_green_color">#00A2A2</color>-->
+
+    <style name="StudentListDividedListStyle" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/student_list_background_color</item>
+        <item name="android:divider">@drawable/student_list_divide</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
 </resources>

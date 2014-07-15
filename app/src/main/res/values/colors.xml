@@ -9,4 +9,7 @@
     <color name="character_card_color">#f5f5de</color>
     <color name="character_card_title_text_color">#444</color>
     <color name="character_card_description_text_color">#777</color>
+    <color name="student_list_text_color">#d6d6c2</color>
+    <color name="student_list_background_color">#293838</color>
+
 </resources>

@@ -1,6 +1,8 @@
 package org.characterlab.android.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.makeramen.RoundedImageView;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
-import com.parse.ParseImageView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.models.Student;
@@ -21,7 +23,7 @@ import java.util.List;
 public class StudentsListAdapter extends ArrayAdapter<Student> {
 
     private static class ViewHolder {
-        ParseImageView pivListStudentImage;
+        RoundedImageView pivListStudentImage;
         TextView tvListStudentName;
     }
 
@@ -40,7 +42,7 @@ public class StudentsListAdapter extends ArrayAdapter<Student> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.student_list_item, parent, false);
-            viewHolder.pivListStudentImage = (ParseImageView) convertView.findViewById(R.id.pivListStudentImage);
+            viewHolder.pivListStudentImage = (RoundedImageView) convertView.findViewById(R.id.pivListStudentImage);
             viewHolder.tvListStudentName = (TextView) convertView.findViewById(R.id.tvListStudentName);
             convertView.setTag(viewHolder);
         }
@@ -48,12 +50,16 @@ public class StudentsListAdapter extends ArrayAdapter<Student> {
         viewHolder.tvListStudentName.setText(student.getName());
         ParseFile profileImageFile = student.getProfileImage();
         if (profileImageFile != null) {
-            viewHolder.pivListStudentImage.setParseFile(profileImageFile);
-            viewHolder.pivListStudentImage.loadInBackground(new GetDataCallback() {
-                @Override
+            profileImageFile.getDataInBackground(new GetDataCallback() {
                 public void done(byte[] data, ParseException e) {
-                    viewHolder.pivListStudentImage.setVisibility(View.VISIBLE);
-                    Log.d("debug", "Data len: " + data.length);
+                    if (e == null) {
+                        Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+                        viewHolder.pivListStudentImage.setImageBitmap(bmp);
+                        viewHolder.pivListStudentImage.setVisibility(View.VISIBLE);
+                        Log.d("debug", "Data len: " + data.length);
+                    } else {
+                        Log.d("debug", "There was a problem downloading the data.");
+                    }
                 }
             });
         }

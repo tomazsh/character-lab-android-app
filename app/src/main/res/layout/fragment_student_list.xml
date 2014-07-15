@@ -1,6 +1,7 @@
 <RelativeLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#000"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListView
@@ -12,5 +13,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        style="@style/StudentListDividedListStyle"
+        android:background="@drawable/rounded_corner_bg"
+        android:dividerHeight="1px" />
 </RelativeLayout>

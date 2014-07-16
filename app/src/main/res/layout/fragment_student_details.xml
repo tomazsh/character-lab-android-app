@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="org.characterlab.android.fragments.StudentDetails"
-    android:background="@android:color/darker_gray">
+    android:background="@color/bg_grey">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/character_card_title_text_color"
+            android:background="@color/shadow_grey"
             android:padding="5dp">
 
             <com.parse.ParseImageView
@@ -33,14 +33,14 @@
                 android:layout_toRightOf="@+id/pivStDet"
                 android:layout_alignParentTop="true"
                 android:text="Last Measured:"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/subtext_brown"
                 android:layout_marginTop="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvLastMeasuredValue"
-                android:textColor="@android:color/white"
+                android:textColor="@color/white"
                 android:layout_below="@+id/tvLastMeasuredLabel"
                 android:layout_toRightOf="@+id/pivStDet"
                 android:text="Yesterday"
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tvMeasureStrengthsLabel"
                     android:text="Measure Strengths"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:textColor="@color/aquamarine"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="2dp"
                 />
@@ -90,6 +90,30 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Strength Breakdown"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_brown"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"/>
+
+                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/shadow_grey"
+                    android:padding="20dp">
+                        <org.characterlab.android.views.BarGraph
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:id="@+id/bgStudentDetail"
+                            android:layout_marginRight="10dp"
+                            />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Summary"
                         android:textSize="15sp"
                         android:textStyle="bold"
@@ -107,29 +131,6 @@
                         android:background="@android:color/darker_gray"
                         >
                     </android.support.v4.view.ViewPager>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Strength Breakdown"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"/>
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:background="@color/character_card_title_text_color"-->
-                    <!--android:padding="5dp">-->
-
-                    <org.characterlab.android.views.BarGraph
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:id="@+id/bgStudentDetail"
-                        android:layout_marginRight="10dp"
-                    />
-                <!--</LinearLayout>-->
 
                     <TextView
                         android:layout_width="wrap_content"

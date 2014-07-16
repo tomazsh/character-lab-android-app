@@ -58,7 +58,7 @@ public class ParseClient {
                 ParseQuery.getQuery(StrengthAssessment.class)
                         .whereEqualTo("Student", student)
                         .whereEqualTo("Strength", strength.toString())
-                        .addAscendingOrder("createdAt")
+                        .addDescendingOrder("createdAt")
                         .setLimit(1000);
         query.findInBackground(callback);
     }

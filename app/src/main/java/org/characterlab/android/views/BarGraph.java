@@ -5,6 +5,7 @@ import android.graphics.*;
 import android.graphics.Bitmap.Config;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -43,48 +44,75 @@ public class BarGraph extends View {
 
     public void onDraw(Canvas ca) {
 
-        fullImage = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        float padding = 7;
+        int selectPadding = 4;
+        float leftPadding = 10;
+        int bottomPadding = 40; // to draw vertical small lines and mark 0, 1 ... 7
+        float usableWidth = getWidth() - leftPadding;
+        int fullBitmapHeight = getHeight();
+
+        fullImage = Bitmap.createBitmap(getWidth(), fullBitmapHeight, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(fullImage);
         canvas.drawColor(Color.TRANSPARENT);
 
-        float padding = 7;
-        int selectPadding = 4;
-        float leftPadding = 20;
-        float usableWidth = getWidth() - leftPadding;
+        paint.setColor(Color.WHITE);
 
-        paint.setColor(Color.BLACK);
-        paint.setStrokeWidth(2);
-        paint.setAlpha(50);
+        //paint.setAlpha(50);
         paint.setAntiAlias(true);
 
-        canvas.drawLine(leftPadding, 0, leftPadding, getHeight(), paint);
+        paint.setStrokeWidth(4);
+        canvas.drawLine(leftPadding, 0, leftPadding, fullBitmapHeight - bottomPadding, paint);
 
-        float barHeight = (getHeight() - ((padding * 2) * points.size())) / points.size();
+        paint.setStrokeWidth(4);
+        canvas.drawLine(leftPadding, fullBitmapHeight - bottomPadding, getWidth(), fullBitmapHeight - bottomPadding, paint);
+
+        int heightToUseForAllBars = fullBitmapHeight - 10 - bottomPadding;
+        float barHeight = (heightToUseForAllBars - ((padding * 2) * points.size())) / points.size();
         float perUnitWidth = usableWidth / 7;
+
+        //int lineHeight = 10;
+        int lineHeight = (int) (getWidth() * 0.0115);
+        for (int i = 1 ; i < 8; i++) {
+            float topX = leftPadding + (perUnitWidth * i);
+            canvas.drawLine(topX, fullBitmapHeight - bottomPadding, topX, fullBitmapHeight - bottomPadding + lineHeight, paint);
+
+            this.paint.setTextSize(sp2px(getContext(), 10));
+            canvas.drawText(String.valueOf(i), (int) (topX - 20), fullBitmapHeight, this.paint);
+        }
+
+//        canvas.drawLine(leftPadding, fullBitmapHeight, getWidth(), fullBitmapHeight, paint);
+//        Log.d("debug", "****** getWidth: " + getWidth());
+//        Log.d("debug", "****** lineHt: " + lineHeight);
 
         barRect = new Rect();
         path.reset();
 
+        paint.setStrokeWidth(2);
         int count = 0;
         for (Bar barToDraw : points) {
             float currentValueBarHeight = barHeight * 0.70f;
             float currentAvgValueBarHeight = barHeight * 0.30f;
 
-            int left = (int) leftPadding;
+            // draw value bar start
+
+            int left = (int) leftPadding + 13;
             int top = (int) ((padding * 2) * count + padding + barHeight * count);
             int right = left + (int) (perUnitWidth * (barToDraw.getCurrentValue()));
             int bottom = (int) (top + currentValueBarHeight);
 
             barRect.set(left, top, right, bottom);
-
             Path barPath = new Path();
             barPath.addRect(new RectF(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding), Path.Direction.CW);
             barToDraw.setPath(barPath);
             barToDraw.setRegion(new Region(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding));
             //this.paint.setColor(barToDraw.getColor());
-            this.paint.setColor(Color.parseColor("#FFDD00"));
-            this.paint.setAlpha(125);
+
+            this.paint.setColor(Color.parseColor("#FFE433"));
+//            this.paint.setColor(Color.parseColor("#FFDD00"));
+            //this.paint.setAlpha(125);
             canvas.drawRect(barRect, this.paint);
+
+            // draw value bar end
 
             // avg bar start
 
@@ -96,15 +124,15 @@ public class BarGraph extends View {
 
             avgBarRect.set(left, top, right, bottom);
             this.paint.setColor(Color.parseColor("#18B8B8"));
-            this.paint.setAlpha(125);
+            //this.paint.setAlpha(125);
             canvas.drawRect(avgBarRect, this.paint);
 
             // avg bar end
 
             this.paint.setColor(Color.DKGRAY);
             this.paint.setTextSize(sp2px(getContext(), 9));
-            String traitTitleAndValueStr = barToDraw.getName() + "  (" + (int) barToDraw.getValue() + ")";
-            canvas.drawText(traitTitleAndValueStr, (int) (leftPadding + 10), barRect.top + (currentValueBarHeight / 2) + 7, this.paint);
+            String traitTitleAndValueStr = barToDraw.getName(); // + "  (" + (int) barToDraw.getValue() + ")";
+            canvas.drawText(traitTitleAndValueStr, (int) (left + 10), barRect.top + (currentValueBarHeight / 2) + 7, this.paint);
             this.paint.setColor(barToDraw.getColor());
 
             if (indexSelected == count && listener != null) {

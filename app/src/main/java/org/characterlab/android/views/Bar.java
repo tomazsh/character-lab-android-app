@@ -9,6 +9,7 @@ import org.characterlab.android.R;
 public class Bar {
 
     private int color;
+    private int avgColor;
     private String name;
     private float value;
     private float currentValue;
@@ -25,9 +26,19 @@ public class Bar {
     public int getColor() {
         return color;
     }
+
     public void setColor(int color) {
         this.color = color;
     }
+
+    public int getAvgColor() {
+        return avgColor;
+    }
+
+    public void setAvgColor(int avgColor) {
+        this.avgColor = avgColor;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,14 +51,6 @@ public class Bar {
     }
     public void setValue(float value) {
         this.value = value;
-
-        if (value < 3) {
-            this.setColor(Color.parseColor("#FF4400"));
-        } else if (value >= 3 && value <= 5) {
-            this.setColor(Color.parseColor("#FFDD00"));
-        } else {
-            this.setColor(Color.parseColor("#44DD00"));
-        }
     }
     public Path getPath() {
         return path;

@@ -47,7 +47,7 @@ public class BarGraph extends View {
         float padding = 7;
         int selectPadding = 4;
         float leftPadding = 10;
-        int bottomPadding = 40; // to draw vertical small lines and mark 0, 1 ... 7
+        int bottomPadding = 35; // to draw vertical small lines and mark 0, 1 ... 7
         float usableWidth = getWidth() - leftPadding;
         int fullBitmapHeight = getHeight();
 
@@ -71,7 +71,7 @@ public class BarGraph extends View {
         float perUnitWidth = usableWidth / 7;
 
         //int lineHeight = 10;
-        int lineHeight = (int) (getWidth() * 0.0115);
+        int lineHeight = (int) (getWidth() * 0.015);
         for (int i = 1 ; i < 8; i++) {
             float topX = leftPadding + (perUnitWidth * i);
             canvas.drawLine(topX, fullBitmapHeight - bottomPadding, topX, fullBitmapHeight - bottomPadding + lineHeight, paint);
@@ -105,10 +105,8 @@ public class BarGraph extends View {
             barPath.addRect(new RectF(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding), Path.Direction.CW);
             barToDraw.setPath(barPath);
             barToDraw.setRegion(new Region(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding));
-            //this.paint.setColor(barToDraw.getColor());
-
-            this.paint.setColor(Color.parseColor("#FFE433"));
-//            this.paint.setColor(Color.parseColor("#FFDD00"));
+            this.paint.setColor(barToDraw.getColor());
+//            this.paint.setColor(Color.parseColor("#FFE433"));
             //this.paint.setAlpha(125);
             canvas.drawRect(barRect, this.paint);
 
@@ -123,7 +121,8 @@ public class BarGraph extends View {
             bottom = (int) (top + currentAvgValueBarHeight);
 
             avgBarRect.set(left, top, right, bottom);
-            this.paint.setColor(Color.parseColor("#18B8B8"));
+            this.paint.setColor(barToDraw.getAvgColor());
+//            this.paint.setColor(Color.parseColor("#18B8B8"));
             //this.paint.setAlpha(125);
             canvas.drawRect(avgBarRect, this.paint);
 

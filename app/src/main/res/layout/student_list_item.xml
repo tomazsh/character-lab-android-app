@@ -6,9 +6,9 @@
     android:paddingBottom="10dp"
     android:gravity="center">
 
-    <com.makeramen.RoundedImageView
+    <org.characterlab.android.views.RoundedParseImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/pivListStudentImage"
+        android:id="@+id/rpivListStudentImage"
         android:src="@color/student_list_background_color"
         android:scaleType="centerCrop"
         android:layout_width="40dp"
@@ -16,8 +16,8 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_alignParentLeft="true"
-        app:corner_radius="20dip"
-        app:border_width="0.5dip"
+        app:corner_radius="20dp"
+        app:border_width="0.1dp"
         app:border_color="#aaa"
         app:mutate_background="true"
         app:oval="true" />

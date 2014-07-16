@@ -33,6 +33,7 @@ import org.characterlab.android.models.StudentDetailViewModel;
 import org.characterlab.android.views.Bar;
 import org.characterlab.android.views.BarGraph;
 import org.characterlab.android.views.LineView;
+import org.characterlab.android.views.RoundedParseImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     List<StrengthAssessment> assessmentsDateWiseList;
 
     private BarGraph barGraph;
-    private ParseImageView pivStDet;
+    private RoundedParseImageView rpivStDet;
     private TextView tvLastMeasuredValue;
     private LinearLayout llStDetMeasureStrength;
     private ListView lvStDetMeasurementRecord;
@@ -87,7 +88,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         Log.d("debug", "Details Frag CreateView, Student: " + mStudent);
         View v =  inflater.inflate(R.layout.fragment_student_details, container, false);
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
-        pivStDet = (ParseImageView) v.findViewById(R.id.pivStDet);
+        rpivStDet = (RoundedParseImageView) v.findViewById(R.id.rpivStDet);
         tvLastMeasuredValue = (TextView) v.findViewById(R.id.tvLastMeasuredValue);
         llStDetMeasureStrength = (LinearLayout) v.findViewById(R.id.llStDetMeasureStrength);
         vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
@@ -123,8 +124,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
     private void updateView(StudentDetailViewModel viewModel) {
 
-        pivStDet.setParseFile(mStudent.getProfileImage());
-        pivStDet.loadInBackground();
+        rpivStDet.loadParseFileImageInBackground(mStudent.getProfileImage());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
         tvLastMeasuredValue.setText(dateFormat.format(viewModel.getLastAssessmentDate()));
@@ -141,6 +141,8 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
             bar.setName(strength.getName());
             bar.setValue(latestAssessmentValue);
             bar.setAvgValue(avgAssessmentValue);
+            bar.setColor(getResources().getColor(R.color.graph_bar_yellow));
+            bar.setAvgColor(getResources().getColor(R.color.aquamarine));
             bars.add(bar);
         }
 

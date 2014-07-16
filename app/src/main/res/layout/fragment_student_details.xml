@@ -17,20 +17,27 @@
             android:background="@color/shadow_grey"
             android:padding="5dp">
 
-            <com.parse.ParseImageView
+            <org.characterlab.android.views.RoundedParseImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rpivStDet"
+                android:src="@drawable/ic_launcher"
+                android:scaleType="centerCrop"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:id="@+id/pivStDet"
+                android:layout_margin="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_launcher"
-                android:layout_margin="10dp"/>
+                app:corner_radius="20dp"
+                app:border_width="0.1dp"
+                app:border_color="@color/shadow_grey"
+                app:mutate_background="true"
+                app:oval="true" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvLastMeasuredLabel"
-                android:layout_toRightOf="@+id/pivStDet"
+                android:layout_toRightOf="@+id/rpivStDet"
                 android:layout_alignParentTop="true"
                 android:text="Last Measured:"
                 android:textColor="@color/subtext_brown"
@@ -42,7 +49,7 @@
                 android:id="@+id/tvLastMeasuredValue"
                 android:textColor="@color/white"
                 android:layout_below="@+id/tvLastMeasuredLabel"
-                android:layout_toRightOf="@+id/pivStDet"
+                android:layout_toRightOf="@+id/rpivStDet"
                 android:text="Yesterday"
                 />
 
@@ -50,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvLastMeasuredValue"
-                android:layout_toRightOf="@+id/pivStDet"
+                android:layout_toRightOf="@+id/rpivStDet"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:id="@+id/llStDetMeasureStrength"
@@ -100,7 +107,7 @@
                     <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/shadow_grey"
+                    android:background="@drawable/studen_details_sections_bg"
                     android:padding="20dp">
                         <org.characterlab.android.views.BarGraph
                             android:layout_width="match_parent"

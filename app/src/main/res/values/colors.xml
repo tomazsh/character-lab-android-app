@@ -12,4 +12,22 @@
     <color name="student_list_text_color">#d6d6c2</color>
     <color name="student_list_background_color">#293838</color>
 
+    <!-- Colors given by the designers -->
+
+    <color name="white">#FFFFFF</color>
+    <color name="bg_beige">#F5F2E0</color>
+    <color name="shadow_beige">#E8E5D3</color>
+    <color name="highlight_grey">#3D4747</color>
+    <color name="bg_grey">#2D3838</color>
+    <color name="dark_grey">#1F2626</color>
+    <color name="subtext_brown">#8F8E8B</color>
+    <color name="text_brown">#68665D</color>
+    <color name="aquamarine">#18B8B8</color>
+    <color name="pencil_yellow">#FFDD00</color>
+    <color name="purple_mtn">#5E58A2</color>
+    <color name="grass_green">#99B858</color>
+    <color name="blast-off_red">#F2754D</color>
+    <color name="telescope_blue">#168ECD</color>
+    <color name="nono_red">#F25B4D</color>
+
 </resources>

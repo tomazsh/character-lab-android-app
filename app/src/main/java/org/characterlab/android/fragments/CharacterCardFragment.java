@@ -47,6 +47,12 @@ public class CharacterCardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_character_card, container, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onStrengthCardClick(strength);
+            }
+        });
         TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
         tvTitle.setText(strength.getName());
         TextView tvDescription = (TextView) view.findViewById(R.id.tvDescription);
@@ -54,12 +60,7 @@ public class CharacterCardFragment extends Fragment {
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivIcon);
         ivIcon.setImageResource(strength.getIconCircleId());
         Button exploreCharacterDetailBtn = (Button) view.findViewById(R.id.btnExplore);
-        exploreCharacterDetailBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mListener.onStrengthCardClick(strength);
-            }
-        });
+        exploreCharacterDetailBtn.setClickable(false);
         return view;
     }
 

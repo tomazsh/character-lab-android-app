@@ -49,6 +49,7 @@ public class CharacterCardsFragment extends Fragment {
         vpPager.setClipToPadding(false);
         vpPager.setPageMargin(12);
         vpPager.setAdapter(adapterViewPager);
+        vpPager.setPageTransformer(false, new ShrinkPageTransformer());
         if (savedInstanceState != null) {
             selectedItemIndex = savedInstanceState.getInt(SELECTED_ITEM_INDEX_KEY);
             vpPager.setCurrentItem(selectedItemIndex);
@@ -80,4 +81,37 @@ public class CharacterCardsFragment extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putInt(SELECTED_ITEM_INDEX_KEY, selectedItemIndex);
     }
+
+    private class ShrinkPageTransformer implements ViewPager.PageTransformer {
+        private float MIN_SCALE = 0.9f;
+        private float MIN_COLOR_SCALE = 0.5f;
+        private float X_TRANSLATION = 50f;
+
+        public void transformPage(View view, float position) {
+            int pageWidth = view.getWidth();
+
+            if (position < -1) {        // [-inf, -1]
+                view.setAlpha(1);
+                view.setTranslationX(0);
+            } else if (position <= 0) { // (-1,0]
+                view.setTranslationX(X_TRANSLATION);
+                float scaleFactor = MIN_SCALE + (1 - MIN_SCALE) * (1 - Math.abs(position));
+                view.setAlpha(MIN_COLOR_SCALE + (1 - MIN_COLOR_SCALE) * (1 - Math.abs(position)));
+                view.setScaleX(scaleFactor);
+                view.setScaleY(scaleFactor);
+            } else if (position < 1) { // (0,1]
+                view.setAlpha(MIN_COLOR_SCALE + (1 - MIN_COLOR_SCALE) * (1 - Math.abs(position)));
+                view.setTranslationX(X_TRANSLATION);
+                float scale = MIN_SCALE + (1 - MIN_SCALE) * (1 - Math.abs(position));
+                view.setScaleX(scale);
+                view.setScaleY(scale);
+            } else if (position >= 1) {
+                view.setAlpha(MIN_COLOR_SCALE + (1 - MIN_COLOR_SCALE) * (1 - Math.abs(position)));
+                view.setTranslationX(X_TRANSLATION);
+                view.setScaleX(MIN_SCALE);
+                view.setScaleY(MIN_SCALE);
+            }
+        }
+    }
+
 }

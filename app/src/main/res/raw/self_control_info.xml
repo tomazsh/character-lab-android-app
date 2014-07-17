@@ -118,4 +118,12 @@
             </content>
         </item>
     </build_items>
+    <assessment_questions>
+        <![CDATA[
+            <p>Came to class prepared<br />
+                Remembered and followed directions<br />
+                Got to work right away instead of waiting until the last minute<br />
+                Paid attention and resisted distractions</p>
+        ]]>
+    </assessment_questions>
 </strength>

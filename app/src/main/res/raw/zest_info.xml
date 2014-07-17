@@ -88,4 +88,11 @@
             </content>
         </item>
     </build_items>
+    <assessment_questions>
+        <![CDATA[
+            <p>Actively participated<br />
+                Showed enthusiasm<br />
+                Approached new situations with excitement and energy</p>
+        ]]>
+    </assessment_questions>
 </strength>

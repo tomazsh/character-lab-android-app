@@ -103,4 +103,13 @@
             </content>
         </item>
     </build_items>
+    <assessment_questions>
+        <![CDATA[
+            <p>Believed that effort would improve his/her future<br />
+               When bad things happened, s/he thought about things they could do to make it
+                   better next time<br />
+               Stayed motivated, even when things didn’t go well<br />
+               Believed that s/he could improve on things they weren’t good at</p>
+        ]]>
+    </assessment_questions>
 </strength>

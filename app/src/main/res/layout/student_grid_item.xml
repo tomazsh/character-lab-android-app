@@ -5,21 +5,31 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <com.parse.ParseImageView
+    <org.characterlab.android.views.RoundedParseImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/image_view"
+        android:src="@color/shadow_beige"
+        android:scaleType="centerCrop"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/ic_launcher" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        app:border_width="0.1dp"
+        app:border_color="#a8a5a3"
+        app:mutate_background="true"
+        app:oval="true" />
 
     <TextView
         android:id="@+id/name_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:maxLines="1"
         android:ellipsize="end"
         android:gravity="center"
-        android:textSize="16sp"
+        android:textSize="13sp"
+        android:textColor="@color/character_card_description_text_color"
         android:text="@string/app_name" />
 
 </LinearLayout>

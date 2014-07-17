@@ -6,24 +6,31 @@
     android:background="@drawable/strength_details_card_bg"
     tools:context="org.characterlab.android.fragments.StrengthDetailsVideoCardFragment">
 
-    <ImageView
+    <org.characterlab.android.views.RoundedParseImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cover_image_view"
+        android:src="@color/white"
+        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/strength_details_card_bg"
-        android:scaleType="centerCrop" />
+        android:layout_alignParentLeft="true"
+        app:corner_radius="15dp"
+        app:border_width="1dp"
+        app:border_color="@color/shadow_beige"
+        app:mutate_background="true"
+        app:oval="false" />
 
     <TextView
         android:id="@+id/page_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="22dp"
         android:layout_marginRight="20dp"
         android:maxLines="5"
         android:lineSpacingMultiplier="1.25"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/title_text_view"
@@ -37,6 +44,10 @@
         android:layout_alignParentStart="true"
         android:textColor="@android:color/white"
         android:lineSpacingMultiplier="1.25"
-        android:padding="20dp"/>
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/text_view_gradient" />
 
 </RelativeLayout>

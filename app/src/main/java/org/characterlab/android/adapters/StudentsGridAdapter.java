@@ -15,12 +15,13 @@ import com.parse.ParseImageView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.models.Student;
+import org.characterlab.android.views.RoundedParseImageView;
 
 import java.util.List;
 
 public class StudentsGridAdapter extends ArrayAdapter<Student> {
     private static class ViewHolder {
-        ParseImageView imageView;
+        RoundedParseImageView imageView;
         TextView nameTextView;
     }
 
@@ -39,7 +40,7 @@ public class StudentsGridAdapter extends ArrayAdapter<Student> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.student_grid_item, parent, false);
-            viewHolder.imageView = (ParseImageView)convertView.findViewById(R.id.image_view);
+            viewHolder.imageView = (RoundedParseImageView)convertView.findViewById(R.id.image_view);
             viewHolder.nameTextView = (TextView)convertView.findViewById(R.id.name_text_view);
             convertView.setTag(viewHolder);
         }
@@ -47,13 +48,7 @@ public class StudentsGridAdapter extends ArrayAdapter<Student> {
         viewHolder.nameTextView.setText(student.getName());
         ParseFile profileImageFile = student.getProfileImage();
         if (profileImageFile != null) {
-            viewHolder.imageView.setParseFile(profileImageFile);
-            viewHolder.imageView.loadInBackground(new GetDataCallback() {
-                @Override
-                public void done(byte[] data, ParseException e) {
-                    viewHolder.imageView.setVisibility(View.VISIBLE);
-                }
-            });
+            viewHolder.imageView.loadParseFileImageInBackground(profileImageFile);
         }
 
         return convertView;

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="login_view_background_color">#f5f2de</color>
+    <color name="login_view_text_color">#d9d18f</color>
     <color name="graph_bar_yellow">#FFE433</color>
 
     <color name="character_lab_yellow_color">#FFDD00</color>

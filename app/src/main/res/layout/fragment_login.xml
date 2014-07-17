@@ -2,6 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
+    android:background="@color/login_view_background_color"
     android:id="@+id/svMain">
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,44 +12,46 @@
         tools:context="org.characterlab.android.fragments.LoginFragment">
 
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="220dp"
+            android:layout_height="220dp"
             android:id="@+id/ivLogo"
             android:src="@drawable/character_lab_logo"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="9"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:id="@+id/etUserName"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/ivLogo"
             android:layout_marginTop="25dp"
             android:focusableInTouchMode="true"
+            android:textColorHint="@color/login_view_text_color"
             android:hint="@string/user_name_hint"
-            android:background="@drawable/edit_text_design"
+            android:background="@drawable/edit_text_top_design"
             android:drawableLeft="@drawable/img_username" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="9"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:id="@+id/etPassword"
+            android:textColorHint="@color/login_view_text_color"
             android:layout_below="@+id/etUserName"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
             android:hint="@string/password_hint"
-            android:background="@drawable/edit_text_design"
+            android:background="@drawable/edit_text_bottom_design"
             android:drawableLeft="@drawable/img_password" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:text="@string/login_button_title"
             android:id="@+id/btnLogin"
@@ -59,10 +62,11 @@
             android:layout_centerHorizontal="true"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:layout_marginBottom="30dp"
             android:textSize="24dp"
             android:background="@drawable/button_default_bg"
-            android:textStyle="bold"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 </ScrollView>

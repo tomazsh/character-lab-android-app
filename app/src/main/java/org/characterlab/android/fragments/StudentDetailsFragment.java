@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private BarGraph barGraph;
     private RoundedParseImageView rpivStDet;
     private TextView tvLastMeasuredValue;
+    private ScrollView svStDet;
     private LinearLayout llStDetMeasureStrength;
     private ListView lvStDetMeasurementRecord;
     ViewPager vpStDetPager;
@@ -90,6 +92,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
         rpivStDet = (RoundedParseImageView) v.findViewById(R.id.rpivStDet);
         tvLastMeasuredValue = (TextView) v.findViewById(R.id.tvLastMeasuredValue);
+        svStDet = (ScrollView) v.findViewById(R.id.svStDet);
         llStDetMeasureStrength = (LinearLayout) v.findViewById(R.id.llStDetMeasureStrength);
         vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
         lvStDetMeasurementRecord = (ListView) v.findViewById(R.id.lvStDetMeasurementRecord);
@@ -158,6 +161,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         measurementRecordsListAdapter = new MeasurementRecordsListAdapter(getActivity(), assessmentsDateWiseList);
         lvStDetMeasurementRecord.setAdapter(measurementRecordsListAdapter);
 
+        svStDet.scrollTo(0,0);
     }
 
     //region Getters abd Setters

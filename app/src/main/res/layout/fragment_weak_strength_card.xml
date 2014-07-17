@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/llStrongStrengthFrag"
-        android:background="@drawable/strength_details_card_bg"
+        android:background="@drawable/student_detail_card"
         android:padding="10dp"
         >
 
@@ -28,8 +28,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWeakCardStronglabel"
                 android:text="Needs Improvement"
-                android:textSize="15sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 />
 
@@ -39,6 +39,7 @@
                 android:id="@+id/tvStrongCardPageCount"
                 android:text="2/5"
                 android:textSize="13sp"
+                android:textColor="@color/subtext_brown"
                 android:layout_marginLeft="10dp"
                 />
 
@@ -72,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/need_help_label"
                     android:textSize="12sp"
+                    android:textColor="@color/white"
                     android:id="@+id/tvStDetailsWeak1"
                     android:gravity="center"
                     android:singleLine="true"
@@ -100,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/need_help_label"
                     android:textSize="12sp"
+                    android:textColor="@color/white"
                     android:id="@+id/tvStDetailsWeak2"
                     android:gravity="center"
                     android:singleLine="true"
@@ -127,14 +130,13 @@
                     android:layout_height="wrap_content"
                     android:text="@string/need_help_label"
                     android:textSize="12sp"
+                    android:textColor="@color/white"
                     android:id="@+id/tvStDetailsWeak3"
                     android:gravity="center"
                     android:singleLine="true"
                     android:ellipsize="marquee"
                     />
             </LinearLayout>
-
-
 
         </LinearLayout>
 

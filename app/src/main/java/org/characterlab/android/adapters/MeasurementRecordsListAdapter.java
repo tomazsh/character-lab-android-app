@@ -60,9 +60,9 @@ public class MeasurementRecordsListAdapter extends ArrayAdapter<StrengthAssessme
 //        viewHolder.tvMeasurementIndex.setText(attachIndexSuffix(assessment.getGroupId()));
 
         if (position % 2 == 0) {
-            viewHolder.rlMeasurementList.setBackgroundColor(getContext().getResources().getColor(android.R.color.background_dark));
+            viewHolder.rlMeasurementList.setBackgroundColor(getContext().getResources().getColor(R.color.shadow_grey));
         } else {
-            viewHolder.rlMeasurementList.setBackgroundColor(getContext().getResources().getColor(android.R.color.background_light));
+            viewHolder.rlMeasurementList.setBackgroundColor(getContext().getResources().getColor(R.color.dark_grey));
         }
 
         return convertView;

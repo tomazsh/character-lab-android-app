@@ -12,4 +12,9 @@
         <item name="android:divider">@drawable/student_list_divide</item>
         <item name="android:dividerHeight">1dp</item>
     </style>
+
+    <style name="MeasurementRecordListDividedListStyle" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/bg_grey</item>
+    </style>
+
 </resources>

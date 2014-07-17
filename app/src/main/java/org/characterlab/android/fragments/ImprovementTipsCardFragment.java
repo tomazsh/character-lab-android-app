@@ -61,10 +61,10 @@ public class ImprovementTipsCardFragment extends Fragment {
         int count = 1;
         for (StrengthInfoItem infoItem : infoItems) {
             StringBuilder builder = new StringBuilder();
-            builder.append("<b>");
+//            builder.append("<b>");
             builder.append(infoItem.getTitle());
             builder.append(":   ");
-            builder.append("</b>");
+//            builder.append("</b>");
             String contents = infoItem.getContents().trim();
             contents = contents.replace("<p>", "");
             contents = contents.replace("</p>", "");
@@ -77,11 +77,13 @@ public class ImprovementTipsCardFragment extends Fragment {
             } else if (count == 2) {
                 tvImprovementTips = (TextView) v.findViewById(R.id.tvImprovementTips2);
                 tvImprovementTips.setText(Html.fromHtml(builder.toString()));
-            } else if (count == 3) {
-                tvImprovementTips = (TextView) v.findViewById(R.id.tvImprovementTips3);
-                tvImprovementTips.setText(Html.fromHtml(builder.toString()));
                 break;
             }
+//            else if (count == 3) {
+//                tvImprovementTips = (TextView) v.findViewById(R.id.tvImprovementTips3);
+//                tvImprovementTips.setText(Html.fromHtml(builder.toString()));
+//                break;
+//            }
             count++;
         }
 

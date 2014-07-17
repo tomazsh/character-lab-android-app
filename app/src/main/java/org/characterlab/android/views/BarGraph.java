@@ -55,15 +55,14 @@ public class BarGraph extends View {
         Canvas canvas = new Canvas(fullImage);
         canvas.drawColor(Color.TRANSPARENT);
 
-        paint.setColor(Color.WHITE);
-
-        //paint.setAlpha(50);
+        paint.setColor(Color.parseColor("#8F8E8B"));
+//        paint.setColor(Color.WHITE);
         paint.setAntiAlias(true);
 
         paint.setStrokeWidth(4);
         canvas.drawLine(leftPadding, 0, leftPadding, fullBitmapHeight - bottomPadding, paint);
 
-        paint.setStrokeWidth(4);
+//        paint.setStrokeWidth(4);
         canvas.drawLine(leftPadding, fullBitmapHeight - bottomPadding, getWidth(), fullBitmapHeight - bottomPadding, paint);
 
         int heightToUseForAllBars = fullBitmapHeight - 10 - bottomPadding;
@@ -128,7 +127,8 @@ public class BarGraph extends View {
 
             // avg bar end
 
-            this.paint.setColor(Color.DKGRAY);
+//            this.paint.setColor(Color.BLACK);
+            this.paint.setColor(Color.parseColor("#1F2626"));
             this.paint.setTextSize(sp2px(getContext(), 9));
             String traitTitleAndValueStr = barToDraw.getName(); // + "  (" + (int) barToDraw.getValue() + ")";
             canvas.drawText(traitTitleAndValueStr, (int) (left + 10), barRect.top + (currentValueBarHeight / 2) + 7, this.paint);

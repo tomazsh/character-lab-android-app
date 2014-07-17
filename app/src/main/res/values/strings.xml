@@ -41,9 +41,10 @@
     <string name="new_assessment_confirmation_title">Save Assessment</string>
     <string name="new_assessment_confirmation_msg">Are you sure you want to save the new assessment?</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="how_to_improve_label">How To Improve</string>
 
     <string name="bad_students_title">Students, who need help</string>
     <string name="good_students_title">Students, who are doing good</string>
-    <string name="measurement_record">Measurement Records</string>
+    <string name="measurement_record">Measurement Record</string>
 
 </resources>

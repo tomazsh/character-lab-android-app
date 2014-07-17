@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/llStDet">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -83,7 +84,7 @@
         </RelativeLayout>
 
         <ScrollView
-            android:id="@+id/scroll_view"
+            android:id="@+id/svStDet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
@@ -100,32 +101,32 @@
                         android:text="Strength Breakdown"
                         android:textAllCaps="true"
                         android:textStyle="bold"
-                        android:textColor="@color/text_brown"
+                        android:textColor="@color/subtext_brown"
                         android:layout_marginTop="7dp"
                         android:layout_marginBottom="7dp"/>
 
                     <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/studen_details_sections_bg"
-                    android:padding="20dp">
-                        <org.characterlab.android.views.BarGraph
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            android:id="@+id/bgStudentDetail"
-                            android:layout_marginRight="10dp"
-                            />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/studen_details_sections_bg"
+                        android:padding="20dp">
+                            <org.characterlab.android.views.BarGraph
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:id="@+id/bgStudentDetail"
+                                android:layout_marginRight="10dp"
+                                />
                     </LinearLayout>
-
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Summary"
-                        android:textSize="15sp"
+                        android:text="@string/how_to_improve_label"
                         android:textStyle="bold"
-                        android:layout_margin="5dp"
-                        />
+                        android:textColor="@color/subtext_brown"
+                        android:textAllCaps="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="7dp"/>
 
                     <android.support.v4.view.ViewPager
                         android:id="@+id/vpStDetPager"
@@ -135,7 +136,7 @@
                         android:paddingLeft="24dp"
                         android:paddingRight="12dp"
                         android:layout_weight="1"
-                        android:background="@android:color/darker_gray"
+                        android:background="@color/bg_grey"
                         >
                     </android.support.v4.view.ViewPager>
 
@@ -143,15 +144,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/measurement_record"
-                        android:textSize="15sp"
                         android:textStyle="bold"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:textAllCaps="true"
+                        android:textColor="@color/subtext_brown"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="7dp"/>
 
                     <ListView
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
-                        android:id="@+id/lvStDetMeasurementRecord"/>
+                        android:layout_height="300dp"
+                        android:id="@+id/lvStDetMeasurementRecord"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        style="@style/MeasurementRecordListDividedListStyle"
+                        android:background="@drawable/rounded_corner_bg"/>
 
             </LinearLayout>
         </ScrollView>

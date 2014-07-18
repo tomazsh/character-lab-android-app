@@ -104,6 +104,7 @@ public class StrengthDetailsFragment extends Fragment
                 mListener.onStrengthDetailsStudentClick(student);
             }
         });
+        mBadStudentsGridAdapter.notifyDataSetChanged();
 
         mGoodStudentsGridView = (GridView)v.findViewById(R.id.bad_students_grid_view);
         mGoodStudentsGridView.setAdapter(mGoodStudentsGridAdapter);
@@ -114,6 +115,7 @@ public class StrengthDetailsFragment extends Fragment
                 mListener.onStrengthDetailsStudentClick(student);
             }
         });
+        mGoodStudentsGridAdapter.notifyDataSetChanged();
 
         return v;
     }

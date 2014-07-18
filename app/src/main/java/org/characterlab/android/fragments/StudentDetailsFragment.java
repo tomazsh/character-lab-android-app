@@ -127,6 +127,11 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
     private void updateView(StudentDetailViewModel viewModel) {
 
+        assessmentsDateWiseList = viewModel.getAssessmentsDatewiseList();
+        measurementRecordsListAdapter = new MeasurementRecordsListAdapter(getActivity(), assessmentsDateWiseList);
+        lvStDetMeasurementRecord.setAdapter(measurementRecordsListAdapter);
+        measurementRecordsListAdapter.notifyDataSetChanged();
+
         rpivStDet.loadParseFileImageInBackground(mStudent.getProfileImage());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d, yyyy", Locale.US);
@@ -156,10 +161,6 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         vpStDetPager.setClipToPadding(false);
         vpStDetPager.setPageMargin(12);
         vpStDetPager.setAdapter(adapter);
-
-        assessmentsDateWiseList = viewModel.getAssessmentsDatewiseList();
-        measurementRecordsListAdapter = new MeasurementRecordsListAdapter(getActivity(), assessmentsDateWiseList);
-        lvStDetMeasurementRecord.setAdapter(measurementRecordsListAdapter);
 
         svStDet.scrollTo(0,0);
     }

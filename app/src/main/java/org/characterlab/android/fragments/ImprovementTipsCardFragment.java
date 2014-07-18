@@ -109,7 +109,7 @@ public class ImprovementTipsCardFragment extends Fragment {
 
     private void showImprovementTipsDialog(StrengthInfo strengthInfo) {
         final ContextThemeWrapper context = new ContextThemeWrapper(getActivity(),
-                android.R.style.Theme_Holo_Dialog);
+                R.style.BlackAlertDialogStyle);
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.strenth_improvement_tips_dialog, null);

@@ -21,6 +21,7 @@ public class StudentDetailsActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_details);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
 //        adapterViewPager = new StudentDetailsSummaryCardsAdapter(getSupportFragmentManager());
 //        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);

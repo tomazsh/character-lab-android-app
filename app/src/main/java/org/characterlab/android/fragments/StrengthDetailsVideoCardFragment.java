@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.models.StrengthInfoItem;
+import org.characterlab.android.views.RoundedParseImageView;
 
 public class StrengthDetailsVideoCardFragment extends Fragment {
     private int mPage;
@@ -49,7 +50,7 @@ public class StrengthDetailsVideoCardFragment extends Fragment {
         TextView pageTextView = (TextView)view.findViewById(R.id.page_text_view);
         pageTextView.setText(page);
 
-        ImageView coverImageView = (ImageView)view.findViewById(R.id.cover_image_view);
+        RoundedParseImageView coverImageView = (RoundedParseImageView)view.findViewById(R.id.cover_image_view);
         coverImageView.setImageResource(mItem.getCoverResourceId(getActivity()));
 
         return view;

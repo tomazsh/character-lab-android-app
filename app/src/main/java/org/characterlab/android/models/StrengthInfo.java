@@ -43,6 +43,9 @@ public class StrengthInfo implements Serializable {
     @ElementList(name="build_items", required=false)
     private List<StrengthInfoItem> mBuildItems;
 
+    @Element(name="assessment_questions", required=false)
+    private String mAssessmentQuestions;
+
     public static StrengthInfo fromStrength(Context context, Strength strength) {
         Serializer serializer = new Persister();
         InputStream stream = context.getResources().openRawResource(strength.getInfoResourceId());
@@ -101,4 +104,6 @@ public class StrengthInfo implements Serializable {
     public List<StrengthInfoItem> getBuildItems() {
         return mBuildItems;
     }
+
+    public String getAssessmentQuestions() { return mAssessmentQuestions; }
 }

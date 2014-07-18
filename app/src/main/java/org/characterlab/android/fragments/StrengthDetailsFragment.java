@@ -209,7 +209,7 @@ public class StrengthDetailsFragment extends Fragment
 
         ViewGroup.LayoutParams params = gridView.getLayoutParams();
         params.height = listItem.getMeasuredHeight();
-        params.width = listItem.getMeasuredHeight()*items;
+        params.width = (listItem.getMeasuredWidth()+60)*items;
         gridView.setLayoutParams(params);
 
     }

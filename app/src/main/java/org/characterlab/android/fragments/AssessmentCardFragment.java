@@ -3,6 +3,7 @@ package org.characterlab.android.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,14 @@ import android.widget.TextView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.models.Strength;
+import org.characterlab.android.models.StrengthInfo;
 
 /**
  * Created by mandar.b on 7/9/2014.
  */
 public class AssessmentCardFragment  extends Fragment {
     private Strength strength;
+    private StrengthInfo strengthInfo;
     private AssessmentCardFragmentListener mListener;
 
     public AssessmentCardFragment() {
@@ -40,6 +43,7 @@ public class AssessmentCardFragment  extends Fragment {
         super.onCreate(savedInstanceState);
         String strengthStr = getArguments().getString("strength");
         strength = Strength.valueOf(strengthStr);
+        strengthInfo = StrengthInfo.fromStrength(getActivity(), strength);
     }
 
     @Override
@@ -50,7 +54,7 @@ public class AssessmentCardFragment  extends Fragment {
         TextView tvTitle = (TextView) view.findViewById(R.id.tvAssessmentCardTitle);
         tvTitle.setText(strength.getName());
         TextView tvAssessmentCardDescription = (TextView) view.findViewById(R.id.tvAssessmentCardDescription);
-        tvAssessmentCardDescription.setText(getResources().getString(strength.getDescriptionId()));
+        tvAssessmentCardDescription.setText(Html.fromHtml(strengthInfo.getAssessmentQuestions()));
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivAssessmentCardIcon);
         ivIcon.setImageResource(strength.getIconCircleId());
 

@@ -99,4 +99,14 @@
             </content>
         </item>
     </build_items>
+    <assessment_questions>
+        <![CDATA[
+            <p>Finished whatever s/he began<br />
+                Stuck with a project or activity for more than a few weeks<br />
+                Tried very hard even after experiencing failure<br />
+                Stayed committed to goals<br />
+                Kept working hard even when s/he felt like quitting</p>
+            </ul>
+        ]]>
+    </assessment_questions>
 </strength>

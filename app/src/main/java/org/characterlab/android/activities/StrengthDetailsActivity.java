@@ -21,6 +21,8 @@ public class StrengthDetailsActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_strength_details);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         if (savedInstanceState == null) {
             mStrengthDetailsFragment = new StrengthDetailsFragment();
             getSupportFragmentManager()

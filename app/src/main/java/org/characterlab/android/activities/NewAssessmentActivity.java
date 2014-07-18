@@ -43,6 +43,8 @@ public class NewAssessmentActivity extends FragmentActivity
         setContentView(R.layout.activity_new_assessment);
         viewModel = new NewAssessmentViewModel();
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         String studentId = getIntent().getStringExtra("studentId");
         if (studentId != null) {
             Student student = (Student) CharacterLabApplication.readFromCache(studentId);

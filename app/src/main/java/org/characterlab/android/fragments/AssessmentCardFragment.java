@@ -23,8 +23,18 @@ public class AssessmentCardFragment  extends Fragment {
     private Strength strength;
     private StrengthInfo strengthInfo;
     private AssessmentCardFragmentListener mListener;
+    private static int[] scoreStringResources;
 
     public AssessmentCardFragment() {
+        scoreStringResources = new int[]{
+            R.string.almost_never,
+            R.string.very_rarely,
+            R.string.rarely,
+            R.string.sometimes,
+            R.string.often,
+            R.string.very_often,
+            R.string.almost_always
+        };
     }
 
     public interface AssessmentCardFragmentListener {
@@ -66,7 +76,7 @@ public class AssessmentCardFragment  extends Fragment {
         sbAssessmentCardScore.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tvAssessmentCardScore.setText(String.valueOf(progress));
+                tvAssessmentCardScore.setText(scoreStringResources[progress]);
                 mListener.onStrenthScoreSet(strength, progress);
             }
 

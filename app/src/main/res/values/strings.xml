@@ -47,4 +47,13 @@
     <string name="good_students_title">STUDENTS, WHO ARE DOING GOOD</string>
     <string name="measurement_record">Measurement Record</string>
 
+    <string name="almost_never">Almost Never</string>
+    <string name="very_rarely">Very Rarely</string>
+    <string name="rarely">Rarely</string>
+    <string name="sometimes">Sometimes</string>
+    <string name="often">Often</string>
+    <string name="very_often">Very Often</string>
+    <string name="almost_always">Almost Always</string>
+
+
 </resources>

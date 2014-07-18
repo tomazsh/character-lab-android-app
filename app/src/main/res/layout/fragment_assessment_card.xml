@@ -2,86 +2,149 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
     android:gravity="center"
     android:id="@+id/llAssessmentCard"
     android:background="@color/bg_beige"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/ivAssessmentCardIcon"
-        android:layout_marginTop="20dp"
-        android:gravity="center" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/ivAssessmentCardIcon"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/curiosity_card_title"
-        android:textColor="@color/character_card_title_text_color"
-        android:id="@+id/tvAssessmentCardTitle"
-        android:textSize="20sp"
-        android:gravity="center" />
-
-    <SeekBar
+    <LinearLayout
+        android:id="@+id/inputView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:paddingTop="40dp"
-        android:paddingBottom="40dp"
-        android:id="@+id/sbAssessmentCardScore"
-        android:max="6"
-        android:indeterminate="false" />
+        android:paddingTop="50dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sometimes"
+            android:textColor="@color/character_card_title_text_color"
+            android:id="@+id/tvAssessmentCardScore"
+            android:textSize="30sp"
+            android:gravity="center" />
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/sbAssessmentCardScore"
+            android:max="6"
+            android:progress="3"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/progress_seek_bar"
+            android:thumb="@drawable/seek_bar_thumb" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/sbAssessmentCardScore"
-        android:layout_centerHorizontal="true"
-        android:text="1"
-        android:textColor="@color/character_card_title_text_color"
-        android:id="@+id/tvAssessmentCardScore"
-        android:textSize="30sp"
-        android:gravity="center" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/tvAssessmentCardScore"
-        android:layout_centerHorizontal="true"
-        android:text="@string/score"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/character_card_title_text_color"
-        android:id="@+id/tvAssessmentCardScoreLabel"
-        android:textSize="15sp"
-        android:lineSpacingMultiplier="1.25"
-        android:gravity="center" />
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvAssessmentCardTitle"
-        android:layout_above="@id/tvAssessmentCardScoreLabel"
-        android:text="@string/curisosity_card_description"
-        android:id="@+id/tvAssessmentCardDescription"
-        android:textColor="@color/character_card_description_text_color"
-        android:layout_marginTop="15dp"
-        android:textSize="13sp"
-        android:lineSpacingMultiplier="1.25"
-        android:gravity="center_horizontal" />
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="40dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/character_card_description_text_color" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textColor="@color/character_card_description_text_color" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textColor="@color/character_card_description_text_color" />33
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textColor="@color/character_card_description_text_color" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="@color/character_card_description_text_color" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6"
+            android:textColor="@color/character_card_description_text_color" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7"
+            android:textColor="@color/character_card_description_text_color" />
+        </LinearLayout>
 
-
-
-
-
-
-
-
+    <RelativeLayout
+        android:id="@+id/infoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_above="@id/inputView"
+        android:layout_alignParentTop="true"
+        android:background="@color/shadow_beige">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/ivAssessmentCardIcon"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ivAssessmentCardIcon"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/curiosity_card_title"
+            android:textColor="@color/character_card_title_text_color"
+            android:id="@+id/tvAssessmentCardTitle"
+            android:textSize="20sp"
+            android:gravity="left" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ivAssessmentCardIcon"
+            android:layout_below="@id/tvAssessmentCardTitle"
+            android:text="@string/curisosity_card_description"
+            android:id="@+id/tvAssessmentCardDescription"
+            android:textColor="@color/character_card_description_text_color"
+            android:layout_marginTop="10dp"
+            android:textSize="13sp"
+            android:lineSpacingMultiplier="1.25"
+            android:gravity="left" />
+    </RelativeLayout>
 </RelativeLayout>

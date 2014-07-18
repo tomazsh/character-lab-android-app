@@ -17,4 +17,13 @@
         <item name="android:background">@color/bg_grey</item>
     </style>
 
+
+    <style name="BlackAlertDialogStyle" parent="@android:style/Theme.Holo.Dialog">
+        <item name="android:buttonBarStyle">@style/BlackAlertDialogButtonBarStyle</item>
+    </style>
+
+    <style name="BlackAlertDialogButtonBarStyle" parent="@android:style/Holo.ButtonBar.AlertDialog">
+        <item name="android:background">@color/bg_grey</item>
+    </style>
+
 </resources>

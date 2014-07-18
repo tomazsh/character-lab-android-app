@@ -84,11 +84,9 @@
             </content>
         </item>
     </build_items>
-    <assessment_questions>
-        <![CDATA[
-            <p>Was eager to explore new things<br />
-                Asked questions to help s/he learn better<br />
-                Took an active interest in learning</p>
-        ]]>
+    <assessment_questions length="3">
+        <question>Was eager to explore new things</question>
+        <question>Asked questions to help s/he learn better</question>
+        <question>Took an active interest in learning</question>
     </assessment_questions>
 </strength>

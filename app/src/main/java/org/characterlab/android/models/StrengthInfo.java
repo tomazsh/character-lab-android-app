@@ -4,6 +4,7 @@ import android.content.Context;
 
 import org.characterlab.android.R;
 import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementArray;
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Serializer;
@@ -43,8 +44,8 @@ public class StrengthInfo implements Serializable {
     @ElementList(name="build_items", required=false)
     private List<StrengthInfoItem> mBuildItems;
 
-    @Element(name="assessment_questions", required=false)
-    private String mAssessmentQuestions;
+    @ElementArray(name="assessment_questions", entry="question", required=false)
+    private String[] mAssessmentQuestions;
 
     public static StrengthInfo fromStrength(Context context, Strength strength) {
         Serializer serializer = new Persister();
@@ -105,5 +106,5 @@ public class StrengthInfo implements Serializable {
         return mBuildItems;
     }
 
-    public String getAssessmentQuestions() { return mAssessmentQuestions; }
+    public String[] getAssessmentQuestions() { return mAssessmentQuestions; }
 }

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +55,8 @@ public class AssessmentCardFragment  extends Fragment {
         TextView tvTitle = (TextView) view.findViewById(R.id.tvAssessmentCardTitle);
         tvTitle.setText(strength.getName());
         TextView tvAssessmentCardDescription = (TextView) view.findViewById(R.id.tvAssessmentCardDescription);
-        tvAssessmentCardDescription.setText(Html.fromHtml(strengthInfo.getAssessmentQuestions()));
+        String description = TextUtils.join("\n", strengthInfo.getAssessmentQuestions());
+        tvAssessmentCardDescription.setText(description);
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivAssessmentCardIcon);
         ivIcon.setImageResource(strength.getIconCircleId());
 

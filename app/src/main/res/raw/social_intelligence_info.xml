@@ -73,11 +73,9 @@
             </content>
         </item>
     </build_items>
-    <assessment_questions>
-        <![CDATA[
-            <p>Was able to find solutions during conflicts with others<br />
-                Showed that s/he cared about the feelings of others<br />
-                Adapted to different social situations</p>
-        ]]>
+    <assessment_questions length="3">
+        <question>Was able to find solutions during conflicts with others</question>
+        <question>Showed that s/he cared about the feelings of others</question>
+        <question>Adapted to different social situations</question>
     </assessment_questions>
 </strength>

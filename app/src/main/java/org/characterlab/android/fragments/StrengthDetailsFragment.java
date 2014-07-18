@@ -115,10 +115,15 @@ public class StrengthDetailsFragment extends Fragment
             }
         });
 
+        return v;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         loadBadStudentsDataFromParse();
         loadGoodStudentsDataFromParse();
-
-        return v;
     }
 
     @Override

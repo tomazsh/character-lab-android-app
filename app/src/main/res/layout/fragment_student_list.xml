@@ -1,8 +1,10 @@
-<RelativeLayout
+<LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#000"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/progress_bar_animated" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -17,4 +19,4 @@
         style="@style/StudentListDividedListStyle"
         android:background="@drawable/rounded_corner_bg"
         android:dividerHeight="1px" />
-</RelativeLayout>
+</LinearLayout>

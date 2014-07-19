@@ -14,7 +14,7 @@ public class NewAssessmentViewModel implements Serializable {
     public NewAssessmentViewModel() {
         // init viewModel with 0 scores;
         for (Strength strength : Strength.values()) {
-            strengthScores.put(strength, 0);
+            strengthScores.put(strength, 4);
         }
     }
 

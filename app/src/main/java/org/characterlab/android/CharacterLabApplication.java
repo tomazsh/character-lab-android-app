@@ -19,6 +19,8 @@ public class CharacterLabApplication extends Application {
     private static Context context;
     private static Map<String, ParseObject> parseObjectCache = new HashMap<String, ParseObject>();
 
+    private static boolean actionBarBasedProgressBar = false;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -40,5 +42,8 @@ public class CharacterLabApplication extends Application {
         return parseObjectCache.get(objectId);
     }
 
+    public static boolean isActionBarBasedProgressBar() {
+        return actionBarBasedProgressBar;
+    }
 
 }

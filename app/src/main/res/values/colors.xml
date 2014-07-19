@@ -2,6 +2,8 @@
 <resources>
     <color name="login_view_background_color">#f5f2de</color>
     <color name="login_view_text_color">#d9d18f</color>
+    <color name="logout_view_background_color">#f5f2e0</color>
+    <color name="logout_text_color">#777</color>
     <color name="graph_bar_yellow">#FFE433</color>
 
     <color name="character_lab_yellow_color">#FFDD00</color>

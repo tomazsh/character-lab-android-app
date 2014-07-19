@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_name"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_gravity="center" android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:background="@color/logout_view_background_color">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivSignout"
+        android:layout_gravity="center"
+        android:src="@raw/sign_out"/>
+
+    <TextView
+        android:id="@+id/lbl_your_name" android:text="@string/logout_warning_text"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/logout_text_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_action"
+            android:id="@+id/btnCancel"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:textColor="@color/logout_text_color"
+            android:background="@drawable/left_logout_button_bg"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout_action"
+            android:id="@+id/btnSignOut"
+            android:layout_weight="1"
+            android:textColor="@color/logout_text_color"
+            android:background="@drawable/right_logout_button_bg"/>
+    </LinearLayout>
+
+</LinearLayout>

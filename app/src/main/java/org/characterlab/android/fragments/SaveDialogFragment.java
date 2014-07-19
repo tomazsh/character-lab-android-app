@@ -12,7 +12,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.plattysoft.leonids.ParticleSystem;
 
 import org.characterlab.android.R;
 import org.characterlab.android.helpers.ParseClient;
@@ -50,6 +53,7 @@ public class SaveDialogFragment extends DialogFragment {
         final Button saveButton = (Button) view.findViewById(R.id.btnSave);
         final Button cancelButton = (Button) view.findViewById(R.id.btnCancel);
         final Button dismissButton = (Button) view.findViewById(R.id.btnDismiss);
+        final LinearLayout llSave = (LinearLayout) view.findViewById(R.id.llSave);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +109,29 @@ public class SaveDialogFragment extends DialogFragment {
                                         .setDuration(200)
                         );
                         set.start();
+                        set.addListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animator) {
+                                new ParticleSystem(getActivity(), 200, R.drawable.star_pink, 8000)
+                                        .setSpeedRange(0.2f, 0.5f)
+                                        .oneShot(llSave, 200);
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animator) {
+
+                            }
+                        });
                     }
 
                     @Override

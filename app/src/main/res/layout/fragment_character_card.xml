@@ -12,8 +12,8 @@
         tools:context=".fragments.CharacterCardsFragment"
         android:orientation="vertical"
         android:id="@+id/rlCard"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/character_card_bg">
 
         <TextView
@@ -54,7 +54,6 @@
             android:textColor="@color/character_lab_green_color"
             android:background="@android:color/transparent"
             android:layout_weight="2" />
-
 
     </LinearLayout>
 </FrameLayout>

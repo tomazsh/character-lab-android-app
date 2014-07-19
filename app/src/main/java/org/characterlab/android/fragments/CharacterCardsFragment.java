@@ -13,12 +13,15 @@ import android.view.ViewGroup;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.CharacterCardsAdapter;
 import org.characterlab.android.adapters.SmartFragmentStatePagerAdapter;
+import org.characterlab.android.views.PageIndicator;
 
 public class CharacterCardsFragment extends Fragment {
     private FragmentActivity myContext;
     private SmartFragmentStatePagerAdapter adapterViewPager;
+    private PageIndicator pageIndicator;
     private int selectedItemIndex = 0;
     private final String SELECTED_ITEM_INDEX_KEY = "selectedItemIndex";
+    private final int NUM_DOTS = 7;
 
     public interface CharacterCardsFragmentListener {
         SmartFragmentStatePagerAdapter getAdapterViewPager();
@@ -50,6 +53,7 @@ public class CharacterCardsFragment extends Fragment {
         vpPager.setPageMargin(12);
         vpPager.setAdapter(adapterViewPager);
         vpPager.setPageTransformer(false, new ShrinkPageTransformer());
+        pageIndicator = (PageIndicator) view.findViewById(R.id.pageIndicator);
         if (savedInstanceState != null) {
             selectedItemIndex = savedInstanceState.getInt(SELECTED_ITEM_INDEX_KEY);
             vpPager.setCurrentItem(selectedItemIndex);
@@ -59,6 +63,7 @@ public class CharacterCardsFragment extends Fragment {
             @Override
             public void onPageSelected(int position) {
                 selectedItemIndex = position;
+                pageIndicator.setActiveDot(position);
             }
 
             // This method will be invoked when the current page is scrolled
@@ -114,4 +119,15 @@ public class CharacterCardsFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        setupDots();
+    }
+
+    private void setupDots() {
+        pageIndicator.setTotalNoOfDots(NUM_DOTS);
+        pageIndicator.setActiveDot(selectedItemIndex);
+        pageIndicator.setDotSpacing(20);
+    }
 }

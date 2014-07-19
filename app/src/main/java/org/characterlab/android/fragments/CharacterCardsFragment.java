@@ -30,6 +30,9 @@ public class CharacterCardsFragment extends Fragment {
     public CharacterCardsFragment() {
     }
 
+    public int getSelectedChardIndex() {
+        return selectedItemIndex;
+    }
     @Override
     public void onAttach(Activity activity) {
         myContext=(FragmentActivity) activity;

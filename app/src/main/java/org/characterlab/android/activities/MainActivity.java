@@ -168,6 +168,7 @@ public class MainActivity extends FragmentActivity
 
     private void startAddAssessmentActivity() {
         Intent intent = new Intent(MainActivity.this, NewAssessmentActivity.class);
+        intent.putExtra(NewAssessmentActivity.ACTIVITY_KEY, mCharacterCardsFragment.getSelectedChardIndex());
         startActivity(intent);
     }
 

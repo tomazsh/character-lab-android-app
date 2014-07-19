@@ -30,9 +30,11 @@ public class NewAssessmentActivity extends FragmentActivity
     StudentListFragment mStudentListFragment;
     AssessmentCardsFragment mAssessmentCardsFragment;
     boolean displaySaveMenu = false;
+    private int assessmentCardsIndex;
 
     NewAssessmentViewModel viewModel;
     private Student selectedStudent;
+    public static final String ACTIVITY_KEY = "activityKey";
 
 //    Button btnNewAssessmentSave;
 
@@ -45,6 +47,7 @@ public class NewAssessmentActivity extends FragmentActivity
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         String studentId = getIntent().getStringExtra("studentId");
+        assessmentCardsIndex = getIntent().getIntExtra(ACTIVITY_KEY, 0);
         if (studentId != null) {
             Student student = (Student) CharacterLabApplication.readFromCache(studentId);
             onStudentListItemClick(student);
@@ -132,7 +135,7 @@ public class NewAssessmentActivity extends FragmentActivity
 
             CharacterLabApplication.putInCache(student.getObjectId(), student);
             if (mAssessmentCardsFragment == null) {
-                mAssessmentCardsFragment = AssessmentCardsFragment.newInstance(student.getObjectId());
+                mAssessmentCardsFragment = AssessmentCardsFragment.newInstance(student.getObjectId(), assessmentCardsIndex);
             }
 
             setContainerFragment(mAssessmentCardsFragment);
@@ -146,7 +149,7 @@ public class NewAssessmentActivity extends FragmentActivity
         viewModel.getStrengthScores().put(strength, score);
     }
 
-    //region SavedFragmentListenr
+    //region SavedFragmentListener
     public void onSaveFragmentSuccess() {
         finish();
     }

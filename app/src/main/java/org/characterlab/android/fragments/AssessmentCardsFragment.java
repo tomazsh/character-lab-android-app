@@ -22,10 +22,11 @@ public class AssessmentCardsFragment extends Fragment {
     private SmartFragmentStatePagerAdapter adapterViewPager;
     private static int selectedItemIndex = -1;
 
-    public static AssessmentCardsFragment newInstance(String studentId) {
+    public static AssessmentCardsFragment newInstance(String studentId, int selectedIndex) {
         AssessmentCardsFragment fragment = new AssessmentCardsFragment();
         Bundle args = new Bundle();
         args.putString("studentId", studentId);
+        selectedItemIndex = selectedIndex;
         fragment.setArguments(args);
         return fragment;
     }

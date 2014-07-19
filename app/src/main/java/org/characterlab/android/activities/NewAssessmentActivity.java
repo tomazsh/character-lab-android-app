@@ -32,7 +32,7 @@ public class NewAssessmentActivity extends FragmentActivity
     boolean displaySaveMenu = false;
 
     NewAssessmentViewModel viewModel;
-    private static Student selectedStudent;
+    private Student selectedStudent;
 
 //    Button btnNewAssessmentSave;
 
@@ -134,6 +134,7 @@ public class NewAssessmentActivity extends FragmentActivity
             if (mAssessmentCardsFragment == null) {
                 mAssessmentCardsFragment = AssessmentCardsFragment.newInstance(student.getObjectId());
             }
+
             setContainerFragment(mAssessmentCardsFragment);
         }
     }

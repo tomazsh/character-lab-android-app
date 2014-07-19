@@ -18,7 +18,7 @@
     <string name="save_action">Save</string>
     <string name="cancel_action">Cancel</string>
     <string name="saved_confirmation">Saved!</string>
-    <string name="back_to_profile_action">Back to profile</string>
+    <string name="back_to_profile_action">Back to characters</string>
     <string name="details_label">Details</string>
     <string name="overview_label">Overview</string>
     <string name="strong_trait_label">Strong Traits</string>

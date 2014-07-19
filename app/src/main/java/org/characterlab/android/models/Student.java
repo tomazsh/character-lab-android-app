@@ -7,7 +7,7 @@ import com.parse.ParseObject;
 import java.io.Serializable;
 
 @ParseClassName("Students")
-public class Student extends ParseObject {
+public class Student extends ParseObject implements Serializable{
     private static final String NAME_KEY = "Name";
     private static final String PROFILE_IMAGE_KEY = "ProfileImage";
 

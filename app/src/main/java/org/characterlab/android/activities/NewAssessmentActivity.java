@@ -1,14 +1,13 @@
 package org.characterlab.android.activities;
 
 import android.app.ActionBar;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.parse.ParseImageView;
@@ -17,16 +16,16 @@ import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.AssessmentCardFragment;
 import org.characterlab.android.fragments.AssessmentCardsFragment;
+import org.characterlab.android.fragments.SaveDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
-import org.characterlab.android.helpers.DialogHelper;
-import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
 
 public class NewAssessmentActivity extends FragmentActivity
              implements StudentListFragment.StudentListFragmentListener,
-                        AssessmentCardFragment.AssessmentCardFragmentListener{
+                        AssessmentCardFragment.AssessmentCardFragmentListener,
+                        SaveDialogFragment.SavedFragmentListener {
 
     StudentListFragment mStudentListFragment;
     AssessmentCardsFragment mAssessmentCardsFragment;
@@ -85,15 +84,9 @@ public class NewAssessmentActivity extends FragmentActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
         if (item.getItemId() == R.id.miNewAssessmentSave) {
-//            Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
-            DialogHelper.showConfirmDialog(this, R.string.new_assessment_confirmation_title, R.string.new_assessment_confirmation_msg, new DialogHelper.DialogListener() {
-                @Override
-                public void onOk(DialogInterface dialog) {
-                    dialog.dismiss();
-                    ParseClient.saveStudentAssessment(viewModel, selectedStudent);
-                    finish();
-                }
-            });
+            FragmentManager fm = getSupportFragmentManager();
+            SaveDialogFragment saveDialog = SaveDialogFragment.newInstance(viewModel, selectedStudent);
+            saveDialog.show(fm, "fragment_save_alert");
         }
         return true;
     }
@@ -152,4 +145,9 @@ public class NewAssessmentActivity extends FragmentActivity
         viewModel.getStrengthScores().put(strength, score);
     }
 
+    //region SavedFragmentListenr
+    public void onSaveFragmentSuccess() {
+        finish();
+    }
+    //endregion
 }

@@ -9,19 +9,20 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:id="@+id/ivSignout"
+        android:id="@+id/ivSave"
         android:layout_gravity="center"
-        android:src="@raw/sign_out"/>
+        android:src="@raw/save"/>
 
     <TextView
-        android:id="@+id/tvLogout" android:text="@string/logout_warning_text"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:id="@+id/tvSave"
+        android:layout_width="300dp" android:layout_height="50dp"
         android:layout_gravity="center"
         android:textSize="18sp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
+        android:gravity="center"
         android:textColor="@color/logout_text_color"/>
 
     <LinearLayout
@@ -42,11 +43,21 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/logout_action"
-            android:id="@+id/btnSignOut"
+            android:text="@string/save_action"
+            android:id="@+id/btnSave"
             android:layout_weight="1"
             android:textColor="@color/logout_text_color"
             android:background="@drawable/right_logout_button_bg"/>
+
     </LinearLayout>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back_to_profile_action"
+        android:id="@+id/btnDismiss"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/logout_text_color"
+        android:background="@drawable/one_button_bg"/>
 </LinearLayout>

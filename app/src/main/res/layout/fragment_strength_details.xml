@@ -2,7 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_beige"
     tools:context="org.characterlab.android.fragments.StrengthDetailsFragment">
+
+    <include layout="@layout/progress_bar_animated" />
 
     <ScrollView
         android:id="@+id/scroll_view"

@@ -9,6 +9,5 @@
     <item
         android:title="Save"
         android:id="@+id/miNewAssessmentSave"
-        android:showAsAction="always"
-        android:icon="@drawable/ic_save"/>
+        android:showAsAction="always" />
 </menu>

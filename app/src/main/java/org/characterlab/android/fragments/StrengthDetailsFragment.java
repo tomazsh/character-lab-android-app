@@ -26,6 +26,7 @@ import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
 import org.characterlab.android.adapters.StudentsGridAdapter;
 import org.characterlab.android.dialogs.StrengthDetailsTextCardDialog;
 import org.characterlab.android.helpers.ParseClient;
+import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.StrengthInfo;
 import org.characterlab.android.models.StrengthInfoItem;
 import org.characterlab.android.models.Student;
@@ -41,6 +42,8 @@ public class StrengthDetailsFragment extends Fragment
     StrengthDetailsCardsAdapter mBuildCardsAdapter;
     StudentsGridAdapter mGoodStudentsGridAdapter;
     StudentsGridAdapter mBadStudentsGridAdapter;
+    ProgressBarHelper mProgressBarHelper;
+    int mCompletedRequests = 0;
 
     ScrollView mScrollView;
     GridView mBadStudentsGridView;
@@ -72,6 +75,7 @@ public class StrengthDetailsFragment extends Fragment
         int margin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, r.getDisplayMetrics());
 
         mScrollView = (ScrollView)v.findViewById(R.id.scroll_view);
+        mScrollView.setVisibility(View.GONE);
 
         ImageView heroImageView = (ImageView)v.findViewById(R.id.hero_image_view);
         heroImageView.setImageResource(mStrengthInfo.getHeroImageResourceId(getActivity()));
@@ -116,6 +120,10 @@ public class StrengthDetailsFragment extends Fragment
             }
         });
         mGoodStudentsGridAdapter.notifyDataSetChanged();
+
+        mProgressBarHelper = new ProgressBarHelper(getActivity());
+        mProgressBarHelper.setupProgressBarViews(v);
+        mProgressBarHelper.showProgressBar();
 
         return v;
     }
@@ -172,6 +180,8 @@ public class StrengthDetailsFragment extends Fragment
                 } else {
                     Log.d("item", "Error: " + e.getMessage());
                 }
+                mCompletedRequests++;
+                updateViews();
             }
         });
     }
@@ -191,13 +201,21 @@ public class StrengthDetailsFragment extends Fragment
                     mBadStudentsGridAdapter.notifyDataSetChanged();
                     setGridViewHeightBasedOnChildren(mBadStudentsGridView);
 
-                    mScrollView.setScrollX(x);
-                    mScrollView.setScrollY(y);
+                    mScrollView.scrollTo(x, y);
                 } else {
                     Log.d("item", "Error: " + e.getMessage());
                 }
+                mCompletedRequests++;
+                updateViews();
             }
         });
+    }
+
+    private void updateViews() {
+        if (mCompletedRequests > 1) {
+            mScrollView.setVisibility(View.VISIBLE);
+            mProgressBarHelper.hideProgressBar();
+        }
     }
 
     //endregion

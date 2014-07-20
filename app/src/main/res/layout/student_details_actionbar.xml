@@ -3,18 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.parse.ParseImageView
+    <org.characterlab.android.views.RoundedParseImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/abRpivStudentDetailsImage"
+        android:src="@drawable/ic_launcher"
+        android:scaleType="centerCrop"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_centerVertical="true"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_launcher"
-        android:id="@+id/abPivStudentDetailsImage" />
+        android:layout_centerVertical="true"
+        app:corner_radius="20dp"
+        app:border_width="0.1dp"
+        app:border_color="#aaa"
+        app:mutate_background="true"
+        app:oval="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/abPivStudentDetailsImage"
+        android:layout_toRightOf="@+id/abRpivStudentDetailsImage"
         android:layout_centerVertical="true"
         android:textColor="#ffffff"
         android:id="@+id/abTvStudentDetailsName"

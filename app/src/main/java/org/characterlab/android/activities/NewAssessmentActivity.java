@@ -22,6 +22,7 @@ import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
+import org.characterlab.android.views.RoundedParseImageView;
 
 public class NewAssessmentActivity extends FragmentActivity
              implements StudentListFragment.StudentListFragmentListener,
@@ -132,10 +133,10 @@ public class NewAssessmentActivity extends FragmentActivity
 
             View v = getActionBar().getCustomView();
             TextView abTvStudentDetailsName = (TextView) v.findViewById(R.id.abTvStudentDetailsName);
-            ParseImageView abPivStudentDetailsImage = (ParseImageView) v.findViewById(R.id.abPivStudentDetailsImage);
             abTvStudentDetailsName.setText(student.getName());
-            abPivStudentDetailsImage.setParseFile(student.getProfileImage());
-            abPivStudentDetailsImage.loadInBackground();
+
+            RoundedParseImageView abRpivStudentDetailsImage = (RoundedParseImageView) v.findViewById(R.id.abRpivStudentDetailsImage);
+            abRpivStudentDetailsImage.loadParseFileImageInBackground(student.getProfileImage());
 
             CharacterLabApplication.putInCache(student.getObjectId(), student);
             if (mAssessmentCardsFragment == null) {

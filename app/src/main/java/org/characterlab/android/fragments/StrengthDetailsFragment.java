@@ -1,7 +1,9 @@
 package org.characterlab.android.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -165,18 +167,12 @@ public class StrengthDetailsFragment extends Fragment
             @Override
             public void done(List<Student> studentList, com.parse.ParseException e) {
                 if (e == null) {
-                    int x = mScrollView.getScrollX();
-                    int y = mScrollView.getScrollY();
-
                     mGoodStudentsGridAdapter.clear();
                     for (Student student : studentList) {
                         mGoodStudentsGridAdapter.add(student);
                     }
                     mGoodStudentsGridAdapter.notifyDataSetChanged();
                     setGridViewHeightBasedOnChildren(mGoodStudentsGridView);
-
-                    mScrollView.setScrollX(x);
-                    mScrollView.setScrollY(y);
                 } else {
                     Log.d("item", "Error: " + e.getMessage());
                 }
@@ -191,17 +187,12 @@ public class StrengthDetailsFragment extends Fragment
             @Override
             public void done(List<Student> studentList, com.parse.ParseException e) {
                 if (e == null) {
-                    int x = mScrollView.getScrollX();
-                    int y = mScrollView.getScrollY();
-
                     mBadStudentsGridAdapter.clear();
                     for (Student student : studentList) {
                         mBadStudentsGridAdapter.add(student);
                     }
                     mBadStudentsGridAdapter.notifyDataSetChanged();
                     setGridViewHeightBasedOnChildren(mBadStudentsGridView);
-
-                    mScrollView.scrollTo(x, y);
                 } else {
                     Log.d("item", "Error: " + e.getMessage());
                 }
@@ -216,6 +207,7 @@ public class StrengthDetailsFragment extends Fragment
             mScrollView.setVisibility(View.VISIBLE);
             mProgressBarHelper.hideProgressBar();
         }
+        mScrollView.scrollTo(0, 0);
     }
 
     //endregion
@@ -241,8 +233,12 @@ public class StrengthDetailsFragment extends Fragment
 
     @Override
     public void onCardItemClick(StrengthInfoItem item) {
-        System.out.println(item);
-        StrengthDetailsTextCardDialog dialog = new StrengthDetailsTextCardDialog(item);
-        dialog.show(getFragmentManager(), "strength_details_text_card");
+        if (item.getType() == StrengthInfoItem.Type.TEXT) {
+            StrengthDetailsTextCardDialog dialog = new StrengthDetailsTextCardDialog(item);
+            dialog.show(getFragmentManager(), "strength_details_text_card");
+        } else {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(item.getLink()));
+            startActivity(browserIntent);
+        }
     }
 }

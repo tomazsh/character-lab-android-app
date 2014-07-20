@@ -47,7 +47,10 @@ public class StrengthDetailsCardsAdapter extends FragmentPagerAdapter {
             fragment.setListener(mListener);
             return fragment;
         } else if (itemType == StrengthInfoItem.Type.VIDEO) {
-            return StrengthDetailsVideoCardFragment.newInstance(position, mBuildItems.size(), mBuildItems.get(position));
+            StrengthDetailsVideoCardFragment fragment =
+                    StrengthDetailsVideoCardFragment.newInstance(position, mBuildItems.size(), mBuildItems.get(position));
+            fragment.setListener(mListener);
+            return fragment;
         } else {
             return null;
         }

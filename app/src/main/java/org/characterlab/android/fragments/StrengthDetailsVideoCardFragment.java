@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.characterlab.android.R;
+import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
 import org.characterlab.android.models.StrengthInfoItem;
 import org.characterlab.android.views.RoundedParseImageView;
 
@@ -16,6 +17,7 @@ public class StrengthDetailsVideoCardFragment extends Fragment {
     private int mPage;
     private int mPageCount;
     private StrengthInfoItem mItem;
+    private StrengthDetailsCardsAdapter.StrengthDetailsCardListener mListener;
 
     public StrengthDetailsVideoCardFragment() {
     }
@@ -28,6 +30,10 @@ public class StrengthDetailsVideoCardFragment extends Fragment {
         args.putSerializable("item", item);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void setListener(StrengthDetailsCardsAdapter.StrengthDetailsCardListener listener) {
+        mListener = listener;
     }
 
     @Override
@@ -52,6 +58,13 @@ public class StrengthDetailsVideoCardFragment extends Fragment {
 
         RoundedParseImageView coverImageView = (RoundedParseImageView)view.findViewById(R.id.cover_image_view);
         coverImageView.setImageResource(mItem.getCoverResourceId(getActivity()));
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onCardItemClick(mItem);
+            }
+        });
 
         return view;
     }

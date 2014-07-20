@@ -50,6 +50,8 @@ public class MainActivity extends FragmentActivity
             }
             showCharacterCardsFragment();
         }
+
+        getActionBar().setTitle("");
     }
 
     //region Options Menu

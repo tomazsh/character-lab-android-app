@@ -18,6 +18,7 @@ import org.characterlab.android.fragments.AssessmentCardFragment;
 import org.characterlab.android.fragments.AssessmentCardsFragment;
 import org.characterlab.android.fragments.SaveDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
+import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
@@ -35,15 +36,18 @@ public class NewAssessmentActivity extends FragmentActivity
     NewAssessmentViewModel viewModel;
     private Student selectedStudent;
     public static final String ACTIVITY_KEY = "activityKey";
+    private ProgressBarHelper progressBarHelper;
 
 //    Button btnNewAssessmentSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progressBarHelper = new ProgressBarHelper(this);
         setContentView(R.layout.activity_new_assessment);
         viewModel = new NewAssessmentViewModel();
 
+        progressBarHelper.setupProgressBarViews(this);
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         String studentId = getIntent().getStringExtra("studentId");
@@ -154,4 +158,15 @@ public class NewAssessmentActivity extends FragmentActivity
         finish();
     }
     //endregion
+
+    @Override
+    public void dataRequestSent() {
+        progressBarHelper.showProgressBar();
+    }
+
+    @Override
+    public void dataReceived() {
+        progressBarHelper.hideProgressBar();
+    }
+
 }

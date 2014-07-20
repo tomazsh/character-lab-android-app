@@ -14,6 +14,7 @@ import com.parse.FindCallback;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StudentsListAdapter;
+import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.Student;
@@ -27,10 +28,8 @@ public class StudentListFragment extends Fragment {
     ListView lvStudentsList;
     List<Student> studentsList;
     StudentsListAdapter studentsListAdapter;
-    ProgressBarHelper progressBarHelper;
-//    ParseQueryAdapter<Student> parseQueryStudentAdapter;
 
-    public interface StudentListFragmentListener {
+    public interface StudentListFragmentListener extends DataLoadListener {
         void onStudentListItemClick(Student student);
     }
 
@@ -43,7 +42,6 @@ public class StudentListFragment extends Fragment {
         super.onCreate(savedInstanceState);
         studentsList = new ArrayList<Student>();
         studentsListAdapter = new StudentsListAdapter(getActivity(), studentsList);
-        progressBarHelper = new ProgressBarHelper(getActivity());
     }
 
     @Override
@@ -51,8 +49,7 @@ public class StudentListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_student_list, container, false);
 
-        progressBarHelper.setupProgressBarViews(v);
-        progressBarHelper.showProgressBar();
+        mListener.dataRequestSent();
 
         lvStudentsList = (ListView) v.findViewById(R.id.lvStudentsList);
         lvStudentsList.setAdapter(studentsListAdapter);
@@ -91,7 +88,7 @@ public class StudentListFragment extends Fragment {
                         studentsListAdapter.add(student);
                     }
                     studentsListAdapter.notifyDataSetChanged();
-                    progressBarHelper.hideProgressBar();
+                    mListener.dataReceived();
                 } else {
                     Log.d("item", "Error: " + e.getMessage());
                 }

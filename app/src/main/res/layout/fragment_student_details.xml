@@ -6,16 +6,6 @@
     tools:context="org.characterlab.android.fragments.StudentDetails"
     android:background="@color/bg_grey">
 
-    <!--<include-->
-        <!--android:layout_width="50dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--layout="@layout/progress_bar_animated" />-->
-
-    <include layout="@layout/progress_bar_animated" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

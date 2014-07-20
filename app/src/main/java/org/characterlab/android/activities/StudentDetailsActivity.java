@@ -1,13 +1,19 @@
 package org.characterlab.android.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.text.Layout;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.StudentDetailsFragment;
+import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.Student;
 
 public class StudentDetailsActivity extends FragmentActivity
@@ -16,12 +22,16 @@ public class StudentDetailsActivity extends FragmentActivity
     public static final String STUDENT_KEY = "studentId";
     private Student mStudent;
     private StudentDetailsFragment mStudentDetailsFragment;
+    private ProgressBarHelper progressBarHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progressBarHelper = new ProgressBarHelper(this);
         setContentView(R.layout.activity_student_details);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progressBarHelper.setupProgressBarViews(this);
 
 //        adapterViewPager = new StudentDetailsSummaryCardsAdapter(getSupportFragmentManager());
 //        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -69,4 +79,15 @@ public class StudentDetailsActivity extends FragmentActivity
         newAssessmentIntent.putExtra("studentId", mStudent.getObjectId());
         startActivity(newAssessmentIntent);
     }
+
+    @Override
+    public void dataRequestSent() {
+        progressBarHelper.showProgressBar();
+    }
+
+    @Override
+    public void dataReceived() {
+        progressBarHelper.hideProgressBar();
+    }
+
 }

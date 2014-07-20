@@ -20,6 +20,7 @@ import org.characterlab.android.fragments.LoginFragment;
 import org.characterlab.android.fragments.LogoutDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
 import org.characterlab.android.helpers.DialogHelper;
+import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
 
@@ -32,11 +33,15 @@ public class MainActivity extends FragmentActivity
     CharacterCardsFragment mCharacterCardsFragment;
     private final String CHARACTER_CARDS_FRAGMENT_TAG = "charactercardsfragmenttag";
     StudentListFragment mStudentListFragment;
+    ProgressBarHelper progressBarHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progressBarHelper = new ProgressBarHelper(this);
         setContentView(R.layout.activity_main);
+
+        progressBarHelper.setupProgressBarViews(this);
 
         ParseUser user = ParseUser.getCurrentUser();
         if (user == null) {
@@ -179,4 +184,15 @@ public class MainActivity extends FragmentActivity
         intent.putExtra(StrengthDetailsActivity.STRENGTH_KEY, strength);
         startActivity(intent);
     }
+
+    @Override
+    public void dataRequestSent() {
+        progressBarHelper.showProgressBar();
+    }
+
+    @Override
+    public void dataReceived() {
+        progressBarHelper.hideProgressBar();
+    }
+
 }

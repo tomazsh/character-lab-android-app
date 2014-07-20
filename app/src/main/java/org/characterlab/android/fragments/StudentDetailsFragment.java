@@ -25,6 +25,7 @@ import com.parse.ParseImageView;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.MeasurementRecordsListAdapter;
 import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
+import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.helpers.Utils;
@@ -57,14 +58,13 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
     MeasurementRecordsListAdapter measurementRecordsListAdapter;
-    ProgressBarHelper progressBarHelper;
 
     private StudentDetailsFragmentListener listener;
 
     public StudentDetailsFragment() {
     }
 
-    public interface StudentDetailsFragmentListener {
+    public interface StudentDetailsFragmentListener extends DataLoadListener {
         void onMeasureStrengthClicked();
     }
 
@@ -73,7 +73,6 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         super.onCreate(savedInstanceState);
         assessments = new ArrayList<StrengthAssessment>();
         adapter = new StudentDetailsSummaryCardsAdapter(getActivity().getSupportFragmentManager());
-        progressBarHelper = new ProgressBarHelper(getActivity());
         Log.d("debug", "Details Frag Create, Student: " + mStudent);
     }
 
@@ -93,8 +92,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         Log.d("debug", "Details Frag CreateView, Student: " + mStudent);
         View v =  inflater.inflate(R.layout.fragment_student_details, container, false);
 
-        progressBarHelper.setupProgressBarViews(v);
-        progressBarHelper.showProgressBar();
+        listener.dataRequestSent();
 
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
         rpivStDet = (RoundedParseImageView) v.findViewById(R.id.rpivStDet);
@@ -170,7 +168,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         vpStDetPager.setAdapter(adapter);
 
         svStDet.scrollTo(0, 0);
-        progressBarHelper.hideProgressBar();
+        listener.dataReceived();
     }
 
     //region Getters abd Setters
@@ -187,7 +185,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
     @Override
     public void onClick(String name) {
-        progressBarHelper.showProgressBar();
+        listener.dataRequestSent();
         final Strength strength = Strength.fromName(name);
         ParseClient.getStrengthScoreHistoryForStudent(mStudent, strength,
                 new FindCallback<StrengthAssessment>() {
@@ -196,7 +194,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                             showLineGraphDialog(list, strength);
                         } else {
                             e.printStackTrace();
-                            progressBarHelper.hideProgressBar();
+                            listener.dataReceived();
                         }
                     }
                 }
@@ -243,7 +241,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         }
         tvHistoryAvgScore.setText(String.format("%.2f", avgScore));
 
-        progressBarHelper.hideProgressBar();
+        listener.dataReceived();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(v)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {

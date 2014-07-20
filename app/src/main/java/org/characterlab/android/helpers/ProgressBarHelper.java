@@ -52,6 +52,20 @@ public class ProgressBarHelper {
         }
     }
 
+    public void setupProgressBarViews(Activity activity) {
+        if (CharacterLabApplication.isActionBarBasedProgressBar()) {
+            return;
+        }
+
+        try {
+            llProgressBar = (LinearLayout) activity.findViewById(R.id.llProgressBar);
+            wvProgresssBar = (ImageView) activity.findViewById(R.id.wvProgressBar);
+        } catch (Exception e) {
+            Log.d("debug", "Could not find custom Progress bar components in container activity.");
+            e.printStackTrace();
+        }
+    }
+
     public void showProgressBar() {
         if (!CharacterLabApplication.isActionBarBasedProgressBar()) {
             if (llProgressBar != null && wvProgresssBar != null) {

@@ -1,5 +1,6 @@
 package org.characterlab.android.fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
@@ -47,6 +48,9 @@ public class StrengthDetailsTextCardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_strength_detail_text_card, container, false);
+
+        Drawable d = inflater.getContext().getResources().getDrawable(R.drawable.strength_details_card_bg);
+        view.findViewById(R.id.container).setBackground(d);
 
         TextView titleTextView = (TextView)view.findViewById(R.id.title_text_view);
         titleTextView.setText(mItem.getTitle());

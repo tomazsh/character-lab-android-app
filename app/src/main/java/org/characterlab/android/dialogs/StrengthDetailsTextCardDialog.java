@@ -26,7 +26,7 @@ public class StrengthDetailsTextCardDialog extends DialogFragment {
         final ContextThemeWrapper context = new ContextThemeWrapper(getActivity(),
                 android.R.style.Theme_Holo_Light_Dialog);
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.fragment_strength_detail_text_card, null);
+        View view = inflater.inflate(R.layout.fragment_strength_detail_card_dialog, null);
 
         TextView titleTextView = (TextView) view.findViewById(R.id.title_text_view);
         titleTextView.setText(mItem.getTitle());

@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"
     android:clickable="true"
-    android:background="@drawable/strength_details_card_bg"
     tools:context="org.characterlab.android.fragments.StrengthDetailsTextCardFragment">
 
     <TextView

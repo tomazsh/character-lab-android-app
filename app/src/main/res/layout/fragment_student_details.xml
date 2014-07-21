@@ -61,6 +61,8 @@
                 android:layout_toRightOf="@+id/rpivStDet"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
+                android:background="@drawable/measure_strength_button_bg"
+                android:padding="5dp"
                 android:id="@+id/llStDetMeasureStrength"
             >
 

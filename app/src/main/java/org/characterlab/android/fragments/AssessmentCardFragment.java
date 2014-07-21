@@ -77,7 +77,7 @@ public class AssessmentCardFragment  extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 tvAssessmentCardScore.setText(scoreStringResources[progress]);
-                mListener.onStrenthScoreSet(strength, progress);
+                mListener.onStrenthScoreSet(strength, progress + 1);
             }
 
             @Override

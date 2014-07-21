@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,19 +21,20 @@ import android.widget.ListAdapter;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.parse.FindCallback;
-
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
 import org.characterlab.android.adapters.StudentsGridAdapter;
 import org.characterlab.android.dialogs.StrengthDetailsTextCardDialog;
+import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
-import org.characterlab.android.helpers.ProgressBarHelper;
+import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.StrengthInfo;
 import org.characterlab.android.models.StrengthInfoItem;
 import org.characterlab.android.models.Student;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class StrengthDetailsFragment extends Fragment
@@ -44,14 +45,12 @@ public class StrengthDetailsFragment extends Fragment
     StrengthDetailsCardsAdapter mBuildCardsAdapter;
     StudentsGridAdapter mGoodStudentsGridAdapter;
     StudentsGridAdapter mBadStudentsGridAdapter;
-    ProgressBarHelper mProgressBarHelper;
-    int mCompletedRequests = 0;
 
     ScrollView mScrollView;
     GridView mBadStudentsGridView;
     GridView mGoodStudentsGridView;
 
-    public interface StrengthDetailsFragmentListener {
+    public interface StrengthDetailsFragmentListener extends DataLoadListener {
         void onStrengthDetailsStudentClick(Student student);
         FragmentManager strengthDetailsFragmentManager();
     }
@@ -77,7 +76,6 @@ public class StrengthDetailsFragment extends Fragment
         int margin = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, r.getDisplayMetrics());
 
         mScrollView = (ScrollView)v.findViewById(R.id.scroll_view);
-        mScrollView.setVisibility(View.GONE);
 
         ImageView heroImageView = (ImageView)v.findViewById(R.id.hero_image_view);
         heroImageView.setImageResource(mStrengthInfo.getHeroImageResourceId(getActivity()));
@@ -123,19 +121,8 @@ public class StrengthDetailsFragment extends Fragment
         });
         mGoodStudentsGridAdapter.notifyDataSetChanged();
 
-        mProgressBarHelper = new ProgressBarHelper(getActivity());
-        mProgressBarHelper.setupProgressBarViews(v);
-        mProgressBarHelper.showProgressBar();
-
+        new LoadGoodBadStudentsTask().execute("");
         return v;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        loadBadStudentsDataFromParse();
-        loadGoodStudentsDataFromParse();
     }
 
     @Override
@@ -156,58 +143,6 @@ public class StrengthDetailsFragment extends Fragment
 
     public void setStrengthInfo(StrengthInfo strengthInfo) {
         mStrengthInfo = strengthInfo;
-    }
-
-    //endregion
-
-    //region Parse Loading
-
-    private void loadGoodStudentsDataFromParse() {
-        ParseClient.getGoodStudentsForStrength(mStrengthInfo.getStrength(), new FindCallback<Student>() {
-            @Override
-            public void done(List<Student> studentList, com.parse.ParseException e) {
-                if (e == null) {
-                    mGoodStudentsGridAdapter.clear();
-                    for (Student student : studentList) {
-                        mGoodStudentsGridAdapter.add(student);
-                    }
-                    mGoodStudentsGridAdapter.notifyDataSetChanged();
-                    setGridViewHeightBasedOnChildren(mGoodStudentsGridView);
-                } else {
-                    Log.d("item", "Error: " + e.getMessage());
-                }
-                mCompletedRequests++;
-                updateViews();
-            }
-        });
-    }
-
-    private void loadBadStudentsDataFromParse() {
-        ParseClient.getGoodStudentsForStrength(mStrengthInfo.getStrength(), new FindCallback<Student>() {
-            @Override
-            public void done(List<Student> studentList, com.parse.ParseException e) {
-                if (e == null) {
-                    mBadStudentsGridAdapter.clear();
-                    for (Student student : studentList) {
-                        mBadStudentsGridAdapter.add(student);
-                    }
-                    mBadStudentsGridAdapter.notifyDataSetChanged();
-                    setGridViewHeightBasedOnChildren(mBadStudentsGridView);
-                } else {
-                    Log.d("item", "Error: " + e.getMessage());
-                }
-                mCompletedRequests++;
-                updateViews();
-            }
-        });
-    }
-
-    private void updateViews() {
-        if (mCompletedRequests > 1) {
-            mScrollView.setVisibility(View.VISIBLE);
-            mProgressBarHelper.hideProgressBar();
-        }
-        mScrollView.scrollTo(0, 0);
     }
 
     //endregion
@@ -241,4 +176,61 @@ public class StrengthDetailsFragment extends Fragment
             startActivity(browserIntent);
         }
     }
+
+
+    //region Load students from Parse
+
+    private List<StrengthAssessment> loadStudentScoresForStrengthFromParse() {
+        List<StrengthAssessment> assessments = new ArrayList<StrengthAssessment>();
+        List<Student> allStudents = ParseClient.getAllSync(Student.class);
+        if (allStudents != null) {
+            for (Student student : allStudents) {
+                StrengthAssessment assessment = ParseClient.getLatestStrengthScoreForStudentSync(student, mStrengthInfo.getStrength());
+                if (assessment != null) {
+                    assessments.add(assessment);
+                }
+            }
+
+            Collections.sort(assessments, new Comparator<StrengthAssessment>() {
+                @Override
+                public int compare(StrengthAssessment lhs, StrengthAssessment rhs) {
+                    return lhs.getScore() - rhs.getScore();
+                }
+            });
+        }
+        return assessments;
+    }
+
+    class LoadGoodBadStudentsTask extends AsyncTask<String, Void, List<StrengthAssessment>> {
+        protected void onPreExecute() {
+            mListener.dataRequestSent();
+        }
+
+        protected List<StrengthAssessment> doInBackground(String... strings) {
+            return loadStudentScoresForStrengthFromParse();
+        }
+
+        protected void onPostExecute(List<StrengthAssessment> assessments) {
+            mGoodStudentsGridAdapter.clear();
+            for (int i = 0; i < assessments.size()/2; i++) {
+                StrengthAssessment assessment = assessments.get(i);
+                mGoodStudentsGridAdapter.add(assessment.getStudent());
+            }
+            mGoodStudentsGridAdapter.notifyDataSetChanged();
+            setGridViewHeightBasedOnChildren(mGoodStudentsGridView);
+
+            mBadStudentsGridAdapter.clear();
+            for (int i = assessments.size() - 1; i >= assessments.size()/2; i--) {
+                StrengthAssessment assessment = assessments.get(i);
+                mBadStudentsGridAdapter.add(assessment.getStudent());
+            }
+            mBadStudentsGridAdapter.notifyDataSetChanged();
+            setGridViewHeightBasedOnChildren(mBadStudentsGridView);
+
+            mScrollView.scrollTo(0, 0);
+            mListener.dataReceived();
+        }
+    }
+
+    //endregion
 }

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.StrengthDetailsFragment;
+import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthInfo;
 import org.characterlab.android.models.Student;
@@ -16,12 +17,16 @@ public class StrengthDetailsActivity extends FragmentActivity
         implements StrengthDetailsFragment.StrengthDetailsFragmentListener {
     public static final String STRENGTH_KEY = "strength";
     StrengthDetailsFragment mStrengthDetailsFragment;
+    private ProgressBarHelper progressBarHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progressBarHelper = new ProgressBarHelper(this);
         setContentView(R.layout.activity_strength_details);
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        progressBarHelper.setupProgressBarViews(this);
 
         if (savedInstanceState == null) {
             mStrengthDetailsFragment = new StrengthDetailsFragment();
@@ -50,6 +55,17 @@ public class StrengthDetailsActivity extends FragmentActivity
     public FragmentManager strengthDetailsFragmentManager() {
         return getSupportFragmentManager();
     }
+
+    @Override
+    public void dataRequestSent() {
+        progressBarHelper.showProgressBar();
+    }
+
+    @Override
+    public void dataReceived() {
+        progressBarHelper.hideProgressBar();
+    }
+
 
     //endregion
 }

@@ -10,8 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.parse.ParseImageView;
-
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.AssessmentCardFragment;
@@ -55,10 +53,21 @@ public class NewAssessmentActivity extends FragmentActivity
         assessmentCardsIndex = getIntent().getIntExtra(ACTIVITY_KEY, 0);
         if (studentId != null) {
             Student student = (Student) CharacterLabApplication.readFromCache(studentId);
-            onStudentListItemClick(student);
+            studentSelected(student, true);
         } else {
             showStudentListFragment();
         }
+
+        getSupportFragmentManager().addOnBackStackChangedListener(
+                new FragmentManager.OnBackStackChangedListener() {
+                    public void onBackStackChanged() {
+                        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+                            displaySaveMenu = false;
+                            getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_HOME_AS_UP);
+                            invalidateOptionsMenu();
+                        }
+                    }
+                });
     }
 
     @Override
@@ -106,7 +115,6 @@ public class NewAssessmentActivity extends FragmentActivity
             mStudentListFragment = new StudentListFragment();
         }
         setContainerFragment(mStudentListFragment);
-        onStudentListItemClick(selectedStudent);
     }
 
     private void setContainerFragment(Fragment fragment) {
@@ -124,6 +132,10 @@ public class NewAssessmentActivity extends FragmentActivity
     //region StudentListFragmentListener
 
     public void onStudentListItemClick(Student student) {
+        studentSelected(student, false);
+    }
+
+    private void studentSelected(Student student, boolean replaceFragment) {
         if  (student != null) {
             selectedStudent = student;
             getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -139,11 +151,22 @@ public class NewAssessmentActivity extends FragmentActivity
             abRpivStudentDetailsImage.loadParseFileImageInBackground(student.getProfileImage());
 
             CharacterLabApplication.putInCache(student.getObjectId(), student);
-            if (mAssessmentCardsFragment == null) {
+            if (replaceFragment) {
+                if (mAssessmentCardsFragment == null) {
+                    mAssessmentCardsFragment = AssessmentCardsFragment.newInstance(student.getObjectId(), assessmentCardsIndex);
+                }
+                setContainerFragment(mAssessmentCardsFragment);
+            } else {
                 mAssessmentCardsFragment = AssessmentCardsFragment.newInstance(student.getObjectId(), assessmentCardsIndex);
+                if (mAssessmentCardsFragment.isAdded() && !mAssessmentCardsFragment.isDetached() && !mAssessmentCardsFragment.isRemoving()) {
+                    return;
+                }
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.newAssessmentContainer, mAssessmentCardsFragment)
+                        .addToBackStack("")
+                        .commit();
             }
-
-            setContainerFragment(mAssessmentCardsFragment);
         }
     }
 

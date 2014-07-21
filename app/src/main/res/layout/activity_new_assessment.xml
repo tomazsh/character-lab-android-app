@@ -15,5 +15,5 @@
 
     <include layout="@layout/progress_bar_animated"/>
 
-</FrameLayout   >
+</FrameLayout>
 

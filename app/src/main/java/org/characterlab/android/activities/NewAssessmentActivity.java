@@ -47,7 +47,6 @@ public class NewAssessmentActivity extends FragmentActivity
         viewModel = new NewAssessmentViewModel();
 
         progressBarHelper.setupProgressBarViews(this);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         String studentId = getIntent().getStringExtra("studentId");
         assessmentCardsIndex = getIntent().getIntExtra(ACTIVITY_KEY, 0);

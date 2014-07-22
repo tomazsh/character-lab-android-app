@@ -24,7 +24,6 @@ public class StrengthDetailsActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         progressBarHelper = new ProgressBarHelper(this);
         setContentView(R.layout.activity_strength_details);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressBarHelper.setupProgressBarViews(this);
 

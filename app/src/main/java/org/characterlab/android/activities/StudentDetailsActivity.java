@@ -31,7 +31,6 @@ public class StudentDetailsActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         progressBarHelper = new ProgressBarHelper(this);
         setContentView(R.layout.activity_student_details);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         progressBarHelper.setupProgressBarViews(this);
 

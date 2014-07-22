@@ -8,6 +8,7 @@
         <!--android:actionLayout="@layout/new_assessment_action_view_button" />-->
     <item
         android:title="Save"
+        android:icon="@drawable/ic_save"
         android:id="@+id/miNewAssessmentSave"
         android:showAsAction="always" />
 </menu>

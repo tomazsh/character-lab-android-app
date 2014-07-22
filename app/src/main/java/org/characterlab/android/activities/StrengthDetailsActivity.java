@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
@@ -40,6 +42,27 @@ public class StrengthDetailsActivity extends FragmentActivity
 
         StrengthInfo info = StrengthInfo.fromStrength(this, strength);
         mStrengthDetailsFragment.setStrengthInfo(info);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.strength_details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_new_assessment) {
+            startAddAssessmentActivity();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void startAddAssessmentActivity() {
+        Intent intent = new Intent(StrengthDetailsActivity.this, NewAssessmentActivity.class);
+        startActivity(intent);
     }
 
     //region StrengthDetailsFragmentListener

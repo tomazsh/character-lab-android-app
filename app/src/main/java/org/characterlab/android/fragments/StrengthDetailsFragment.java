@@ -22,6 +22,7 @@ import android.widget.ListAdapter;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StrengthDetailsCardsAdapter;
 import org.characterlab.android.adapters.StudentsGridAdapter;
@@ -190,8 +191,14 @@ public class StrengthDetailsFragment extends Fragment
 
     //region Load students from Parse
 
-    private List<StrengthAssessment> loadStudentScoresForStrengthFromParse() {
-        List<StrengthAssessment> assessments = new ArrayList<StrengthAssessment>();
+    private List<StrengthAssessment> loadStudentScoresForStrength() {
+        // first look up the objects in cache
+        if (CharacterLabApplication.getScoresListFromCache(mStrengthInfo.getStrength()) != null) {
+            return CharacterLabApplication.getScoresListFromCache(mStrengthInfo.getStrength());
+        }
+
+        // if not found then lookup on Parse.
+        ArrayList<StrengthAssessment> assessments = new ArrayList<StrengthAssessment>();
         List<Student> allStudents = ParseClient.getAllSync(Student.class);
         if (allStudents != null) {
             for (Student student : allStudents) {
@@ -208,6 +215,9 @@ public class StrengthDetailsFragment extends Fragment
                 }
             });
         }
+
+        // save a copy to cache.
+        CharacterLabApplication.saveScoresListToCache(mStrengthInfo.getStrength(), assessments);
         return assessments;
     }
 
@@ -218,7 +228,7 @@ public class StrengthDetailsFragment extends Fragment
         }
 
         protected List<StrengthAssessment> doInBackground(String... strings) {
-            return loadStudentScoresForStrengthFromParse();
+            return loadStudentScoresForStrength();
         }
 
         protected void onPostExecute(List<StrengthAssessment> assessments) {

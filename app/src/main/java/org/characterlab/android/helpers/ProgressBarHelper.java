@@ -92,12 +92,6 @@ public class ProgressBarHelper {
                     animator.cancel();
                 }
 
-//                animator = ObjectAnimator.ofFloat(wvProgresssBar, "scaleX", 0.0f, 360.0f)
-//                                         .ofFloat(wvProgresssBar, "scaleY", 0.0f, 360.0f)
-//                                         .ofFloat(wvProgresssBar, "alpha", 1.0f, 0.0f);
-//                animator.setRepeatCount(0);
-//                animator.setDuration(750);
-//                animator.start();
             }
         } else {
             context.setProgressBarIndeterminateVisibility(false);

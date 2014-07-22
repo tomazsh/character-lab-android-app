@@ -5,8 +5,6 @@
     android:background="@color/bg_beige"
     tools:context="org.characterlab.android.fragments.StrengthDetailsFragment">
 
-    <include layout="@layout/progress_bar_animated" />
-
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -82,69 +80,88 @@
                 >
             </android.support.v4.view.ViewPager>
 
-            <TextView
-                android:id="@+id/bad_students_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="30dp"
-                android:textColor="@color/dark_grey"
-                android:text="@string/bad_students_title"
-                android:textStyle="bold"
-                android:textSize="15sp" />
 
-            <HorizontalScrollView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <GridView
-                        android:id="@+id/bad_students_grid_view"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:id="@+id/llGoodBadStudents">
+
+                <TextView
+                    android:id="@+id/bad_students_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="30dp"
+                    android:textColor="@color/dark_grey"
+                    android:text="@string/bad_students_title"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:listSelector="@drawable/grid_item_bg"
-                        android:horizontalSpacing="0dp"></GridView>
+                        android:layout_height="wrap_content">
+                        <GridView
+                            android:id="@+id/bad_students_grid_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:listSelector="@drawable/grid_item_bg"
+                            android:horizontalSpacing="0dp"></GridView>
                     </LinearLayout>
                 </HorizontalScrollView>
 
-            <TextView
-                android:id="@+id/good_students_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="30dp"
-                android:textColor="@color/dark_grey"
-                android:text="@string/good_students_title"
-                android:textStyle="bold"
-                android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/good_students_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="30dp"
+                    android:textColor="@color/dark_grey"
+                    android:text="@string/good_students_title"
+                    android:textStyle="bold"
+                    android:textSize="15sp" />
 
-            <HorizontalScrollView
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <GridView
+                            android:id="@+id/good_students_grid_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:listSelector="@drawable/grid_item_bg"
+                            android:horizontalSpacing="5dp"></GridView>
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbars="none">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <GridView
-                        android:id="@+id/good_students_grid_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:listSelector="@drawable/grid_item_bg"
-                        android:horizontalSpacing="5dp"></GridView>
-                    </LinearLayout>
-                </HorizontalScrollView>
+                android:layout_marginTop="20dp">
+
+                <include layout="@layout/progress_bar_animated"/>
 
             </LinearLayout>
-        </ScrollView>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

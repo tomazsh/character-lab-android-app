@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import org.characterlab.android.adapters.StudentsGridAdapter;
 import org.characterlab.android.dialogs.StrengthDetailsTextCardDialog;
 import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
+import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.StrengthInfo;
 import org.characterlab.android.models.StrengthInfoItem;
@@ -49,6 +51,9 @@ public class StrengthDetailsFragment extends Fragment
     ScrollView mScrollView;
     GridView mBadStudentsGridView;
     GridView mGoodStudentsGridView;
+    LinearLayout llGoodBadStudents;
+
+    ProgressBarHelper progressBarHelper;
 
     public interface StrengthDetailsFragmentListener extends DataLoadListener {
         void onStrengthDetailsStudentClick(Student student);
@@ -61,6 +66,8 @@ public class StrengthDetailsFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        progressBarHelper = new ProgressBarHelper(getActivity());
+
         View v = inflater.inflate(R.layout.fragment_strength_details, container, false);
 
         mAboutCardsAdapter = new StrengthDetailsCardsAdapter(mListener.strengthDetailsFragmentManager(), this);
@@ -120,6 +127,9 @@ public class StrengthDetailsFragment extends Fragment
             }
         });
         mGoodStudentsGridAdapter.notifyDataSetChanged();
+
+        llGoodBadStudents = (LinearLayout) v.findViewById(R.id.llGoodBadStudents);
+        progressBarHelper.setupProgressBarViews(v);
 
         new LoadGoodBadStudentsTask().execute("");
         return v;
@@ -203,7 +213,8 @@ public class StrengthDetailsFragment extends Fragment
 
     class LoadGoodBadStudentsTask extends AsyncTask<String, Void, List<StrengthAssessment>> {
         protected void onPreExecute() {
-            mListener.dataRequestSent();
+            llGoodBadStudents.setVisibility(View.GONE);
+            progressBarHelper.showProgressBar();
         }
 
         protected List<StrengthAssessment> doInBackground(String... strings) {
@@ -228,7 +239,9 @@ public class StrengthDetailsFragment extends Fragment
             setGridViewHeightBasedOnChildren(mBadStudentsGridView);
 
             mScrollView.scrollTo(0, 0);
-            mListener.dataReceived();
+
+            llGoodBadStudents.setVisibility(View.VISIBLE);
+            progressBarHelper.hideProgressBar();
         }
     }
 

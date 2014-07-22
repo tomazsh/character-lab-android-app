@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentActivity;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import org.characterlab.android.CharacterLabApplication;
@@ -53,6 +55,23 @@ public class StudentDetailsActivity extends FragmentActivity
             showStudentDetailFragment();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.student_details_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.student_details_action_new_assessment) {
+            onMeasureStrengthClicked();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     // TODO: handle backstack
     private void setContainerFragment(Fragment fragment) {

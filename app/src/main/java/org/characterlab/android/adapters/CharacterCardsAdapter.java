@@ -25,7 +25,7 @@ public class CharacterCardsAdapter extends SmartFragmentStatePagerAdapter {
     @Override
     public float getPageWidth (int position)
     {
-        return 0.9f;
+        return 0.85f;
     }
 
     // Returns total number of pages

@@ -59,8 +59,6 @@ public class CharacterCardFragment extends Fragment {
         tvDescription.setText(strength.getDescriptionId());
         ImageView ivIcon = (ImageView) view.findViewById(R.id.ivIcon);
         ivIcon.setImageResource(strength.getIconCircleId());
-        Button exploreCharacterDetailBtn = (Button) view.findViewById(R.id.btnExplore);
-        exploreCharacterDetailBtn.setClickable(false);
         return view;
     }
 

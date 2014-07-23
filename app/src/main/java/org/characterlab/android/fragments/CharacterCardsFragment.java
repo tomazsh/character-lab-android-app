@@ -1,11 +1,13 @@
 package org.characterlab.android.fragments;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +55,6 @@ public class CharacterCardsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_character_cards, container, false);
         ViewPager vpPager = (ViewPager) view.findViewById(R.id.vpPager);
         vpPager.setClipToPadding(false);
-        vpPager.setPageMargin(12);
         vpPager.setAdapter(adapterViewPager);
         vpPager.setPageTransformer(false, new ShrinkPageTransformer());
         pageIndicator = (PageIndicator) view.findViewById(R.id.pageIndicator);
@@ -91,7 +92,7 @@ public class CharacterCardsFragment extends Fragment {
     }
 
     private class ShrinkPageTransformer implements ViewPager.PageTransformer {
-        private float MIN_SCALE = 0.9f;
+        private float MIN_SCALE = 0.85f;
         private float MIN_COLOR_SCALE = 0.5f;
         private float X_TRANSLATION = 50f;
 

@@ -105,8 +105,6 @@ public class BarGraph extends View {
             barToDraw.setPath(barPath);
             barToDraw.setRegion(new Region(barRect.left - selectPadding, barRect.top - selectPadding, barRect.right + selectPadding, barRect.bottom + selectPadding));
             this.paint.setColor(barToDraw.getColor());
-//            this.paint.setColor(Color.parseColor("#FFE433"));
-            //this.paint.setAlpha(125);
             canvas.drawRect(barRect, this.paint);
 
             // draw value bar end
@@ -121,15 +119,14 @@ public class BarGraph extends View {
 
             avgBarRect.set(left, top, right, bottom);
             this.paint.setColor(barToDraw.getAvgColor());
-//            this.paint.setColor(Color.parseColor("#18B8B8"));
-            //this.paint.setAlpha(125);
             canvas.drawRect(avgBarRect, this.paint);
-
-            // avg bar end
-
+//
+//            // avg bar end
+//
 //            this.paint.setColor(Color.BLACK);
             this.paint.setColor(Color.parseColor("#1F2626"));
             this.paint.setTextSize(sp2px(getContext(), 9));
+            this.paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
             String traitTitleAndValueStr = barToDraw.getName(); // + "  (" + (int) barToDraw.getValue() + ")";
             canvas.drawText(traitTitleAndValueStr, (int) (left + 10), barRect.top + (currentValueBarHeight / 2) + 7, this.paint);
             this.paint.setColor(barToDraw.getColor());

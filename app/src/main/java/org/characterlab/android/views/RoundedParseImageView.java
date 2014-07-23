@@ -43,7 +43,14 @@ public class RoundedParseImageView extends RoundedImageView {
         } else {
             Log.d("debug", "Image File is null");
         }
+    }
 
+    public void loadParseFileImageInBackground(ParseFile parseImageFile, GetDataCallback callback) {
+        if (parseImageFile != null) {
+            parseImageFile.getDataInBackground(callback);
+        } else {
+            Log.d("debug", "Image File is null");
+        }
     }
 
     private void setImage(byte[] data) {

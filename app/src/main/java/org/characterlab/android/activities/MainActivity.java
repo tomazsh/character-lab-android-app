@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -95,36 +96,46 @@ public class MainActivity extends FragmentActivity
             mLoginFragment = new LoginFragment();
         }
         getActionBar().hide();
-        setContainerFragment(mLoginFragment);
+        setContainerFragment(mLoginFragment, "lf");
     }
 
     private void showCharacterCardsFragment() {
         if (mCharacterCardsFragment == null) {
             mCharacterCardsFragment = new CharacterCardsFragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.container, mCharacterCardsFragment, CHARACTER_CARDS_FRAGMENT_TAG)
-                    .commit();
         }
         getActionBar().show();
-        setContainerFragment(mCharacterCardsFragment);
+        setContainerFragment(mCharacterCardsFragment, "ccf");
     }
 
     private void showStudentListFragment() {
         if (mStudentListFragment == null) {
             mStudentListFragment = new StudentListFragment();
         }
-        setContainerFragment(mStudentListFragment);
+        setContainerFragment(mStudentListFragment, "slf");
     }
 
-    private void setContainerFragment(Fragment fragment) {
-        if (fragment.isAdded() && !fragment.isDetached() && !fragment.isRemoving()) {
-            return;
+    private void setContainerFragment(Fragment fragment, String tag) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        if (!fragment.isAdded()) {
+            transaction.add(R.id.container, fragment, tag);
+        } else {
+            transaction.show(fragment);
         }
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+
+        if (mCharacterCardsFragment != null && mCharacterCardsFragment.isVisible() && fragment != mCharacterCardsFragment) {
+            transaction.hide(mCharacterCardsFragment);
+        }
+
+        if (mStudentListFragment != null && mStudentListFragment.isVisible() && fragment != mStudentListFragment) {
+            transaction.hide(mStudentListFragment);
+        }
+
+        if (mLoginFragment != null && mLoginFragment.isVisible() && fragment != mLoginFragment) {
+            transaction.hide(mLoginFragment);
+        }
+
+        transaction.commit();
     }
 
     private void showLogoutDialog() {

@@ -62,7 +62,7 @@ public class NewAssessmentActivity extends FragmentActivity
                     public void onBackStackChanged() {
                         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
                             displaySaveMenu = false;
-                            getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_HOME_AS_UP);
+                            getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME | ActionBar.DISPLAY_SHOW_TITLE);
                             invalidateOptionsMenu();
                         }
                     }

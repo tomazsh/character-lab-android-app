@@ -34,19 +34,19 @@ public class AssessmentCardsAdapter extends SmartFragmentStatePagerAdapter  {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return createAssessmentCardFragment(Strength.CURIOSITY);
+                return createAssessmentCardFragment(Strength.CURIOSITY, position);
             case 1:
-                return createAssessmentCardFragment(Strength.GRATITUDE);
+                return createAssessmentCardFragment(Strength.GRATITUDE, position);
             case 2:
-                return createAssessmentCardFragment(Strength.GRIT);
+                return createAssessmentCardFragment(Strength.GRIT, position);
             case 3:
-                return createAssessmentCardFragment(Strength.OPTIMISM);
+                return createAssessmentCardFragment(Strength.OPTIMISM, position);
             case 4:
-                return createAssessmentCardFragment(Strength.SELF_CONTROL);
+                return createAssessmentCardFragment(Strength.SELF_CONTROL, position);
             case 5:
-                return createAssessmentCardFragment(Strength.SOCIAL_INTELLIGENCE);
+                return createAssessmentCardFragment(Strength.SOCIAL_INTELLIGENCE, position);
             case 6:
-                return createAssessmentCardFragment(Strength.ZEST);
+                return createAssessmentCardFragment(Strength.ZEST, position);
             default:
                 return null;
         }
@@ -58,8 +58,8 @@ public class AssessmentCardsAdapter extends SmartFragmentStatePagerAdapter  {
         return "Character " + (position + 1);
     }
 
-    private AssessmentCardFragment createAssessmentCardFragment(Strength strength) {
-        AssessmentCardFragment cardFragment = AssessmentCardFragment.newInstance(strength);
+    private AssessmentCardFragment createAssessmentCardFragment(Strength strength, int position) {
+        AssessmentCardFragment cardFragment = AssessmentCardFragment.newInstance(strength, position);
         return cardFragment;
     }
 

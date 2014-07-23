@@ -21,6 +21,7 @@ import org.characterlab.android.models.StrengthInfo;
  */
 public class AssessmentCardFragment  extends Fragment {
     private Strength strength;
+    private int position;
     private StrengthInfo strengthInfo;
     private AssessmentCardFragmentListener mListener;
     private static int[] scoreStringResources;
@@ -41,10 +42,11 @@ public class AssessmentCardFragment  extends Fragment {
         void onStrenthScoreSet(Strength strength, int score);
     }
 
-    public static AssessmentCardFragment newInstance(Strength strength) {
+    public static AssessmentCardFragment newInstance(Strength strength, int position) {
         AssessmentCardFragment fragmentAssessmentCard = new AssessmentCardFragment();
         Bundle args = new Bundle();
         args.putString("strength", strength.toString());
+        args.putInt("position", position);
         fragmentAssessmentCard.setArguments(args);
         return fragmentAssessmentCard;
     }
@@ -54,6 +56,7 @@ public class AssessmentCardFragment  extends Fragment {
         super.onCreate(savedInstanceState);
         String strengthStr = getArguments().getString("strength");
         strength = Strength.valueOf(strengthStr);
+        position = getArguments().getInt("position");
         strengthInfo = StrengthInfo.fromStrength(getActivity(), strength);
     }
 
@@ -67,8 +70,11 @@ public class AssessmentCardFragment  extends Fragment {
         TextView tvAssessmentCardDescription = (TextView) view.findViewById(R.id.tvAssessmentCardDescription);
         String description = TextUtils.join("\n", strengthInfo.getAssessmentQuestions());
         tvAssessmentCardDescription.setText(description);
-        ImageView ivIcon = (ImageView) view.findViewById(R.id.ivAssessmentCardIcon);
-        ivIcon.setImageResource(strength.getIconCircleId());
+
+        ImageView leftArrow = (ImageView) view.findViewById(R.id.leftArrow);
+        leftArrow.setVisibility(position == 0 ? View.INVISIBLE : View.VISIBLE);
+        ImageView rightArrow = (ImageView) view.findViewById(R.id.rightArrow);
+        rightArrow.setVisibility(position == 6 ? View.INVISIBLE : View.VISIBLE);
 
         final TextView tvAssessmentCardScore = (TextView) view.findViewById(R.id.tvAssessmentCardScore);
 

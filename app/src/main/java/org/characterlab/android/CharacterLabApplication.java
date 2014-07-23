@@ -15,11 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CharacterLabApplication extends Application {
-    private final static String PARSE_KEY = "R13BjxIo1x17hjo5NpVbFiuPT0kmZhYSXEMsrdto";
-    private final static String PARSE_SECRET = "7jzw4ACagzUX7q8agcvoUKxTLediFnET1FzqLnGG";
+    private final static String PARSE_KEY = "LgdswefCyt4k4BpCHiR14YmyIFoElIlPmV5ZMHF7";
+    private final static String PARSE_SECRET = "QwbQHMlHPxTPBrnC1bnpremQRUmvuugBNtVpo5yF";
     private static Context context;
     private static Map<String, ParseObject> parseObjectCache = new HashMap<String, ParseObject>();
-    private static Map<Strength, ArrayList<StrengthAssessment>> sortedScoresForStrengthMap = new HashMap<Strength, ArrayList<StrengthAssessment>>();
 
     private static boolean actionBarBasedProgressBar = false;
 
@@ -42,18 +41,6 @@ public class CharacterLabApplication extends Application {
 
     public static ParseObject readFromCache(String objectId) {
         return parseObjectCache.get(objectId);
-    }
-
-    public static void saveScoresListToCache(Strength strength, ArrayList<StrengthAssessment> scores) {
-        sortedScoresForStrengthMap.put(strength, scores);
-    }
-
-    public static ArrayList<StrengthAssessment> getScoresListFromCache(Strength strength) {
-        return sortedScoresForStrengthMap.get(strength);
-    }
-
-    public static void invalidateScoresCache() {
-        sortedScoresForStrengthMap.clear();
     }
 
     public static boolean isActionBarBasedProgressBar() {

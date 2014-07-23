@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.text.Html;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,9 +37,12 @@ import org.characterlab.android.models.StrengthInfoItem;
 import org.characterlab.android.models.Student;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StrengthDetailsFragment extends Fragment
         implements StrengthDetailsCardsAdapter.StrengthDetailsCardListener {
@@ -188,37 +192,37 @@ public class StrengthDetailsFragment extends Fragment
         }
     }
 
-
     //region Load students from Parse
 
     private List<StrengthAssessment> loadStudentScoresForStrength() {
-        // first look up the objects in cache
-        if (CharacterLabApplication.getScoresListFromCache(mStrengthInfo.getStrength()) != null) {
-            return CharacterLabApplication.getScoresListFromCache(mStrengthInfo.getStrength());
-        }
-
-        // if not found then lookup on Parse.
-        ArrayList<StrengthAssessment> assessments = new ArrayList<StrengthAssessment>();
         List<Student> allStudents = ParseClient.getAllSync(Student.class);
-        if (allStudents != null) {
-            for (Student student : allStudents) {
-                StrengthAssessment assessment = ParseClient.getLatestStrengthScoreForStudentSync(student, mStrengthInfo.getStrength());
-                if (assessment != null) {
-                    assessments.add(assessment);
-                }
-            }
-
-            Collections.sort(assessments, new Comparator<StrengthAssessment>() {
-                @Override
-                public int compare(StrengthAssessment lhs, StrengthAssessment rhs) {
-                    return lhs.getScore() - rhs.getScore();
-                }
-            });
+        if (allStudents == null || allStudents.isEmpty()) {
+            return new ArrayList<StrengthAssessment>();
         }
 
-        // save a copy to cache.
-        CharacterLabApplication.saveScoresListToCache(mStrengthInfo.getStrength(), assessments);
-        return assessments;
+        List<Integer> groupIds = new ArrayList<Integer>();
+        for (Student student : allStudents) {
+            groupIds.add(student.getMaxGroupId());
+        }
+
+        List<StrengthAssessment> assessmentList = ParseClient.getAssessmentsInGroupIdRange(mStrengthInfo.getStrength(), groupIds);
+        List<StrengthAssessment> filteredAssessments = new ArrayList<StrengthAssessment>();
+
+        for (StrengthAssessment assessment : assessmentList) {
+            if (assessment.getGroupId() == assessment.getStudent().getMaxGroupId()) {
+                filteredAssessments.add(assessment);
+//                    Log.d("test", "** GroupId: " + assessment.getGroupId() + ", Student: " + assessment.getStudent().getName());
+            }
+        }
+
+        Collections.sort(filteredAssessments, new Comparator<StrengthAssessment>() {
+            @Override
+            public int compare(StrengthAssessment lhs, StrengthAssessment rhs) {
+                return lhs.getScore() - rhs.getScore();
+            }
+        });
+
+        return filteredAssessments;
     }
 
     class LoadGoodBadStudentsTask extends AsyncTask<String, Void, List<StrengthAssessment>> {

@@ -41,7 +41,7 @@ public class ParseClient {
             ParseQuery<StrengthAssessment> assessQuery = ParseQuery.getQuery(StrengthAssessment.class);
             assessQuery.whereEqualTo("Student", student);
             assessQuery.whereEqualTo("Strength", strength.toString());
-            assessQuery.addDescendingOrder("Group_id");
+            assessQuery.whereEqualTo("Group_id", student.getMaxGroupId());
             assessQuery.include("Student");
             return assessQuery.getFirst();
         } catch (Exception e) {
@@ -49,6 +49,20 @@ public class ParseClient {
             return null;
         }
     }
+
+    public static List<StrengthAssessment> getAssessmentsInGroupIdRange(Strength strength, List<Integer> groupIds) {
+        try {
+              ParseQuery<StrengthAssessment> assessQuery = ParseQuery.getQuery(StrengthAssessment.class);
+              assessQuery.whereEqualTo("Strength", strength.toString());
+              assessQuery.whereContainedIn("Group_id", groupIds);
+              assessQuery.include("Student");
+              return assessQuery.find();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     public static void getLatestAssessmentsForStudent(Student student, FindCallback<StrengthAssessment> callback) {
         ParseQuery<StrengthAssessment> query =
@@ -105,6 +119,9 @@ public class ParseClient {
                     assessment.setStrength(strength);
                     assessment.saveInBackground();
                 }
+
+                student.setMaxGroupId(groupId);
+                student.saveInBackground();
             }
         });
     }

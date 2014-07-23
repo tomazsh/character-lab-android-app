@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class Student extends ParseObject implements Serializable{
     private static final String NAME_KEY = "Name";
     private static final String PROFILE_IMAGE_KEY = "ProfileImage";
+    private static final String MAX_GROUPID__KEY = "Max_GroupId";
 
     public Student() {
         super();
@@ -25,6 +26,14 @@ public class Student extends ParseObject implements Serializable{
 
     public ParseFile getProfileImage() {
         return getParseFile(PROFILE_IMAGE_KEY);
+    }
+
+    public int getMaxGroupId() {
+        return getInt(MAX_GROUPID__KEY);
+    }
+
+    public void setMaxGroupId(int maxGroupId) {
+        put(MAX_GROUPID__KEY, maxGroupId);
     }
 
     @Override

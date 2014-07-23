@@ -153,6 +153,6 @@
             android:paddingRight="20dp"
             android:textSize="15sp"
             android:lineSpacingMultiplier="1.25"
-            android:gravity="left" />
+            android:gravity="center" />
     </RelativeLayout>
 </RelativeLayout>

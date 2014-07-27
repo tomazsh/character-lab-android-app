@@ -3,59 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/llNewStudent"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/ivStudentPhoto"
+        android:src="@drawable/ic_placeholder"
+        android:scaleType="fitXY"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="400dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:id="@+id/ivStudentPhoto"
-                android:src="@drawable/ic_placeholder"
-                android:scaleType="fitXY"/>
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:id="@+id/ivNewStudentCameraButton"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_camera"
-                android:alpha="0.75"
-                android:background="@drawable/measure_strength_button_bg"
-                android:clickable="true"/>
-
-        </RelativeLayout>
-
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/highlight_grey"/>
-
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/flNewStudentContainer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            tools:context="org.characterlab.android.activities.NewStudentActivity"
-            tools:ignore="MergeRootFrame"
-            android:background="@color/bg_grey"/>
-
-    </LinearLayout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/flNewStudentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:padding="10dp"
+        tools:context="org.characterlab.android.activities.NewStudentActivity"
+        tools:ignore="MergeRootFrame"
+        />
 
     <include layout="@layout/progress_bar_animated"/>
 

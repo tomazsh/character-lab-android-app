@@ -23,7 +23,7 @@ import org.characterlab.android.helpers.ProgressBarHelper;
 
 import java.io.File;
 
-public class NewStudentActivity extends FragmentActivity {
+public class NewStudentActivity extends FragmentActivity implements AddStudentFragment.AddStudentFragmentListener {
 
     private AddStudentFragment addStudentFragment;
     private ProgressBarHelper progressBarHelper;
@@ -43,14 +43,6 @@ public class NewStudentActivity extends FragmentActivity {
 
         progressBarHelper.setupProgressBarViews(this);
         ivStudentPhoto = (ImageView) findViewById(R.id.ivStudentPhoto);
-        ivNewStudentCameraButton = (ImageView) findViewById(R.id.ivNewStudentCameraButton);
-
-        ivNewStudentCameraButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickPhoto();
-            }
-        });
 
         if (savedInstanceState == null) {
             showAddStudentFragment();
@@ -94,7 +86,8 @@ public class NewStudentActivity extends FragmentActivity {
 
     // startregion photo capture
 
-    private void clickPhoto() {
+    @Override
+    public void onPhotoButtonPressed() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
         // Start the image capture intent to take photo

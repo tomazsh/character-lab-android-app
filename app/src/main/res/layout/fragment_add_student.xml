@@ -2,16 +2,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp"
-    android:layout_margin="10dp"
-    android:background="@drawable/rounded_corner_add_student">
+    android:padding="10dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/rounded_corner_add_student"
+    android:orientation="horizontal"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_marginLeft="5dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ivNewStudentCameraButton"
+        android:src="@drawable/ic_camera"
+        android:background="@drawable/measure_strength_button_bg"
+        android:clickable="true"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
         android:gravity="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:hint="@string/student_name_label"

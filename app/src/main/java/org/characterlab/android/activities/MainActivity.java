@@ -83,6 +83,9 @@ public class MainActivity extends FragmentActivity
         } else if (id == R.id.action_new_assessment) {
             startAddAssessmentActivity();
             return true;
+        } else if (id == R.id.action_add_student) {
+            startNewStudentActivity();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -186,6 +189,11 @@ public class MainActivity extends FragmentActivity
 
     private void startAddAssessmentActivity() {
         Intent intent = new Intent(MainActivity.this, NewAssessmentActivity.class);
+        startActivity(intent);
+    }
+
+    private void startNewStudentActivity() {
+        Intent intent = new Intent(MainActivity.this, NewStudentActivity.class);
         startActivity(intent);
     }
 

@@ -55,6 +55,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private ScrollView svStDet;
     private LinearLayout llStDetMeasureStrength;
     private ListView lvStDetMeasurementRecord;
+    private TextView tvNoRecords;
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
     MeasurementRecordsListAdapter measurementRecordsListAdapter;
@@ -94,6 +95,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
         listener.dataRequestSent();
 
+        tvNoRecords = (TextView) v.findViewById(R.id.tvNoRecords);
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
         rpivStDet = (RoundedParseImageView) v.findViewById(R.id.rpivStDet);
         tvLastMeasuredValue = (TextView) v.findViewById(R.id.tvLastMeasuredValue);
@@ -113,12 +115,20 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                 new FindCallback<StrengthAssessment>() {
                     public void done(List<StrengthAssessment> list, ParseException e) {
                         if (e == null) {
-                            Log.d("debug", "Assessments size: " + list.size());
-                            for (StrengthAssessment assessment : list) {
-                                assessments.add(assessment);
+                            if (list == null || list.isEmpty()) {
+                                tvNoRecords.setVisibility(View.VISIBLE);
+                                svStDet.setVisibility(View.GONE);
+                                tvLastMeasuredValue.setText("-");
+                                rpivStDet.loadParseFileImageInBackground(mStudent.getProfileImage());
+                                listener.dataReceived();
+                            } else {
+                                Log.d("debug", "Assessments size: " + list.size());
+                                for (StrengthAssessment assessment : list) {
+                                    assessments.add(assessment);
+                                }
+                                StudentDetailViewModel viewModel = Utils.generateStudentDetailViewModel(assessments);
+                                updateView(viewModel);
                             }
-                            StudentDetailViewModel viewModel = Utils.generateStudentDetailViewModel(assessments);
-                            updateView(viewModel);
                         } else {
                             e.printStackTrace();
                         }

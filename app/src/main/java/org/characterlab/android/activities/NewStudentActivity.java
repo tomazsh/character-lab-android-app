@@ -1,6 +1,5 @@
 package org.characterlab.android.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,16 +8,20 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.parse.ParseException;
+import com.parse.SaveCallback;
+
 import org.characterlab.android.R;
+import org.characterlab.android.fragments.AddStudentCompletionFragment;
 import org.characterlab.android.fragments.AddStudentFragment;
+import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
 
 import java.io.File;
@@ -26,10 +29,18 @@ import java.io.File;
 public class NewStudentActivity extends FragmentActivity implements AddStudentFragment.AddStudentFragmentListener {
 
     private AddStudentFragment addStudentFragment;
+    private AddStudentCompletionFragment addStudentCompletionFragment;
     private ProgressBarHelper progressBarHelper;
 
     private ImageView ivStudentPhoto;
     private ImageView ivNewStudentCameraButton;
+
+    private String studentName;
+    private Bitmap studentImage;
+    private boolean studentSaved = false;
+
+    MenuItem addStudentMenuItem;
+    MenuItem doneMenuItem;
 
     public final String APP_TAG = "CharacterLab";
     public String photoFileName = "student_profile_photo.jpg";
@@ -56,6 +67,15 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         setContainerFragment(addStudentFragment);
     }
 
+    private void showAddStudentCompletionFragment() {
+        if (addStudentCompletionFragment == null) {
+            addStudentCompletionFragment = AddStudentCompletionFragment.newInstance(studentName);
+        }
+        studentSaved = true;
+        invalidateOptionsMenu();
+        setContainerFragment(addStudentCompletionFragment);
+    }
+
     private void setContainerFragment(android.support.v4.app.Fragment fragment) {
         if (fragment.isAdded() && !fragment.isDetached() && !fragment.isRemoving()) {
             return;
@@ -69,8 +89,20 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.new_student, menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.new_student, menu);
+        addStudentMenuItem = menu.findItem(R.id.save_new_student);
+        doneMenuItem = menu.findItem(R.id.done);
+
+        if (!studentSaved) {
+            addStudentMenuItem.setVisible(true);
+            addStudentMenuItem.setEnabled(false);
+            doneMenuItem.setVisible(false);
+        } else {
+            addStudentMenuItem.setVisible(false);
+            doneMenuItem.setVisible(true);
+        }
+
         return true;
     }
 
@@ -79,6 +111,10 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         int id = item.getItemId();
         if (id == R.id.save_new_student) {
             progressBarHelper.showProgressBar();
+            saveFileInParse();
+            return true;
+        } else if (id == R.id.done) {
+            finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -100,10 +136,12 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
             if (resultCode == RESULT_OK) {
                 Uri takenPhotoUri = getPhotoFileUri(photoFileName);
                 // by this point we have the camera photo on disk
-                Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 5;
+                studentImage = BitmapFactory.decodeFile(takenPhotoUri.getPath(), options);
                 // Load the taken image into a preview
                 ImageView ivPreview = (ImageView) findViewById(R.id.ivStudentPhoto);
-                ivPreview.setImageBitmap(takenImage);
+                ivPreview.setImageBitmap(studentImage);
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
@@ -125,7 +163,36 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
     }
 
+    private void saveFileInParse() {
+        ParseClient.createStudent(studentName, studentImage, new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    Toast.makeText(getApplicationContext(), "Student Created", Toast.LENGTH_SHORT).show();
+                    showAddStudentCompletionFragment();
+                    progressBarHelper.hideProgressBar();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Failed to create student", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     // endregion photo capture
+
+    @Override
+    public void onStudentNameChanged(String name) {
+        studentName = name;
+        if (addStudentMenuItem == null) {
+            return;
+        }
+
+        if (name != null && !name.isEmpty()) {
+            addStudentMenuItem.setEnabled(true);
+        } else {
+            addStudentMenuItem.setEnabled(false);
+        }
+    }
 
 }

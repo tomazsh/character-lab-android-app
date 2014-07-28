@@ -59,6 +59,7 @@
     <string name="almost_always">Almost Always</string>
     <string name="title_activity_new_student">New Student</string>
     <string name="create">Add</string>
+    <string name="done">Done</string>
     <string name="student_name_label">Student\'s Name</string>
 
 </resources>

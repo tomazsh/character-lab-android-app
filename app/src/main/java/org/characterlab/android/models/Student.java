@@ -28,6 +28,10 @@ public class Student extends ParseObject implements Serializable{
         return getParseFile(PROFILE_IMAGE_KEY);
     }
 
+    public void setProfileImage(ParseFile profileImage) {
+        put(PROFILE_IMAGE_KEY, profileImage);
+    }
+
     public int getMaxGroupId() {
         return getInt(MAX_GROUPID__KEY);
     }

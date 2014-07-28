@@ -21,6 +21,7 @@
         android:padding="10dp"
         tools:context="org.characterlab.android.activities.NewStudentActivity"
         tools:ignore="MergeRootFrame"
+        android:alpha="0.80"
         />
 
     <include layout="@layout/progress_bar_animated"/>

@@ -12,23 +12,24 @@
         android:layout_marginLeft="5dp"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:id="@+id/ivNewStudentCameraButton"
-        android:src="@drawable/ic_camera"
+        android:id="@+id/ivMeasureNewStudent"
+        android:src="@drawable/ic_ruler"
         android:background="@drawable/measure_strength_button_bg"
         android:clickable="true"/>
 
-    <EditText
-        android:id="@+id/etNewStudentName"
+    <TextView
+        android:id="@+id/tvAddStudentCompletionName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_gravity="center"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="20dp"
         android:gravity="center"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:hint="@string/student_name_label"
-        />
+        android:text="@string/student_name_label"
+        android:ellipsize="marquee"
+        android:singleLine="true"/>
 
 </LinearLayout>

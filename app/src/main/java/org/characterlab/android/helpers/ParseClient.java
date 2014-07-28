@@ -1,18 +1,28 @@
 package org.characterlab.android.helpers;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
 import android.util.Log;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.Student;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -124,6 +134,24 @@ public class ParseClient {
                 student.saveInBackground();
             }
         });
+    }
+
+    public static void createStudent(String name, Bitmap profileImage, SaveCallback callback) {
+        try {
+            ByteArrayOutputStream opStream = new ByteArrayOutputStream();
+            profileImage.compress(Bitmap.CompressFormat.PNG, 50, opStream);
+            byte[] pngBytes = opStream.toByteArray();
+            ParseFile file = new ParseFile(System.currentTimeMillis() + ".png", pngBytes);
+            file.saveInBackground();
+
+            Student student = new Student();
+            student.setMaxGroupId(0);
+            student.setName(name);
+            student.setProfileImage(file);
+            student.saveInBackground(callback);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //    public static void getGoodStudentsForStrength(final Strength strength, FindCallback<Student> callback) {

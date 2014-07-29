@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -80,10 +81,10 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         if (fragment.isAdded() && !fragment.isDetached() && !fragment.isRemoving()) {
             return;
         }
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.flNewStudentContainer, fragment)
-                .commit();
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.flNewStudentContainer, fragment).commit();
     }
 
 

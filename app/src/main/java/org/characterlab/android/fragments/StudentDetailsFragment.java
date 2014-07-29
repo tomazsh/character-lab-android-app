@@ -20,14 +20,12 @@ import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseImageView;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.MeasurementRecordsListAdapter;
 import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
 import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
-import org.characterlab.android.helpers.ProgressBarHelper;
 import org.characterlab.android.helpers.Utils;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthAssessment;
@@ -56,6 +54,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private LinearLayout llStDetMeasureStrength;
     private ListView lvStDetMeasurementRecord;
     private TextView tvNoRecords;
+    private TextView tvDeleteStudent;
     private LinearLayout llStDetScrollContents;
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
@@ -68,6 +67,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
 
     public interface StudentDetailsFragmentListener extends DataLoadListener {
         void onMeasureStrengthClicked();
+        void deleteStudent();
     }
 
     @Override
@@ -105,6 +105,14 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
         lvStDetMeasurementRecord = (ListView) v.findViewById(R.id.lvStDetMeasurementRecord);
         llStDetScrollContents = (LinearLayout) v.findViewById(R.id.llStDetScrollContents);
+
+        tvDeleteStudent = (TextView) v.findViewById(R.id.tvDeleteStudent);
+        tvDeleteStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDeleteStudentAlertDialog();
+            }
+        });
 
         llStDetMeasureStrength.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -259,6 +267,35 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .create().show();
+    }
+
+    private void showDeleteStudentAlertDialog() {
+        String deleteMsg = "This will delete the student record for '" + mStudent.getName() +
+                "' and the associated measurement entries.\nContinue ?";
+
+        final ContextThemeWrapper context = new ContextThemeWrapper(getActivity(),
+                android.R.style.Theme_Holo_Light_Dialog);
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.custom_confirmation_dialog, null);
+        TextView deleteDialogMsg = (TextView) v.findViewById(R.id.deleteDialogMsg);
+        deleteDialogMsg.setText(deleteMsg);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(v)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        listener.deleteStudent();
+                    }
+                })
+                .setNegativeButton(R.string.cancel_action, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                     }
                 })
                 .create().show();

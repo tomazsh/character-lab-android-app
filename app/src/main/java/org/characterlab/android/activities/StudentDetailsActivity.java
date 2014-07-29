@@ -11,12 +11,23 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import com.parse.DeleteCallback;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
 import org.characterlab.android.fragments.StudentDetailsFragment;
+import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
+import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.Student;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDetailsActivity extends FragmentActivity
              implements StudentDetailsFragment.StudentDetailsFragmentListener {
@@ -96,6 +107,29 @@ public class StudentDetailsActivity extends FragmentActivity
         Intent newAssessmentIntent = new Intent(this, NewAssessmentActivity.class);
         newAssessmentIntent.putExtra("studentId", mStudent.getObjectId());
         startActivity(newAssessmentIntent);
+    }
+
+    @Override
+    public void deleteStudent() {
+        ParseClient.getAllAssessmentsForStudent(mStudent, new FindCallback<StrengthAssessment>() {
+            @Override
+            public void done(List<StrengthAssessment> assessments, ParseException e) {
+                mStudent.deleteInBackground();
+                Toast.makeText(getApplicationContext(), "Student Deleted", Toast.LENGTH_SHORT).show();
+
+                List<ParseObject> objectsToDel = new ArrayList<ParseObject>();
+                objectsToDel.addAll(assessments);
+                StrengthAssessment.deleteAllInBackground(objectsToDel, new DeleteCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e != null) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+            }
+        });
+        finish();
     }
 
     @Override

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
-        <shape xmlns:android="http://schemas.android.com/apk/res/android"
-            android:shape="rectangle">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
             <gradient
-                android:startColor="@color/nono_red"
-                android:endColor="@color/nono_red"
+                android:startColor="@color/dark_nono_red"
+                android:endColor="@color/dark_nono_red"
                 android:angle="270"/>
 
             <corners
@@ -15,12 +14,11 @@
                 android:topRightRadius="10dp"/>
         </shape>
     </item>
-    <item android:state_pressed="true">
-        <shape xmlns:android="http://schemas.android.com/apk/res/android"
-            android:shape="rectangle">
+    <item>
+        <shape android:shape="rectangle">
             <gradient
-                android:startColor="@color/blast_off_red"
-                android:endColor="@color/blast_off_red"
+                android:startColor="@color/nono_red"
+                android:endColor="@color/nono_red"
                 android:angle="270"/>
 
             <corners

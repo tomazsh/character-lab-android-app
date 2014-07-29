@@ -34,5 +34,7 @@
     <color name="blast_off_red">#F2754D</color>
     <color name="telescope_blue">#168ECD</color>
     <color name="nono_red">#F25B4D</color>
+    <color name="dark_nono_red">#A94036</color>
+
 
 </resources>

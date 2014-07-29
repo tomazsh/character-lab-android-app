@@ -100,7 +100,7 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="320dp"
+                    android:layout_height="330dp"
                     android:text="No Records"
                     android:textColor="@color/subtext_brown"
                     android:textAllCaps="true"
@@ -247,8 +247,8 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:id="@+id/tvDeleteStudent"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:clickable="true"

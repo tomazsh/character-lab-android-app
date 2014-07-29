@@ -142,8 +142,6 @@ public class StudentListFragment extends Fragment implements SwipeRefreshLayout.
                         }
 
                         studentsListAdapter.notifyDataSetChanged();
-                    } else {
-                        Toast.makeText(getActivity(), "There is no new data on server", Toast.LENGTH_SHORT).show();
                     }
                     mListener.dataReceived();
                 } else {
@@ -153,4 +151,5 @@ public class StudentListFragment extends Fragment implements SwipeRefreshLayout.
         });
 
     }
+
 }

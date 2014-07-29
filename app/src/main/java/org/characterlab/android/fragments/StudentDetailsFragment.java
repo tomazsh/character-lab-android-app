@@ -56,6 +56,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     private LinearLayout llStDetMeasureStrength;
     private ListView lvStDetMeasurementRecord;
     private TextView tvNoRecords;
+    private LinearLayout llStDetScrollContents;
     ViewPager vpStDetPager;
     StudentDetailsSummaryCardsAdapter adapter;
     MeasurementRecordsListAdapter measurementRecordsListAdapter;
@@ -103,6 +104,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         llStDetMeasureStrength = (LinearLayout) v.findViewById(R.id.llStDetMeasureStrength);
         vpStDetPager = (ViewPager) v.findViewById(R.id.vpStDetPager);
         lvStDetMeasurementRecord = (ListView) v.findViewById(R.id.lvStDetMeasurementRecord);
+        llStDetScrollContents = (LinearLayout) v.findViewById(R.id.llStDetScrollContents);
 
         llStDetMeasureStrength.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +119,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                         if (e == null) {
                             if (list == null || list.isEmpty()) {
                                 tvNoRecords.setVisibility(View.VISIBLE);
-                                svStDet.setVisibility(View.GONE);
+                                llStDetScrollContents.setVisibility(View.GONE);
                                 tvLastMeasuredValue.setText("-");
                                 rpivStDet.loadParseFileImageInBackground(mStudent.getProfileImage());
                                 listener.dataReceived();

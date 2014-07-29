@@ -87,29 +87,36 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="No Records"
-            android:textColor="@color/subtext_brown"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:visibility="gone"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:id="@+id/tvNoRecords"/>
-
         <ScrollView
             android:id="@+id/svStDet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="320dp"
+                    android:text="No Records"
+                    android:textColor="@color/subtext_brown"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/tvNoRecords"
+                    />
+
                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:id="@+id/llStDetScrollContents">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -119,7 +126,8 @@
                         android:textStyle="bold"
                         android:textColor="@color/subtext_brown"
                         android:layout_marginTop="7dp"
-                        android:layout_marginBottom="7dp"/>
+                        android:layout_marginBottom="7dp"
+                        />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -130,50 +138,50 @@
                         android:paddingRight="20dp"
                         android:paddingBottom="10dp"
                         android:orientation="vertical">
-                            <org.characterlab.android.views.BarGraph
-                                android:layout_width="match_parent"
-                                android:layout_height="200dp"
-                                android:id="@+id/bgStudentDetail"
-                                android:layout_marginRight="10dp"
-                                />
+                        <org.characterlab.android.views.BarGraph
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:id="@+id/bgStudentDetail"
+                            android:layout_marginRight="10dp"
+                            />
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginTop="20dp"
-                                android:gravity="right">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="20dp"
+                            android:gravity="right">
 
-                                <ImageView
-                                    android:layout_width="7dp"
-                                    android:layout_height="7dp"
-                                    android:src="@drawable/ic_save"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/yellow_dot"/>
+                            <ImageView
+                                android:layout_width="7dp"
+                                android:layout_height="7dp"
+                                android:src="@drawable/ic_save"
+                                android:layout_gravity="center"
+                                android:background="@drawable/yellow_dot"/>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Last"
-                                    android:textSize="12sp"
-                                    android:layout_marginLeft="4dp"
-                                    android:textColor="@color/subtext_brown"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Last"
+                                android:textSize="12sp"
+                                android:layout_marginLeft="4dp"
+                                android:textColor="@color/subtext_brown"/>
 
-                                <ImageView
-                                    android:layout_width="7dp"
-                                    android:layout_height="7dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_gravity="center"
-                                    android:background="@drawable/blue_dot"/>
+                            <ImageView
+                                android:layout_width="7dp"
+                                android:layout_height="7dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/blue_dot"/>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="4dp"
-                                    android:text="Average"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/subtext_brown"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:text="Average"
+                                android:textSize="12sp"
+                                android:textColor="@color/subtext_brown"/>
 
-                            </LinearLayout>
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -227,7 +235,27 @@
 
                     </LinearLayout>
 
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Delete this Student"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/tvDeleteStudent"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:clickable="true"
+                    android:background="@drawable/rounded_corer_red_bg"/>
+
             </LinearLayout>
+
         </ScrollView>
 
     </LinearLayout>

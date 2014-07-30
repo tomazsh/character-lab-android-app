@@ -16,6 +16,7 @@ import com.parse.FindCallback;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StudentsListAdapter;
+import org.characterlab.android.events.StudentAddedEvent;
 import org.characterlab.android.events.StudentDeletedEvent;
 import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
@@ -167,6 +168,12 @@ public class StudentListFragment extends Fragment implements SwipeRefreshLayout.
 
     public void onEventMainThread(StudentDeletedEvent event) {
         refreshStudentListFromParse();
-        Log.d("Mandar", "In studentlistfrag - will do logic for list refresh");
+        Log.d("Mandar", "Student Deleted - will do logic for list refresh");
     }
+
+    public void onEventMainThread(StudentAddedEvent event) {
+        refreshStudentListFromParse();
+        Log.d("Mandar", "Student added - will do logic for list refresh");
+    }
+
 }

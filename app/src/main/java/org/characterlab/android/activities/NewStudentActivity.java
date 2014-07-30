@@ -20,12 +20,15 @@ import com.parse.ParseException;
 import com.parse.SaveCallback;
 
 import org.characterlab.android.R;
+import org.characterlab.android.events.StudentAddedEvent;
 import org.characterlab.android.fragments.AddStudentCompletionFragment;
 import org.characterlab.android.fragments.AddStudentFragment;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
 
 import java.io.File;
+
+import de.greenrobot.event.EventBus;
 
 public class NewStudentActivity extends FragmentActivity implements AddStudentFragment.AddStudentFragmentListener {
 
@@ -37,7 +40,7 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
     private ImageView ivNewStudentCameraButton;
 
     private String studentName;
-    private Bitmap studentImage;
+    private Bitmap studentImage = null;
     private boolean studentSaved = false;
 
     MenuItem addStudentMenuItem;
@@ -170,6 +173,7 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(getApplicationContext(), "Student Created", Toast.LENGTH_SHORT).show();
+                    EventBus.getDefault().post(new StudentAddedEvent());
                     showAddStudentCompletionFragment();
                     progressBarHelper.hideProgressBar();
                 } else {

@@ -138,16 +138,23 @@ public class ParseClient {
 
     public static void createStudent(String name, Bitmap profileImage, SaveCallback callback) {
         try {
-            ByteArrayOutputStream opStream = new ByteArrayOutputStream();
-            profileImage.compress(Bitmap.CompressFormat.PNG, 50, opStream);
-            byte[] pngBytes = opStream.toByteArray();
-            ParseFile file = new ParseFile(System.currentTimeMillis() + ".png", pngBytes);
-            file.saveInBackground();
+            ParseFile file = null;
+            if (profileImage != null) {
+                ByteArrayOutputStream opStream = new ByteArrayOutputStream();
+                profileImage.compress(Bitmap.CompressFormat.PNG, 50, opStream);
+                byte[] pngBytes = opStream.toByteArray();
+                file = new ParseFile(System.currentTimeMillis() + ".png", pngBytes);
+                file.saveInBackground();
+            }
 
             Student student = new Student();
             student.setMaxGroupId(0);
             student.setName(name);
-            student.setProfileImage(file);
+
+            if (file != null) {
+                student.setProfileImage(file);
+            }
+
             student.saveInBackground(callback);
         } catch (Exception e) {
             e.printStackTrace();

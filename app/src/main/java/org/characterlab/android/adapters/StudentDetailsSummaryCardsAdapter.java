@@ -86,6 +86,10 @@ public class StudentDetailsSummaryCardsAdapter extends FragmentPagerAdapter {
     }
 
     public void refreshItems() {
+        if (itemsMap.isEmpty()) {
+            return;
+        }
+
         int listSize = assessmentList.size();
         WeakStrengthCardFragment weakStrengthCardFragment = (WeakStrengthCardFragment)itemsMap.get(1);
         weakStrengthCardFragment.resetView(1, NUM_ITEMS, assessmentList.get(listSize - 1).getStrength(), assessmentList.get(listSize - 2).getStrength(), assessmentList.get(listSize - 3).getStrength());

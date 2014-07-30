@@ -28,6 +28,10 @@ public class ImprovementTipsCardFragment extends Fragment {
     private Strength strength;
 
     private RelativeLayout rlImproveTipsFrag;
+    TextView tvTipsCardPageCount;
+    TextView tvTipsCardLabel;
+    TextView tvImprovementTips1;
+    TextView tvImprovementTips2;
 
     public static ImprovementTipsCardFragment newInstance(int pageNumber, int pageCount, Strength strength) {
         ImprovementTipsCardFragment fragment = new ImprovementTipsCardFragment();
@@ -55,54 +59,12 @@ public class ImprovementTipsCardFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_improve_tips_card, container, false);
 
         rlImproveTipsFrag = (RelativeLayout) v.findViewById(R.id.rlImproveTipsFrag);
+        tvTipsCardPageCount = (TextView) v.findViewById(R.id.tvTipsCardPageCount);
+        tvTipsCardLabel = (TextView) v.findViewById(R.id.tvTipsCardLabel);
+        tvImprovementTips1 = (TextView) v.findViewById(R.id.tvImprovementTips1);
+        tvImprovementTips2 = (TextView) v.findViewById(R.id.tvImprovementTips2);
 
-        TextView tvTipsCardPageCount = (TextView) v.findViewById(R.id.tvTipsCardPageCount);
-        String pageCountStr = pageNumber + "/" + pageCount;
-        tvTipsCardPageCount.setText(pageCountStr);
-
-        TextView tvTipsCardLabel = (TextView) v.findViewById(R.id.tvTipsCardLabel);
-        String tipsCardTitle = "Improve " + strength.getName();
-        tvTipsCardLabel.setText(tipsCardTitle);
-
-        final StrengthInfo strengthInfo = StrengthInfo.fromStrength(getActivity(), strength);
-        List<StrengthInfoItem> infoItems = strengthInfo.getBuildItems();
-        int count = 1;
-        for (StrengthInfoItem infoItem : infoItems) {
-            StringBuilder builder = new StringBuilder();
-//            builder.append("<b>");
-            builder.append(infoItem.getTitle());
-            builder.append(":   ");
-//            builder.append("</b>");
-            String contents = infoItem.getContents().trim();
-            contents = contents.replace("<p>", "");
-            contents = contents.replace("</p>", "");
-            builder.append(contents);
-
-            TextView tvImprovementTips;
-            if (count == 1) {
-                tvImprovementTips = (TextView) v.findViewById(R.id.tvImprovementTips1);
-                tvImprovementTips.setText(Html.fromHtml(builder.toString()));
-            } else if (count == 2) {
-                tvImprovementTips = (TextView) v.findViewById(R.id.tvImprovementTips2);
-                tvImprovementTips.setText(Html.fromHtml(builder.toString()));
-                break;
-            }
-//            else if (count == 3) {
-//                tvImprovementTips = (TextView) v.findViewById(R.id.tvImprovementTips3);
-//                tvImprovementTips.setText(Html.fromHtml(builder.toString()));
-//                break;
-//            }
-            count++;
-        }
-
-        rlImproveTipsFrag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showImprovementTipsDialog(strengthInfo);
-            }
-        });
-
-
+        updateViews();
         return v;
     }
 
@@ -139,6 +101,53 @@ public class ImprovementTipsCardFragment extends Fragment {
                 })
                 .create().show();
     }
+
+
+    public void resetView(int pageNum, int pageCnt, Strength strengthObj) {
+        pageNumber = pageNum;
+        pageCount = pageCnt;
+        strength = strengthObj;
+
+        updateViews();
+    }
+
+    private void updateViews() {
+        String pageCountStr = pageNumber + "/" + pageCount;
+        tvTipsCardPageCount.setText(pageCountStr);
+
+        String tipsCardTitle = "Improve " + strength.getName();
+        tvTipsCardLabel.setText(tipsCardTitle);
+
+        final StrengthInfo strengthInfo = StrengthInfo.fromStrength(getActivity(), strength);
+        List<StrengthInfoItem> infoItems = strengthInfo.getBuildItems();
+        int count = 1;
+        for (StrengthInfoItem infoItem : infoItems) {
+            StringBuilder builder = new StringBuilder();
+            builder.append(infoItem.getTitle());
+            builder.append(":   ");
+            String contents = infoItem.getContents().trim();
+            contents = contents.replace("<p>", "");
+            contents = contents.replace("</p>", "");
+            builder.append(contents);
+
+            if (count == 1) {
+                tvImprovementTips1.setText(Html.fromHtml(builder.toString()));
+            } else if (count == 2) {
+                tvImprovementTips2.setText(Html.fromHtml(builder.toString()));
+                break;
+            }
+            count++;
+        }
+
+        rlImproveTipsFrag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImprovementTipsDialog(strengthInfo);
+            }
+        });
+    }
+
+
 
 
 

@@ -69,6 +69,11 @@ public class ProgressBarHelper {
     public void showProgressBar() {
         if (!CharacterLabApplication.isActionBarBasedProgressBar()) {
             if (llProgressBar != null && wvProgresssBar != null) {
+                // no-op if the view is already visible and active.
+                if (llProgressBar.getVisibility() == View.VISIBLE) {
+                    return;
+                }
+
                 llProgressBar.setVisibility(View.VISIBLE);
 
                 animator = ObjectAnimator.ofFloat(wvProgresssBar, "rotation", 0.0f, 360.0f);

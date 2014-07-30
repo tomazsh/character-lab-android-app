@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -24,6 +23,7 @@ import com.parse.ParseException;
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.MeasurementRecordsListAdapter;
 import org.characterlab.android.adapters.StudentDetailsSummaryCardsAdapter;
+import org.characterlab.android.events.NewAssessmentAddedEvent;
 import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.Utils;
@@ -41,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import de.greenrobot.event.EventBus;
 
 public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarClickedListener {
     Student mStudent;
@@ -76,6 +78,7 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         assessments = new ArrayList<StrengthAssessment>();
         adapter = new StudentDetailsSummaryCardsAdapter(getActivity().getSupportFragmentManager());
         Log.d("debug", "Details Frag Create, Student: " + mStudent);
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -91,10 +94,9 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("debug", "Details Frag CreateView, Student: " + mStudent);
         View v =  inflater.inflate(R.layout.fragment_student_details, container, false);
 
-        listener.dataRequestSent();
+//        listener.dataRequestSent();
 
         tvNoRecords = (TextView) v.findViewById(R.id.tvNoRecords);
         barGraph = (BarGraph) v.findViewById(R.id.bgStudentDetail);
@@ -121,6 +123,13 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
             }
         });
 
+        getDataFromParseAndUpdateViews(false);
+
+        return v;
+    }
+
+    private void getDataFromParseAndUpdateViews(final boolean refresh) {
+        listener.dataRequestSent();
         ParseClient.getAllAssessmentsForStudent(mStudent,
                 new FindCallback<StrengthAssessment>() {
                     public void done(List<StrengthAssessment> list, ParseException e) {
@@ -132,12 +141,15 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                                 rpivStDet.loadParseFileImageInBackground(mStudent.getProfileImage());
                                 listener.dataReceived();
                             } else {
+                                tvNoRecords.setVisibility(View.GONE);
+                                llStDetScrollContents.setVisibility(View.VISIBLE);
+
                                 Log.d("debug", "Assessments size: " + list.size());
                                 for (StrengthAssessment assessment : list) {
                                     assessments.add(assessment);
                                 }
                                 StudentDetailViewModel viewModel = Utils.generateStudentDetailViewModel(assessments);
-                                updateView(viewModel);
+                                updateView(viewModel, refresh);
                             }
                         } else {
                             e.printStackTrace();
@@ -146,11 +158,9 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                     }
                 }
         );
-
-        return v;
     }
 
-    private void updateView(StudentDetailViewModel viewModel) {
+    private void updateView(StudentDetailViewModel viewModel, boolean refresh) {
 
         assessmentsDateWiseList = viewModel.getAssessmentsDatewiseList();
         measurementRecordsListAdapter = new MeasurementRecordsListAdapter(getActivity(), assessmentsDateWiseList);
@@ -183,6 +193,10 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
         barGraph.setOnBarClickedListener(this);
 
         adapter.setAssessmentList(viewModel.getSortedLatestAssessments());
+        if (refresh) {
+            adapter.refreshItems();
+        }
+
         vpStDetPager.setClipToPadding(false);
         vpStDetPager.setPageMargin(12);
         vpStDetPager.setAdapter(adapter);
@@ -301,4 +315,29 @@ public class StudentDetailsFragment extends Fragment implements BarGraph.OnBarCl
                 .create().show();
     }
 
+    @Override
+    public void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    public void onEventMainThread(NewAssessmentAddedEvent event) {
+        // if assessment was added for a different user then no-op.
+        if (!event.getStudentId().equalsIgnoreCase(mStudent.getObjectId())) {
+            return;
+        }
+
+        Log.d("Mandar", "New Assessment added. Time to refresh details view.");
+
+        clearState();
+        getDataFromParseAndUpdateViews(true);
+    }
+
+    private void clearState() {
+        assessments.clear();
+        //adapter = new StudentDetailsSummaryCardsAdapter(getActivity().getSupportFragmentManager());
+//        adapter.notifyDataSetChanged();
+
+
+    }
 }

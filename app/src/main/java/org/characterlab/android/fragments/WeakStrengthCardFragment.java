@@ -21,6 +21,15 @@ public class WeakStrengthCardFragment extends Fragment {
     private Strength weakStrength2;
     private Strength weakStrength3;
 
+    TextView tvStrongCardPageCount;
+    TextView tvStDetailsWeak1;
+    ImageView ivStDetailsWeak1;
+    TextView tvStDetailsWeak2;
+    ImageView ivStDetailsWeak2;
+    TextView tvStDetailsWeak3;
+    ImageView ivStDetailsWeak3;
+
+
     public WeakStrengthCardFragment() {
     }
 
@@ -55,16 +64,32 @@ public class WeakStrengthCardFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_weak_strength_card, container, false);
 
-        TextView tvStrongCardPageCount = (TextView) v.findViewById(R.id.tvStrongCardPageCount);
+        tvStrongCardPageCount = (TextView) v.findViewById(R.id.tvStrongCardPageCount);
+        tvStDetailsWeak1 = (TextView) v.findViewById(R.id.tvStDetailsWeak1);
+        ivStDetailsWeak1 = (ImageView) v.findViewById(R.id.ivStDetailsWeak1);
+        tvStDetailsWeak2 = (TextView) v.findViewById(R.id.tvStDetailsWeak2);
+        ivStDetailsWeak2 = (ImageView) v.findViewById(R.id.ivStDetailsWeak2);
+        tvStDetailsWeak3 = (TextView) v.findViewById(R.id.tvStDetailsWeak3);
+        ivStDetailsWeak3 = (ImageView) v.findViewById(R.id.ivStDetailsWeak3);
+
+        updateViews();
+
+        return v;
+    }
+
+    public void resetView(int pageNum, int pageCnt, Strength weak1, Strength weak2, Strength weak3) {
+        pageNumber = pageNum;
+        pageCount = pageCnt;
+        weakStrength1 = weak1;
+        weakStrength2 = weak2;
+        weakStrength3 = weak3;
+
+        updateViews();
+    }
+
+    private void updateViews() {
         String pageCountStr = pageNumber + "/" + pageCount;
         tvStrongCardPageCount.setText(pageCountStr);
-
-        TextView tvStDetailsWeak1 = (TextView) v.findViewById(R.id.tvStDetailsWeak1);
-        ImageView ivStDetailsWeak1 = (ImageView) v.findViewById(R.id.ivStDetailsWeak1);
-        TextView tvStDetailsWeak2 = (TextView) v.findViewById(R.id.tvStDetailsWeak2);
-        ImageView ivStDetailsWeak2 = (ImageView) v.findViewById(R.id.ivStDetailsWeak2);
-        TextView tvStDetailsWeak3 = (TextView) v.findViewById(R.id.tvStDetailsWeak3);
-        ImageView ivStDetailsWeak3 = (ImageView) v.findViewById(R.id.ivStDetailsWeak3);
 
         tvStDetailsWeak1.setText(weakStrength1.getName());
         ivStDetailsWeak1.setImageResource(weakStrength1.getIconCircleId());
@@ -74,9 +99,8 @@ public class WeakStrengthCardFragment extends Fragment {
 
         tvStDetailsWeak3.setText(weakStrength3.getName());
         ivStDetailsWeak3.setImageResource(weakStrength3.getIconCircleId());
-
-        return v;
     }
+
 
 }
 

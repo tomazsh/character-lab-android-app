@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +19,17 @@ import android.widget.TextView;
 import com.plattysoft.leonids.ParticleSystem;
 
 import org.characterlab.android.R;
+import org.characterlab.android.events.NewAssessmentAddedEvent;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.models.NewAssessmentViewModel;
 import org.characterlab.android.models.Student;
 
+import de.greenrobot.event.EventBus;
+
 public class SaveDialogFragment extends DialogFragment {
+
+    String studentId;
+
     public SaveDialogFragment() {
         // Empty constructor required for DialogFragment
     }
@@ -32,6 +39,7 @@ public class SaveDialogFragment extends DialogFragment {
         Bundle args = new Bundle();
         args.putSerializable("assessmentModel", assessmentsModel);
         args.putSerializable("student", student);
+        args.putString("studentId", student.getObjectId());
         frag.setArguments(args);
         return frag;
     }
@@ -43,6 +51,10 @@ public class SaveDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        studentId = getArguments().getString("studentId");
+        Log.d("Mandar", "StudentId in confirm dialo: " + studentId);
+
         View view = inflater.inflate(R.layout.fragment_save_dialog, container);
         final TextView tvSave = (TextView) view.findViewById(R.id.tvSave);
         final ImageView ivSave = (ImageView) view.findViewById(R.id.ivSave);
@@ -90,6 +102,7 @@ public class SaveDialogFragment extends DialogFragment {
                         dismissButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                EventBus.getDefault().post(new NewAssessmentAddedEvent(studentId));
                                 SavedFragmentListener savedFragmentListener = (SavedFragmentListener) getActivity();
                                 savedFragmentListener.onSaveFragmentSuccess();
                             }

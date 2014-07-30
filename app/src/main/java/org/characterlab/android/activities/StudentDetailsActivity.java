@@ -20,6 +20,7 @@ import com.parse.ParseObject;
 
 import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
+import org.characterlab.android.events.StudentDeletedEvent;
 import org.characterlab.android.fragments.StudentDetailsFragment;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
@@ -28,6 +29,8 @@ import org.characterlab.android.models.Student;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 public class StudentDetailsActivity extends FragmentActivity
              implements StudentDetailsFragment.StudentDetailsFragmentListener {
@@ -111,25 +114,35 @@ public class StudentDetailsActivity extends FragmentActivity
 
     @Override
     public void deleteStudent() {
+        dataRequestSent();
         ParseClient.getAllAssessmentsForStudent(mStudent, new FindCallback<StrengthAssessment>() {
             @Override
-            public void done(List<StrengthAssessment> assessments, ParseException e) {
-                mStudent.deleteInBackground();
-                Toast.makeText(getApplicationContext(), "Student Deleted", Toast.LENGTH_SHORT).show();
-
-                List<ParseObject> objectsToDel = new ArrayList<ParseObject>();
-                objectsToDel.addAll(assessments);
-                StrengthAssessment.deleteAllInBackground(objectsToDel, new DeleteCallback() {
+            public void done(final List<StrengthAssessment> assessments, ParseException e) {
+                mStudent.deleteInBackground(new DeleteCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if (e != null) {
-                            e.printStackTrace();
+                        if (e == null) {
+                            Toast.makeText(getApplicationContext(), "Student Deleted", Toast.LENGTH_SHORT).show();
+
+                            List<ParseObject> objectsToDel = new ArrayList<ParseObject>();
+                            objectsToDel.addAll(assessments);
+                            StrengthAssessment.deleteAllInBackground(objectsToDel, new DeleteCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if (e != null) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+
+                            dataReceived();
+                            EventBus.getDefault().post(new StudentDeletedEvent());
+                            finish();
                         }
                     }
                 });
             }
         });
-        finish();
     }
 
     @Override

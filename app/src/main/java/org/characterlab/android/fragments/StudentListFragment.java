@@ -16,6 +16,7 @@ import com.parse.FindCallback;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.StudentsListAdapter;
+import org.characterlab.android.events.StudentDeletedEvent;
 import org.characterlab.android.helpers.DataLoadListener;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import de.greenrobot.event.EventBus;
 
 public class StudentListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     StudentListFragmentListener mListener;
@@ -51,6 +54,7 @@ public class StudentListFragment extends Fragment implements SwipeRefreshLayout.
         studentsList = new ArrayList<Student>();
         studentsListAdapter = new StudentsListAdapter(getActivity(), studentsList);
         studentIdCache = new HashSet<String>();
+        EventBus.getDefault().register(this);
     }
 
     @Override
@@ -110,9 +114,7 @@ public class StudentListFragment extends Fragment implements SwipeRefreshLayout.
         });
     }
 
-    @Override
-    public void onRefresh() {
-        swipeRefreshLayout.setRefreshing(false);
+    private void refreshStudentListFromParse() {
         mListener.dataRequestSent();
         ParseClient.getAll(Student.class, new FindCallback<Student>() {
             @Override
@@ -145,11 +147,26 @@ public class StudentListFragment extends Fragment implements SwipeRefreshLayout.
                     }
                     mListener.dataReceived();
                 } else {
-                    Log.d("item", "Error: " + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         });
-
     }
 
+    @Override
+    public void onDestroy() {
+        EventBus.getDefault().unregister(this);
+        super.onDestroy();
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(false);
+        refreshStudentListFromParse();
+    }
+
+    public void onEventMainThread(StudentDeletedEvent event) {
+        refreshStudentListFromParse();
+        Log.d("Mandar", "In studentlistfrag - will do logic for list refresh");
+    }
 }

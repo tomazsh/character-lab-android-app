@@ -7,13 +7,19 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.nhaarman.listviewanimations.itemmanipulation.OnDismissCallback;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeDismissAdapter;
+import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingRightInAnimationAdapter;
 
 import org.characterlab.android.R;
 import org.characterlab.android.adapters.NewStudentsListAdapter;
@@ -52,7 +58,7 @@ public class AddStudentFragment extends Fragment implements NewStudentsListAdapt
         View v = inflater.inflate(R.layout.fragment_add_student, container, false);
 
         lvNewStudents = (ListView) v.findViewById(R.id.lvNewStudents);
-        lvNewStudents.setAdapter(newStudentsListAdapter);
+//        lvNewStudents.setAdapter(newStudentsListAdapter);
         tvAddAnontherStudent = (TextView) v.findViewById(R.id.tvAddAnontherStudent);
 
         tvAddAnontherStudent.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +67,22 @@ public class AddStudentFragment extends Fragment implements NewStudentsListAdapt
                 addBlankStudentViewModelItem();
             }
         });
+
+//        SwipeDismissAdapter adapter = new SwipeDismissAdapter(newStudentsListAdapter, new OnDismissCallback() {
+//            @Override
+//            public void onDismiss(AbsListView listView, int[] reverseSortedPositions) {
+//                for (int i : reverseSortedPositions) {
+//                    newStudentsListAdapter.remove(newStudentsListAdapter.getItem(i));
+//                    Log.d("Swipe", "********** Swipe: " + i);
+//                }
+//            }
+//        });
+//        adapter.setAbsListView(lvNewStudents);
+//        lvNewStudents.setAdapter(adapter);
+
+        SwingRightInAnimationAdapter swingRightInAnimationAdapter = new SwingRightInAnimationAdapter(newStudentsListAdapter);
+        swingRightInAnimationAdapter.setAbsListView(lvNewStudents);
+        lvNewStudents.setAdapter(swingRightInAnimationAdapter);
 
         return v;
     }

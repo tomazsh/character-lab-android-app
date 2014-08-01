@@ -78,7 +78,7 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         }
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
         fragmentTransaction.replace(R.id.flNewStudentContainer, fragment).commit();
     }
 

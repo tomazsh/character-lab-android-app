@@ -6,8 +6,9 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
+
+import com.nhaarman.listviewanimations.ArrayAdapter;
 
 import org.characterlab.android.R;
 import org.characterlab.android.models.NewStudentViewModel;
@@ -20,6 +21,7 @@ import java.util.List;
  */
 public class NewStudentsListAdapter extends ArrayAdapter<NewStudentViewModel> {
 
+
     public interface NewStudentsListAdapterListener {
         public void onCameraClicked(int position);
     }
@@ -31,10 +33,12 @@ public class NewStudentsListAdapter extends ArrayAdapter<NewStudentViewModel> {
         int position;
     }
 
+    private Context mContext;
     NewStudentsListAdapterListener mListener;
 
     public NewStudentsListAdapter(Context context, List<NewStudentViewModel> newStudents, NewStudentsListAdapterListener listener) {
-        super(context, 0, newStudents);
+        super(newStudents);
+        mContext = context;
         mListener = listener;
     }
 
@@ -47,7 +51,7 @@ public class NewStudentsListAdapter extends ArrayAdapter<NewStudentViewModel> {
             viewHolder = (ViewHolder) convertView.getTag();
         } else {
             viewHolder = new ViewHolder();
-            LayoutInflater inflater = LayoutInflater.from(getContext());
+            LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(R.layout.new_student_list_item, parent, false);
             viewHolder.rpivNewStudentProfileImage = (RoundedParseImageView) convertView.findViewById(R.id.rpivNewStudentProfileImage);
             viewHolder.rpivNewStudentCamera = (RoundedParseImageView) convertView.findViewById(R.id.rpivNewStudentCamera);

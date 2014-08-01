@@ -16,6 +16,12 @@
         <item name="android:dividerHeight">1dp</item>
     </style>
 
+    <style name="NewStudentListDividedListStyle" parent="@android:style/Widget.ListView">
+        <item name="android:background">@color/bg_grey</item>
+        <item name="android:divider">@color/bg_grey</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
     <style name="MeasurementRecordListDividedListStyle" parent="@android:style/Widget.ListView">
         <item name="android:background">@color/bg_grey</item>
     </style>

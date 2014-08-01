@@ -44,7 +44,8 @@
         </activity>
         <activity
             android:name=".activities.NewStudentActivity"
-            android:label="@string/title_activity_new_student" >
+            android:label="@string/title_activity_new_student"
+            android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 

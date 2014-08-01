@@ -4,9 +4,6 @@
     <item android:id="@+id/save_new_student"
         android:title="@string/create"
         android:orderInCategory="100"
-        android:showAsAction="always" />
-    <item android:id="@+id/done"
-        android:title="@string/done"
-        android:orderInCategory="200"
+        android:icon="@drawable/ic_done"
         android:showAsAction="always" />
 </menu>

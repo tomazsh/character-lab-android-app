@@ -2,33 +2,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:orientation="vertical"
     android:background="@drawable/rounded_corner_add_student"
-    android:orientation="horizontal"
     android:gravity="center">
 
-    <ImageView
-        android:layout_marginLeft="5dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/ivNewStudentCameraButton"
-        android:src="@drawable/ic_camera"
-        android:background="@drawable/measure_strength_button_bg"
-        android:clickable="true"/>
-
-    <EditText
-        android:id="@+id/etNewStudentName"
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:hint="@string/student_name_label"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_corner_add_student"
+        style="@style/NewStudentListDividedListStyle"
+        android:id="@+id/lvNewStudents"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/add_another_student"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:id="@+id/tvAddAnontherStudent"
+        android:clickable="true"
+        android:background="@drawable/rounded_corner_green_bg"/>
+
 
 </LinearLayout>

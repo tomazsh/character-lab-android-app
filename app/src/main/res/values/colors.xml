@@ -35,6 +35,7 @@
     <color name="telescope_blue">#168ECD</color>
     <color name="nono_red">#F25B4D</color>
     <color name="dark_nono_red">#A94036</color>
-
+    <color name="sea_blue">#18B8B8</color>
+    <color name="dark_sea_blue">#0E6E6E</color>
 
 </resources>

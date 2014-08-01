@@ -1,19 +1,26 @@
 package org.characterlab.android.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -25,26 +32,22 @@ import org.characterlab.android.fragments.AddStudentCompletionFragment;
 import org.characterlab.android.fragments.AddStudentFragment;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.helpers.ProgressBarHelper;
+import org.characterlab.android.models.NewStudentViewModel;
+import org.characterlab.android.models.StrengthAssessment;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
 public class NewStudentActivity extends FragmentActivity implements AddStudentFragment.AddStudentFragmentListener {
 
     private AddStudentFragment addStudentFragment;
-    private AddStudentCompletionFragment addStudentCompletionFragment;
     private ProgressBarHelper progressBarHelper;
-
-    private ImageView ivStudentPhoto;
-    private ImageView ivNewStudentCameraButton;
-
-    private String studentName;
-    private Bitmap studentImage = null;
-    private boolean studentSaved = false;
+    private int mPosition = -1;
 
     MenuItem addStudentMenuItem;
-    MenuItem doneMenuItem;
 
     public final String APP_TAG = "CharacterLab";
     public String photoFileName = "student_profile_photo.jpg";
@@ -57,8 +60,6 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         setContentView(R.layout.activity_new_student);
 
         progressBarHelper.setupProgressBarViews(this);
-        ivStudentPhoto = (ImageView) findViewById(R.id.ivStudentPhoto);
-
         if (savedInstanceState == null) {
             showAddStudentFragment();
         }
@@ -69,15 +70,6 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
             addStudentFragment = new AddStudentFragment();
         }
         setContainerFragment(addStudentFragment);
-    }
-
-    private void showAddStudentCompletionFragment() {
-        if (addStudentCompletionFragment == null) {
-            addStudentCompletionFragment = AddStudentCompletionFragment.newInstance(studentName);
-        }
-        studentSaved = true;
-        invalidateOptionsMenu();
-        setContainerFragment(addStudentCompletionFragment);
     }
 
     private void setContainerFragment(android.support.v4.app.Fragment fragment) {
@@ -96,17 +88,6 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.new_student, menu);
         addStudentMenuItem = menu.findItem(R.id.save_new_student);
-        doneMenuItem = menu.findItem(R.id.done);
-
-        if (!studentSaved) {
-            addStudentMenuItem.setVisible(true);
-            addStudentMenuItem.setEnabled(false);
-            doneMenuItem.setVisible(false);
-        } else {
-            addStudentMenuItem.setVisible(false);
-            doneMenuItem.setVisible(true);
-        }
-
         return true;
     }
 
@@ -114,11 +95,21 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.save_new_student) {
-            progressBarHelper.showProgressBar();
-            saveFileInParse();
-            return true;
-        } else if (id == R.id.done) {
-            finish();
+            List<NewStudentViewModel> studentsToSaveToParse = new ArrayList<NewStudentViewModel>();
+            List<NewStudentViewModel> newStudents = addStudentFragment.getNewStudentsList();
+            for (NewStudentViewModel newStudent : newStudents) {
+                if (newStudent.getStudentName() != null &&
+                    !newStudent.getStudentName().isEmpty()) {
+                    studentsToSaveToParse.add(newStudent);
+                }
+            }
+
+            if (studentsToSaveToParse.size() > 0) {
+                new CreateNewStudentsTask().execute(studentsToSaveToParse);
+            } else {
+                showAlertDialog();
+            }
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -127,25 +118,25 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
     // startregion photo capture
 
     @Override
-    public void onPhotoButtonPressed() {
+    public void onPhotoButtonPressed(int position) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName + position)); // set the image file name
         // Start the image capture intent to take photo
         startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+        mPosition = position;
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+            if (resultCode == RESULT_OK && mPosition != -1) {
+                Uri takenPhotoUri = getPhotoFileUri(photoFileName + mPosition);
                 // by this point we have the camera photo on disk
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = 5;
-                studentImage = BitmapFactory.decodeFile(takenPhotoUri.getPath(), options);
-                // Load the taken image into a preview
-                ImageView ivPreview = (ImageView) findViewById(R.id.ivStudentPhoto);
-                ivPreview.setImageBitmap(studentImage);
+                options.inSampleSize = 6;
+                Bitmap studentImage = BitmapFactory.decodeFile(takenPhotoUri.getPath(), options);
+                addStudentFragment.useCapturedPhoto(studentImage, mPosition);
+                mPosition = -1;
             } else { // Result was a failure
                 Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
             }
@@ -167,37 +158,67 @@ public class NewStudentActivity extends FragmentActivity implements AddStudentFr
         return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
     }
 
-    private void saveFileInParse() {
-        ParseClient.createStudent(studentName, studentImage, new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    Toast.makeText(getApplicationContext(), "Student Created", Toast.LENGTH_SHORT).show();
-                    EventBus.getDefault().post(new StudentAddedEvent());
-                    showAddStudentCompletionFragment();
-                    progressBarHelper.hideProgressBar();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Failed to create student", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
-            }
-        });
+    private void createStudentInParse(NewStudentViewModel newStudent) {
+        ParseClient.createStudent(newStudent.getStudentName(), newStudent.getStudentImage()); //, new SaveCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                if (e == null) {
+//                    EventBus.getDefault().post(new StudentAddedEvent());
+//                } else {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 
     // endregion photo capture
 
-    @Override
-    public void onStudentNameChanged(String name) {
-        studentName = name;
-        if (addStudentMenuItem == null) {
-            return;
+    private void showAlertDialog() {
+        String dialogMsg = "Incomplete data. No students will be added.";
+
+        final ContextThemeWrapper context = new ContextThemeWrapper(this, android.R.style.Theme_Holo_Light_Dialog);
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.custom_confirmation_dialog, null);
+        TextView deleteDialogMsg = (TextView) v.findViewById(R.id.deleteDialogMsg);
+        deleteDialogMsg.setText(dialogMsg);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setView(v)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .create().show();
+    }
+
+    class CreateNewStudentsTask extends AsyncTask<List<NewStudentViewModel>, Void, String> {
+        protected void onPreExecute() {
+            progressBarHelper.showProgressBar();
         }
 
-        if (name != null && !name.isEmpty()) {
-            addStudentMenuItem.setEnabled(true);
-        } else {
-            addStudentMenuItem.setEnabled(false);
+        protected String doInBackground(List<NewStudentViewModel>... newStudents) {
+            List<NewStudentViewModel> studentList = newStudents[0];
+
+            for (NewStudentViewModel newStudent : studentList) {
+                createStudentInParse(newStudent);
+            }
+
+            EventBus.getDefault().post(new StudentAddedEvent());
+            return String.valueOf(studentList.size());
+        }
+
+        protected void onPostExecute(String result) {
+            progressBarHelper.hideProgressBar();
+            Toast.makeText(getApplicationContext(), result + " student added", Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
+
+
+
+
 
 }

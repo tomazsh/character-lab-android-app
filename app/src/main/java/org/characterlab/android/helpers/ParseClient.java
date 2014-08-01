@@ -136,7 +136,7 @@ public class ParseClient {
         });
     }
 
-    public static void createStudent(String name, Bitmap profileImage, SaveCallback callback) {
+    public static void createStudent(String name, Bitmap profileImage) { //}, SaveCallback callback) {
         try {
             ParseFile file = null;
             if (profileImage != null) {
@@ -155,7 +155,8 @@ public class ParseClient {
                 student.setProfileImage(file);
             }
 
-            student.saveInBackground(callback);
+//            student.saveInBackground(callback);
+            student.save();
         } catch (Exception e) {
             e.printStackTrace();
         }

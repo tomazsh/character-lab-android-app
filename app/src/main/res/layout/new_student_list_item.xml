@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:gravity="center"
+    android:background="@drawable/rounded_list_item">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <org.characterlab.android.views.RoundedParseImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/rpivNewStudentProfileImage"
+            android:src="@drawable/ic_placeholder"
+            android:scaleType="centerCrop"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            app:corner_radius="20dp"
+            app:border_width="0.01dp"
+            app:border_color="#aaa"
+            app:mutate_background="true"
+            app:oval="true" />
+
+        <org.characterlab.android.views.RoundedParseImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/rpivNewStudentCamera"
+            android:src="@drawable/ic_camera2"
+            android:scaleType="centerCrop"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            app:corner_radius="20dp"
+            app:border_width="0.01dp"
+            app:border_color="@android:color/transparent"
+            app:mutate_background="true"
+            android:clickable="true"
+            android:alpha="0.8"
+            app:oval="true" />
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/etNewStudentName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:hint="@string/student_name_label"
+    />
+
+
+</LinearLayout>

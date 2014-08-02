@@ -24,13 +24,15 @@ public class NewStudentsListAdapter extends ArrayAdapter<NewStudentViewModel> {
 
     public interface NewStudentsListAdapterListener {
         public void onCameraClicked(int position);
+        public void removeItem(int position);
     }
 
     private static class ViewHolder {
         RoundedParseImageView rpivNewStudentProfileImage;
         RoundedParseImageView rpivNewStudentCamera;
+        RoundedParseImageView rpivNewStudentCross;
         EditText etNewStudentName;
-        int position;
+        //int position;
     }
 
     private Context mContext;
@@ -47,14 +49,16 @@ public class NewStudentsListAdapter extends ArrayAdapter<NewStudentViewModel> {
         final NewStudentViewModel newStudent = getItem(position);
 
         final ViewHolder viewHolder;
-        if (convertView != null) {
-            viewHolder = (ViewHolder) convertView.getTag();
-        } else {
+//        if (convertView != null) {
+//            viewHolder = (ViewHolder) convertView.getTag();
+//        } else {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(R.layout.new_student_list_item, parent, false);
             viewHolder.rpivNewStudentProfileImage = (RoundedParseImageView) convertView.findViewById(R.id.rpivNewStudentProfileImage);
             viewHolder.rpivNewStudentCamera = (RoundedParseImageView) convertView.findViewById(R.id.rpivNewStudentCamera);
+            viewHolder.rpivNewStudentCross = (RoundedParseImageView) convertView.findViewById(R.id.rpivNewStudentCross);
+
             viewHolder.etNewStudentName = (EditText) convertView.findViewById(R.id.etNewStudentName);
 
             viewHolder.etNewStudentName.addTextChangedListener(new TextWatcher() {
@@ -79,10 +83,17 @@ public class NewStudentsListAdapter extends ArrayAdapter<NewStudentViewModel> {
                 }
             });
 
-            convertView.setTag(viewHolder);
-        }
+            viewHolder.rpivNewStudentCross.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.removeItem(position);
+                }
+            });
 
-        viewHolder.position = position;
+            convertView.setTag(viewHolder);
+//        }
+
+        //viewHolder.position = position;
         viewHolder.etNewStudentName.setText(newStudent.getStudentName());
         if (newStudent.getStudentImage() != null) {
             viewHolder.rpivNewStudentProfileImage.setImageBitmap(newStudent.getStudentImage());

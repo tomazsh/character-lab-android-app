@@ -68,12 +68,14 @@
 
     <org.characterlab.android.views.RoundedParseImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rpivNewStudentCross"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/ic_cross"
         android:scaleType="centerCrop"
         android:layout_width="23dp"
         android:layout_height="23dp"
+        android:clickable="true"
         app:corner_radius="20dp"
         app:border_width="0.01dp"
         app:border_color="@android:color/transparent"

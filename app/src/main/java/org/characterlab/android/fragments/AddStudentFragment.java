@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.nhaarman.listviewanimations.itemmanipulation.AnimateDismissAdapter;
 import com.nhaarman.listviewanimations.itemmanipulation.OnDismissCallback;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeDismissAdapter;
 import com.nhaarman.listviewanimations.swinginadapters.prepared.SwingRightInAnimationAdapter;
@@ -38,6 +39,7 @@ public class AddStudentFragment extends Fragment implements NewStudentsListAdapt
 
     List<NewStudentViewModel> newStudentsList;
     NewStudentsListAdapter newStudentsListAdapter;
+    AnimateDismissAdapter mAnimateDismissAdapter;
 
     AddStudentFragmentListener mListener;
 
@@ -68,21 +70,25 @@ public class AddStudentFragment extends Fragment implements NewStudentsListAdapt
             }
         });
 
-//        SwipeDismissAdapter adapter = new SwipeDismissAdapter(newStudentsListAdapter, new OnDismissCallback() {
-//            @Override
-//            public void onDismiss(AbsListView listView, int[] reverseSortedPositions) {
-//                for (int i : reverseSortedPositions) {
-//                    newStudentsListAdapter.remove(newStudentsListAdapter.getItem(i));
-//                    Log.d("Swipe", "********** Swipe: " + i);
-//                }
-//            }
-//        });
-//        adapter.setAbsListView(lvNewStudents);
-//        lvNewStudents.setAdapter(adapter);
+//        SwingRightInAnimationAdapter swingRightInAnimationAdapter = new SwingRightInAnimationAdapter(newStudentsListAdapter);
+//        swingRightInAnimationAdapter.setAbsListView(lvNewStudents);
+//        lvNewStudents.setAdapter(swingRightInAnimationAdapter);
 
         SwingRightInAnimationAdapter swingRightInAnimationAdapter = new SwingRightInAnimationAdapter(newStudentsListAdapter);
         swingRightInAnimationAdapter.setAbsListView(lvNewStudents);
-        lvNewStudents.setAdapter(swingRightInAnimationAdapter);
+
+        mAnimateDismissAdapter = new AnimateDismissAdapter(swingRightInAnimationAdapter, new OnDismissCallback() {
+            @Override
+            public void onDismiss(AbsListView listView, int[] reverseSortedPositions) {
+                for (int position: reverseSortedPositions) {
+                    newStudentsListAdapter.remove(position);
+                    newStudentsListAdapter.notifyDataSetChanged();
+                }
+            }
+        });
+
+        mAnimateDismissAdapter.setAbsListView(lvNewStudents);
+        lvNewStudents.setAdapter(mAnimateDismissAdapter);
 
         return v;
     }
@@ -112,6 +118,21 @@ public class AddStudentFragment extends Fragment implements NewStudentsListAdapt
         NewStudentViewModel newStudentViewModel = newStudentsListAdapter.getItem(position);
         newStudentViewModel.setStudentImage(photoBitmap);
         newStudentsListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void removeItem(int position) {
+        Log.d("Index ", " is " + position);
+        if (position >= newStudentsListAdapter.size()) {
+            return;
+        }
+
+        List<Integer> positionsToDismiss = new ArrayList<Integer>();
+        positionsToDismiss.add(position);
+
+        mAnimateDismissAdapter.animateDismiss(positionsToDismiss);
+//        newStudentsListAdapter.remove(position);
+//        newStudentsListAdapter.notifyDataSetChanged();
     }
 
     public List<NewStudentViewModel> getNewStudentsList() {

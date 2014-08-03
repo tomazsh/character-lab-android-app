@@ -155,7 +155,7 @@ public class ParseClient {
     public static Message getLatestMessage(ParseUser loggedinUser) {
         try {
             ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
-//            query.whereNotEqualTo("Author", loggedinUser);
+            query.whereNotEqualTo("Author", loggedinUser);
             query.addDescendingOrder("createdAt");
             query.include("Author");
             return query.getFirst();

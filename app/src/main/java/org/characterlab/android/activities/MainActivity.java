@@ -22,6 +22,7 @@ import org.characterlab.android.fragments.LogoutDialogFragment;
 import org.characterlab.android.fragments.StudentListFragment;
 import org.characterlab.android.helpers.DialogHelper;
 import org.characterlab.android.helpers.ProgressBarHelper;
+import org.characterlab.android.helpers.Utils;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.Student;
 
@@ -57,6 +58,8 @@ public class MainActivity extends FragmentActivity
             showCharacterCardsFragment();
         }
 
+        // schedule polling service
+        Utils.scheduleAlarmForPolling(this);
         getActionBar().setTitle("");
     }
 

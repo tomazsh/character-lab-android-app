@@ -6,6 +6,7 @@ import android.content.Context;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import org.characterlab.android.models.Message;
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.Student;
@@ -30,7 +31,11 @@ public class CharacterLabApplication extends Application {
 
         ParseObject.registerSubclass(StrengthAssessment.class);
         ParseObject.registerSubclass(Student.class);
+        ParseObject.registerSubclass(Message.class);
         Parse.initialize(this, PARSE_KEY, PARSE_SECRET);
+
+//        below is the testing app on Parse
+//        Parse.initialize(this, "R13BjxIo1x17hjo5NpVbFiuPT0kmZhYSXEMsrdto", "7jzw4ACagzUX7q8agcvoUKxTLediFnET1FzqLnGG");
     }
 
 

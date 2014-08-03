@@ -47,6 +47,20 @@
             android:label="@string/title_activity_new_student"
             android:windowSoftInputMode="adjustPan">
         </activity>
+
+
+        <service android:name="org.characterlab.android.notifications.PollMessageService" android:exported="false" />
+
+        <receiver
+            android:name="org.characterlab.android.notifications.AlarmReceiver" android:process=":remote" >
+        </receiver>
+        <!--<receiver android:name="org.characterlab.android.notifications.BootReceiver" android:enabled="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED">-->
+                <!--</action>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+
     </application>
 
 </manifest>

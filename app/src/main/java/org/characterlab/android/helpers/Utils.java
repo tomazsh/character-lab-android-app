@@ -1,8 +1,15 @@
 package org.characterlab.android.helpers;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+
 import org.characterlab.android.models.Strength;
 import org.characterlab.android.models.StrengthAssessment;
 import org.characterlab.android.models.StudentDetailViewModel;
+import org.characterlab.android.notifications.AlarmReceiver;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -78,5 +85,18 @@ public class Utils {
         }
     }
 
+    // Helper to schedule an alarm to poll parse server for new messages
+    public static void scheduleAlarmForPolling(Context context) {
+        // Construct an intent that will execute the AlarmReceiver
+        Intent intent = new Intent(context, AlarmReceiver.class);
+        // Create a PendingIntent to be triggered when the alarm goes off
+        final PendingIntent pIntent = PendingIntent.getBroadcast(context, AlarmReceiver.REQUEST_CODE,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // Setup periodic alarm every 5 seconds
+        long firstMillis = System.currentTimeMillis(); // first run of alarm is immediate
+        int intervalMillis = 5000; // 5 seconds
+        AlarmManager alarm = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, intervalMillis, pIntent);
+    }
 
 }

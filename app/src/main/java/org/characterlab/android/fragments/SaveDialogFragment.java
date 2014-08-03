@@ -15,7 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.parse.ParseUser;
 import com.plattysoft.leonids.ParticleSystem;
 
 import org.characterlab.android.R;
@@ -53,7 +55,6 @@ public class SaveDialogFragment extends DialogFragment {
                              Bundle savedInstanceState) {
 
         studentId = getArguments().getString("studentId");
-        Log.d("Mandar", "StudentId in confirm dialo: " + studentId);
 
         View view = inflater.inflate(R.layout.fragment_save_dialog, container);
         final TextView tvSave = (TextView) view.findViewById(R.id.tvSave);
@@ -65,7 +66,10 @@ public class SaveDialogFragment extends DialogFragment {
         final Button saveButton = (Button) view.findViewById(R.id.btnSave);
         final Button cancelButton = (Button) view.findViewById(R.id.btnCancel);
         final Button dismissButton = (Button) view.findViewById(R.id.btnDismiss);
+        final Button shareButton = (Button) view.findViewById(R.id.btnShare);
         final LinearLayout llSave = (LinearLayout) view.findViewById(R.id.llSave);
+        final LinearLayout llShareDimiss = (LinearLayout) view.findViewById(R.id.llShareDimiss);
+
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,13 +102,20 @@ public class SaveDialogFragment extends DialogFragment {
                         tvSave.setText(getString(R.string.saved_confirmation));
                         saveButton.setVisibility(View.GONE);
                         cancelButton.setVisibility(View.GONE);
-                        dismissButton.setVisibility(View.VISIBLE);
+                        llShareDimiss.setVisibility(View.VISIBLE);
                         dismissButton.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 EventBus.getDefault().post(new NewAssessmentAddedEvent(studentId));
                                 SavedFragmentListener savedFragmentListener = (SavedFragmentListener) getActivity();
                                 savedFragmentListener.onSaveFragmentSuccess();
+                            }
+                        });
+                        shareButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                ParseClient.saveNotificationMessage(ParseUser.getCurrentUser(), studentId);
+                                Toast.makeText(getActivity(), "Notification Sent", Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -119,6 +130,8 @@ public class SaveDialogFragment extends DialogFragment {
                                 ObjectAnimator.ofFloat(tvSave, "alpha", 0.0f, 1.0f)
                                         .setDuration(200),
                                 ObjectAnimator.ofFloat(dismissButton, "alpha", 0.0f, 1.0f)
+                                        .setDuration(200),
+                                ObjectAnimator.ofFloat(shareButton, "alpha", 0.0f, 1.0f)
                                         .setDuration(200)
                         );
                         set.start();

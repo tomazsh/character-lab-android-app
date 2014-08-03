@@ -49,6 +49,7 @@ public class PollMessageService extends IntentService {
                         Intent notifyIntent = new Intent(getApplicationContext(), StudentDetailsActivity.class);
                         CharacterLabApplication.putInCache(student.getObjectId(), student);
                         notifyIntent.putExtra(StudentDetailsActivity.STUDENT_KEY, student.getObjectId());
+                        notifyIntent.putExtra("viaNotification", true);
                         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                                                         0, notifyIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 

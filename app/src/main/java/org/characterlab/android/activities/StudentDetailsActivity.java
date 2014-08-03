@@ -1,5 +1,6 @@
 package org.characterlab.android.activities;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,6 +58,12 @@ public class StudentDetailsActivity extends FragmentActivity
 
         if  (mStudent != null) {
               getActionBar().setTitle(mStudent.getName());
+        }
+
+        boolean launchedViaNotification = getIntent().getBooleanExtra("viaNotification", false);
+        if (launchedViaNotification) {
+            NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.cancel(1);
         }
 
         if (savedInstanceState == null) {

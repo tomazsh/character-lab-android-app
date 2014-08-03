@@ -3,6 +3,7 @@ package org.characterlab.android.notifications;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +13,9 @@ import android.widget.Toast;
 
 import com.parse.ParseUser;
 
+import org.characterlab.android.CharacterLabApplication;
 import org.characterlab.android.R;
+import org.characterlab.android.activities.StudentDetailsActivity;
 import org.characterlab.android.helpers.ParseClient;
 import org.characterlab.android.models.Message;
 import org.characterlab.android.models.Student;
@@ -43,13 +46,21 @@ public class PollMessageService extends IntentService {
 
                     Student student = ParseClient.getStudent(message.getStudentId());
                     if (student != null) {
+                        Intent notifyIntent = new Intent(getApplicationContext(), StudentDetailsActivity.class);
+                        CharacterLabApplication.putInCache(student.getObjectId(), student);
+                        notifyIntent.putExtra(StudentDetailsActivity.STUDENT_KEY, student.getObjectId());
+                        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
+                                                        0, notifyIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+
                         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(getApplicationContext());
                         mBuilder = mBuilder.setSmallIcon(R.drawable.ic_launcher);
                         mBuilder = mBuilder.setContentTitle("New Assessment");
-
                         String name = message.getAuthor().getString("Name");
                         String messageText = name + " added assessment for " + student.getName();
                         mBuilder = mBuilder.setContentText(messageText);
+                        mBuilder = mBuilder.setContentIntent(pendingIntent);
+
                         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
                         notificationManager.notify(1, mBuilder.build());
                         saveLatestConsumedMessageId(message.getObjectId());

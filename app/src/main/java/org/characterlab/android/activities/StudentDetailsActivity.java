@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.Layout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,19 +49,13 @@ public class StudentDetailsActivity extends FragmentActivity
 
         progressBarHelper.setupProgressBarViews(this);
 
-//        adapterViewPager = new StudentDetailsSummaryCardsAdapter(getSupportFragmentManager());
-//        getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        getActionBar().setCustomView(R.layout.student_details_actionbar);
-
         String studentId = (String) getIntent().getSerializableExtra(STUDENT_KEY);
         mStudent = (studentId != null && !studentId.isEmpty()) ? (Student) CharacterLabApplication.readFromCache(studentId) : null;
+        if (mStudent == null && studentId != null && !studentId.isEmpty()) {
+            mStudent = ParseClient.getStudent(studentId);
+        }
+
         if  (mStudent != null) {
-//            View v = getActionBar().getCustomView();
-//            TextView abTvStudentDetailsName = (TextView) v.findViewById(R.id.abTvStudentDetailsName);
-//            ParseImageView abPivStudentDetailsImage = (ParseImageView) v.findViewById(R.id.abPivStudentDetailsImage);
-//            abTvStudentDetailsName.setText(mStudent.getName());
-//            abPivStudentDetailsImage.setParseFile(mStudent.getProfileImage());
-//            abPivStudentDetailsImage.loadInBackground();
               getActionBar().setTitle(mStudent.getName());
         }
 

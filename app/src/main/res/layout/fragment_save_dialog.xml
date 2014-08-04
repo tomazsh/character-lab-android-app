@@ -61,7 +61,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share"
+            android:text="Notify"
             android:id="@+id/btnShare"
             android:layout_weight="1"
             android:layout_gravity="right"
@@ -71,22 +71,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ok"
+            android:text="Don't Notify"
             android:id="@+id/btnDismiss"
             android:layout_weight="1"
             android:textColor="@color/logout_text_color"
             android:background="@drawable/right_logout_button_bg"/>
 
     </LinearLayout>
-
-
-    <!--<Button-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/back_to_profile_action"-->
-        <!--android:id="@+id/btnDismiss"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:textColor="@color/logout_text_color"-->
-        <!--android:background="@drawable/one_button_bg"/>-->
 
 </LinearLayout>

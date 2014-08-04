@@ -116,6 +116,10 @@ public class SaveDialogFragment extends DialogFragment {
                             public void onClick(View view) {
                                 ParseClient.saveNotificationMessage(ParseUser.getCurrentUser(), studentId);
                                 Toast.makeText(getActivity(), "Notification Sent", Toast.LENGTH_SHORT).show();
+
+                                EventBus.getDefault().post(new NewAssessmentAddedEvent(studentId));
+                                SavedFragmentListener savedFragmentListener = (SavedFragmentListener) getActivity();
+                                savedFragmentListener.onSaveFragmentSuccess();
                             }
                         });
 

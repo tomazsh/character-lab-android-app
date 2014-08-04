@@ -59,6 +59,7 @@ public class SaveDialogFragment extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_save_dialog, container);
         final TextView tvSave = (TextView) view.findViewById(R.id.tvSave);
         final ImageView ivSave = (ImageView) view.findViewById(R.id.ivSave);
+        final ImageView ivEnvelope = (ImageView) view.findViewById(R.id.ivEnvelope);
         final Student student = (Student)getArguments().getSerializable("student");
         final NewAssessmentViewModel viewModel = (NewAssessmentViewModel)getArguments().getSerializable("assessmentModel");
         tvSave.setText(getString(R.string.save_warning_text, student.getName()));
@@ -115,7 +116,36 @@ public class SaveDialogFragment extends DialogFragment {
                             @Override
                             public void onClick(View view) {
                                 ParseClient.saveNotificationMessage(ParseUser.getCurrentUser(), studentId);
-                                Toast.makeText(getActivity(), "Notification Sent", Toast.LENGTH_SHORT).show();
+                                AnimatorSet sendEnvelopeSet = new AnimatorSet();
+                                sendEnvelopeSet.play(
+                                        ObjectAnimator.ofFloat(ivEnvelope, "translationX", 0.0f, 1000.0f)
+                                                .setDuration(1000)
+                                );
+                                sendEnvelopeSet.start();
+                                sendEnvelopeSet.addListener(new Animator.AnimatorListener() {
+                                    @Override
+                                    public void onAnimationStart(Animator animation) {
+                                    }
+
+                                    @Override
+                                    public void onAnimationEnd(Animator animation) {
+                                        AnimatorSet resetEnvelopeSet = new AnimatorSet();
+                                        resetEnvelopeSet.play(
+                                                ObjectAnimator.ofFloat(ivEnvelope, "translationX", 1000.0f, 0.0f)
+                                                        .setDuration(1)
+                                        );
+                                        resetEnvelopeSet.start();
+                                        Toast.makeText(getActivity(), "Notification Sent", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onAnimationCancel(Animator animation) {
+                                    }
+
+                                    @Override
+                                    public void onAnimationRepeat(Animator animation) {
+                                    }
+                                });
                             }
                         });
 

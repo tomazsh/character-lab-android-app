@@ -86,7 +86,7 @@ public class StudentDetailsSummaryCardsAdapter extends FragmentPagerAdapter {
     }
 
     public void refreshItems() {
-        if (itemsMap.isEmpty()) {
+        if (itemsMap.size() < 4) {
             return;
         }
 

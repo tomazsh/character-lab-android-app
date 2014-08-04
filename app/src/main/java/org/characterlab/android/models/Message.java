@@ -8,20 +8,11 @@ import java.io.Serializable;
 
 @ParseClassName("Messages")
 public class Message extends ParseObject implements Serializable {
-    private static final String MESSAGE_KEY = "Message";
     private static final String AUTHOR_KEY = "Author";
     private static final String STUDENT_ID_KEY = "studentId";
 
     public Message() {
         super();
-    }
-
-    public String getMessage() {
-        return getString(MESSAGE_KEY);
-    }
-
-    public void setMessage(String message) {
-        put(MESSAGE_KEY, message);
     }
 
     public ParseUser getAuthor() {
